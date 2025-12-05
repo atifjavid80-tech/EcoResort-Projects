@@ -3,189 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoResort Projects - Sustainable Eco-Village Portal</title>
+    <title>Rancho Pacifico | Luxury Eco-Resort & Sustainable Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2e7d32;
-            --secondary-color: #558b2f;
-            --accent-color: #8bc34a;
-            --light-green: #c5e1a5;
+            --primary-green: #2e7d32;
             --dark-green: #1b5e20;
+            --light-green: #c5e1a5;
+            --gold: #d4af37;
+            --earth-brown: #8d6e63;
+            --cream: #f5f5dc;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
-            background-color: #f5f9f3;
+            background-color: #f9f7f2;
             color: #333;
             line-height: 1.6;
         }
         
         /* Navigation */
         .navbar {
-            background: linear-gradient(to right, var(--dark-green), var(--primary-color));
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
+            transition: all 0.3s ease;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
         
         .navbar-brand {
-            color: white !important;
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--dark-green) !important;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
         }
         
         .nav-link {
-            color: rgba(255, 255, 255, 0.9) !important;
-            margin: 0 10px;
+            color: #555 !important;
             font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s ease;
         }
         
         .nav-link:hover {
-            color: white !important;
+            color: var(--primary-green) !important;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .book-btn {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .book-btn:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
                         url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 0;
+            padding: 180px 0 100px;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
+            font-weight: 300;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
+        .hero h1 strong {
+            font-weight: 700;
+            color: var(--gold);
         }
         
-        /* Cards */
-        .project-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .hero-subtitle {
+            font-size: 1.5rem;
             margin-bottom: 30px;
-            height: 100%;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         
-        .project-card:hover {
+        /* Section Styles */
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            color: var(--dark-green);
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        /* Accommodation Cards */
+        .accommodation-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .accommodation-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .card-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 20px;
-            border-bottom: none;
+        .accommodation-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
         }
         
-        .card-body {
+        .accommodation-content {
             padding: 25px;
         }
         
-        .country-flag {
-            width: 30px;
-            height: 20px;
-            border-radius: 3px;
-            margin-left: 10px;
-            vertical-align: middle;
+        .accommodation-title {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
         
-        /* Features */
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+        .accommodation-price {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 15px;
         }
         
-        .feature-item {
+        /* Feature Boxes */
+        .feature-box {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
             height: 100%;
-            transition: all 0.3s ease;
         }
         
-        .feature-item:hover {
+        .feature-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
-        /* Comparison Table */
-        .comparison-table {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-        }
-        
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .comparison-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* File Upload Section */
-        .upload-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .upload-box {
-            border: 2px dashed #cbd5e0;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
             margin-bottom: 20px;
         }
         
-        .upload-box:hover {
-            border-color: var(--primary-color);
-            background: #f0f7ff;
+        /* Sustainability Section */
+        .sustainability-section {
+            background: linear-gradient(rgba(27, 94, 32, 0.9), rgba(27, 94, 32, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .sustainability-item {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .sustainability-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        /* Gallery */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--light-green);
+            opacity: 0.3;
+            font-family: Georgia, serif;
         }
         
         /* Footer */
         .footer {
-            background: linear-gradient(to right, var(--dark-green), #2c3e50);
+            background: var(--dark-green);
             color: white;
-            padding: 50px 0 20px;
-            margin-top: 50px;
+            padding: 80px 0 30px;
         }
         
-        .footer h5 {
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
             margin-bottom: 20px;
-            color: var(--light-green);
+        }
+        
+        .footer-logo span {
+            color: var(--gold);
+        }
+        
+        .footer-links h5 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         
         .footer-links a {
@@ -197,109 +329,122 @@
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--gold);
             padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            margin-top: 30px;
+            padding-top: 30px;
+            margin-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Booking Modal */
+        .booking-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .booking-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .hero {
+            .section-padding {
                 padding: 60px 0;
             }
             
-            .project-card {
-                margin-bottom: 20px;
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                padding-top: 20px;
             }
         }
         
-        /* Custom Styles */
-        .badge-eco {
-            background-color: var(--accent-color);
-            color: white;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .section-title {
-            color: var(--dark-green);
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-        
-        .highlight {
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        
-        .stats-box {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .stats-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
-        }
-        
-        .stats-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .download-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        
-        .download-btn:hover {
-            background: var(--dark-green);
-            color: white;
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-leaf"></i> EcoResort Projects
+                Rancho<span>Pacifico</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -307,19 +452,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects"><i class="fas fa-tree"></i> Projects</a>
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features"><i class="fas fa-star"></i> Features</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#comparison"><i class="fas fa-exchange-alt"></i> Comparison</a>
+                        <a class="nav-link" href="#accommodations">Accommodations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#finance"><i class="fas fa-chart-line"></i> Finance</a>
+                        <a class="nav-link" href="#experiences">Experiences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#upload"><i class="fas fa-cloud-upload-alt"></i> Upload</a>
+                        <a class="nav-link" href="#sustainability">Sustainability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="btn book-btn" id="bookNowBtn">
+                            <i class="fas fa-calendar-alt"></i> Book Now
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -327,243 +480,71 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <h1>Sustainable Eco-Village Projects</h1>
-            <p>Beautiful blend of nature, community, and sustainability. Modern eco-village projects worldwide promoting environmentally friendly lifestyles.</p>
-            <div class="row mt-4">
-                <div class="col-md-3 col-6">
-                    <div class="stats-box">
-                        <span class="stats-number">4</span>
-                        <span class="stats-label">Countries</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-box">
-                        <span class="stats-number">200+</span>
-                        <span class="stats-label">Eco Homes</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-box">
-                        <span class="stats-number">100%</span>
-                        <span class="stats-label">Sustainable Energy</span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-box">
-                        <span class="stats-number">24/7</span>
-                        <span class="stats-label">Community Support</span>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1>LUXURY <strong>ECO-RESORT</strong> IN PARADISE</h1>
+                    <p class="hero-subtitle">Sustainable luxury meets breathtaking nature in Costa Rica's pristine rainforest</p>
+                    <div class="mt-4">
+                        <button class="btn book-btn me-3" style="padding: 15px 40px;">
+                            <i class="fas fa-play-circle"></i> Explore Resort
+                        </button>
+                        <a href="#accommodations" class="btn btn-outline-light" style="padding: 15px 40px;">
+                            <i class="fas fa-bed"></i> View Villas
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
+    <!-- About Section -->
+    <section class="section-padding" id="about">
         <div class="container">
-            <h2 class="section-title">Our Eco-Village Projects</h2>
-            <p class="text-center mb-5">Sustainable communities worldwide blending nature with modern amenities.</p>
-            
-            <div class="row">
-                <!-- Dominican Republic -->
-                <div class="col-lg-6 mb-4">
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h4 class="mb-0">
-                                <i class="fas fa-sun"></i> Dominican Republic Eco-Village
-                                <img src="https://flagcdn.com/w40/do.png" class="country-flag" alt="Dominican Flag">
-                            </h4>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-start">Welcome to Rancho Pacifico</h2>
+                    <p class="mb-4">Nestled in the lush rainforests of Costa Rica's Pacific coast, Rancho Pacifico offers an exclusive sanctuary where luxury and sustainability coexist in perfect harmony.</p>
+                    <p class="mb-4">Our award-winning eco-resort combines breathtaking ocean views, unparalleled privacy, and commitment to environmental stewardship to create unforgettable experiences.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h5>Sustainable Luxury</h5>
+                                <p>100% renewable energy, water conservation, and eco-friendly practices.</p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="highlight">
-                                <h6><i class="fas fa-map-marker-alt"></i> Location: Paraíso, Barahona</h6>
-                                <p class="mb-0"><strong>Key Features:</strong> Authentic Dominican culture, local markets, merengue and bachata music</p>
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-umbrella-beach"></i>
+                                </div>
+                                <h5>Private Beach Access</h5>
+                                <p>Exclusive access to pristine beaches and hidden coves.</p>
                             </div>
-                            
-                            <h6><i class="fas fa-home"></i> Residential Components:</h6>
-                            <ul>
-                                <li>55 EcoHomes (spread across 20 acres)</li>
-                                <li>50 Airbnb rental apartments</li>
-                                <li>20 workforce housing dorm rooms</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-spa"></i> Facilities:</h6>
-                            <ul>
-                                <li>Holistic spa and fitness center</li>
-                                <li>Community garden and sports courts</li>
-                                <li>3 natural spring-fed lakes</li>
-                                <li>CoOp poultry production</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-concierge-bell"></i> Hospitality Services:</h6>
-                            <ul>
-                                <li>21 family-style meals per week</li>
-                                <li>15 hours per week personalized assistance</li>
-                                <li>Senior care, childcare, executive assistant</li>
-                            </ul>
-                            
-                            <div class="mt-3">
-                                <span class="badge bg-success me-2">Eco-Friendly</span>
-                                <span class="badge bg-info me-2">Cultural Experience</span>
-                                <span class="badge bg-warning me-2">Local Tourism</span>
-                            </div>
-                            
-                            <a href="Dominican_Final.pptx" class="download-btn" download>
-                                <i class="fas fa-download"></i> Download Presentation
-                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Panama -->
-                <div class="col-lg-6 mb-4">
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h4 class="mb-0">
-                                <i class="fas fa-umbrella-beach"></i> Panama Eco-Village
-                                <img src="https://flagcdn.com/w40/pa.png" class="country-flag" alt="Panama Flag">
-                            </h4>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Resort View" class="img-fluid rounded" style="height: 300px; width: 100%; object-fit: cover;">
                         </div>
-                        <div class="card-body">
-                            <div class="highlight">
-                                <h6><i class="fas fa-map-marker-alt"></i> Location: Near Mamoni River</h6>
-                                <p class="mb-0"><strong>Key Features:</strong> White-water rafting, wildlife viewing, Panama City exploration</p>
-                            </div>
-                            
-                            <h6><i class="fas fa-home"></i> Residential Components:</h6>
-                            <ul>
-                                <li>55 EcoHomes (spread across 20 acres)</li>
-                                <li>50 Airbnb rental apartments</li>
-                                <li>20 workforce housing dorm rooms</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-spa"></i> Facilities:</h6>
-                            <ul>
-                                <li>Yoga, spin classes, group fitness</li>
-                                <li>Billiards room, theater rooms</li>
-                                <li>Social club, restaurant, coffee shop</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-tree"></i> Sustainable Practices:</h6>
-                            <ul>
-                                <li>Forest restoration</li>
-                                <li>Farm-to-fork CoOp farming</li>
-                                <li>Solar energy, micro-hydro power</li>
-                            </ul>
-                            
-                            <div class="mt-3">
-                                <span class="badge bg-success me-2">Central America Hub</span>
-                                <span class="badge bg-info me-2">Pacific Coast</span>
-                                <span class="badge bg-warning me-2">Tourism Hub</span>
-                            </div>
-                            
-                            <a href="Panama_Final-1.pptx" class="download-btn" download>
-                                <i class="fas fa-download"></i> Download Presentation
-                            </a>
+                        <div class="col-6">
+                            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Rainforest" class="img-fluid rounded" style="height: 300px; width: 100%; object-fit: cover;">
                         </div>
-                    </div>
-                </div>
-                
-                <!-- USA (Utah) -->
-                <div class="col-lg-6 mb-4">
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h4 class="mb-0">
-                                <i class="fas fa-mountain"></i> SunDrop Resort Flaming Gorge
-                                <img src="https://flagcdn.com/w40/us.png" class="country-flag" alt="USA Flag">
-                            </h4>
+                        <div class="col-6 mt-3">
+                            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Infinity Pool" class="img-fluid rounded" style="height: 250px; width: 100%; object-fit: cover;">
                         </div>
-                        <div class="card-body">
-                            <div class="highlight">
-                                <h6><i class="fas fa-map-marker-alt"></i> Location: Dutch John, Utah</h6>
-                                <p class="mb-0"><strong>Key Features:</strong> National parks, skiing, Flaming Gorge Reservoir</p>
-                            </div>
-                            
-                            <h6><i class="fas fa-home"></i> Residential Components:</h6>
-                            <ul>
-                                <li>42 EcoHomes (spread across 20 acres)</li>
-                                <li>16 Airbnb rental apartments</li>
-                                <li>10 workforce housing dorm rooms</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-spa"></i> Unique Features:</h6>
-                            <ul>
-                                <li>60 Indigenous Replicative Glamping sites</li>
-                                <li>15-year EcoReforestation program</li>
-                                <li>Indigenous cultural experiences</li>
-                                <li>Micro-hydro power generation</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-bolt"></i> Energy Systems:</h6>
-                            <ul>
-                                <li>Solar array with battery storage</li>
-                                <li>LNG backup generator</li>
-                                <li>Grey water recycling system</li>
-                                <li>Electric transportation (bikes, ATVs, SUVs)</li>
-                            </ul>
-                            
-                            <div class="mt-3">
-                                <span class="badge bg-success me-2">National Parks</span>
-                                <span class="badge bg-info me-2">Glamping</span>
-                                <span class="badge bg-warning me-2">Year-round Recreation</span>
-                            </div>
-                            
-                            <a href="THE_SUNDROP_RESORT_FLAMING_GORGE_ECOVILLAGES_1_.pptx" class="download-btn" download>
-                                <i class="fas fa-download"></i> Download Presentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Colombia -->
-                <div class="col-lg-6 mb-4">
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h4 class="mb-0">
-                                <i class="fas fa-mountain"></i> Colombia Eco-Village
-                                <img src="https://flagcdn.com/w40/co.png" class="country-flag" alt="Colombia Flag">
-                            </h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="highlight">
-                                <h6><i class="fas fa-map-marker-alt"></i> Location: Guasca, near Chingaza National Park</h6>
-                                <p class="mb-0"><strong>Key Features:</strong> Hiking, birdwatching, colonial architecture, hot springs</p>
-                            </div>
-                            
-                            <h6><i class="fas fa-home"></i> Residential Components:</h6>
-                            <ul>
-                                <li>55 EcoHomes (spread across 20 acres)</li>
-                                <li>50 Airbnb rental apartments</li>
-                                <li>20 workforce housing dorm rooms</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-spa"></i> Local Attractions:</h6>
-                            <ul>
-                                <li>Chingaza National Natural Park</li>
-                                <li>Siecha Lakes & petroglyphs</li>
-                                <li>Hot springs</li>
-                                <li>Traditional colonial architecture</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-utensils"></i> Cultural Elements:</h6>
-                            <ul>
-                                <li>Guascas herb cultivation</li>
-                                <li>Traditional Colombian cuisine</li>
-                                <li>Mayan/Aztec-style sports courts</li>
-                                <li>Local craft markets</li>
-                            </ul>
-                            
-                            <div class="mt-3">
-                                <span class="badge bg-success me-2">Andean Region</span>
-                                <span class="badge bg-info me-2">Biodiversity Hotspot</span>
-                                <span class="badge bg-warning me-2">Cultural Heritage</span>
-                            </div>
-                            
-                            <a href="English_version.pptx" class="download-btn" download>
-                                <i class="fas fa-download"></i> Download Presentation
-                            </a>
+                        <div class="col-6 mt-3">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Luxury Interior" class="img-fluid rounded" style="height: 250px; width: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -571,208 +552,244 @@
         </div>
     </section>
 
-    <!-- Common Features -->
-    <section id="features" class="py-5 bg-light">
+    <!-- Accommodations -->
+    <section class="section-padding bg-light" id="accommodations">
         <div class="container">
-            <h2 class="section-title">Common Eco-Village Features</h2>
-            <p class="text-center mb-5">All our projects share these sustainable and community-focused features</p>
+            <h2 class="section-title">Luxury Accommodations</h2>
+            <p class="section-subtitle">Choose from our exclusive collection of villas and suites, each offering privacy, luxury, and stunning views.</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="accommodation-card">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Villa Pacifica" class="accommodation-img">
+                        <div class="accommodation-content">
+                            <h3 class="accommodation-title">Villa Pacifica</h3>
+                            <div class="accommodation-price">$850 / night</div>
+                            <p>360-degree ocean views, private infinity pool, 3 bedrooms, and full gourmet kitchen.</p>
+                            <ul class="mb-4">
+                                <li>Sleeps 6 guests</li>
+                                <li>Private chef available</li>
+                                <li>Panoramic ocean views</li>
+                                <li>Daily housekeeping</li>
+                            </ul>
+                            <button class="btn book-btn w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="accommodation-card">
+                        <img src="https://images.unsplash.com/photo-1564501049418-3c27787d01e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Rainforest Suite" class="accommodation-img">
+                        <div class="accommodation-content">
+                            <h3 class="accommodation-title">Rainforest Suite</h3>
+                            <div class="accommodation-price">$650 / night</div>
+                            <p>Secluded suite nestled in the canopy with private balcony and outdoor shower.</p>
+                            <ul class="mb-4">
+                                <li>Sleeps 2 guests</li>
+                                <li>Canopy bedroom</li>
+                                <li>Outdoor rainforest shower</li>
+                                <li>Private yoga deck</li>
+                            </ul>
+                            <button class="btn book-btn w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="accommodation-card">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Ocean View Bungalow" class="accommodation-img">
+                        <div class="accommodation-content">
+                            <h3 class="accommodation-title">Ocean View Bungalow</h3>
+                            <div class="accommodation-price">$750 / night</div>
+                            <p>Direct oceanfront bungalow with private plunge pool and sunset views.</p>
+                            <ul class="mb-4">
+                                <li>Sleeps 4 guests</li>
+                                <li>Private plunge pool</li>
+                                <li>Direct beach access</li>
+                                <li>Outdoor dining area</li>
+                            </ul>
+                            <button class="btn book-btn w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences -->
+    <section class="section-padding" id="experiences">
+        <div class="container">
+            <h2 class="section-title">Unique Experiences</h2>
+            <p class="section-subtitle">Create unforgettable memories with our curated experiences and activities.</p>
             
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <div class="feature-item">
+                    <div class="feature-box">
                         <div class="feature-icon">
-                            <i class="fas fa-home"></i>
+                            <i class="fas fa-hiking"></i>
                         </div>
-                        <h5>EcoHomes</h5>
-                        <p>Sustainable homes built with eco-friendly materials, energy-efficient designs, and minimal environmental impact.</p>
+                        <h4>Rainforest Adventures</h4>
+                        <p>Guided hikes through primary rainforest, waterfall rappelling, and wildlife spotting with expert naturalists.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4 mb-4">
-                    <div class="feature-item">
+                    <div class="feature-box">
                         <div class="feature-icon">
-                            <i class="fas fa-utensils"></i>
+                            <i class="fas fa-water"></i>
                         </div>
-                        <h5>Farm-to-Fork</h5>
-                        <p>On-site organic farming providing fresh produce. Family-style meals prepared by professional chefs.</p>
+                        <h4>Ocean Activities</h4>
+                        <p>Surfing lessons, snorkeling in marine reserves, sunset sailing, and whale watching tours.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4 mb-4">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h5>Community Engagement</h5>
-                        <p>Participation programs, volunteering opportunities, tutoring, and regular community events.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-item">
+                    <div class="feature-box">
                         <div class="feature-icon">
                             <i class="fas fa-spa"></i>
                         </div>
-                        <h5>Wellness & Fitness</h5>
-                        <p>Holistic spa services, fitness centers, yoga, meditation, and wellness programs for residents.</p>
+                        <h4>Wellness Retreat</h4>
+                        <p>Yoga sessions with ocean views, holistic spa treatments, meditation classes, and wellness workshops.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4 mb-4">
-                    <div class="feature-item">
+                    <div class="feature-box">
                         <div class="feature-icon">
-                            <i class="fas fa-solar-panel"></i>
+                            <i class="fas fa-utensils"></i>
                         </div>
-                        <h5>Sustainable Energy</h5>
-                        <p>Solar arrays, micro-hydro power, battery storage, and grey water recycling systems.</p>
+                        <h4>Culinary Experiences</h4>
+                        <p>Farm-to-table dining, cooking classes with local chefs, and private candlelight dinners.</p>
                     </div>
                 </div>
                 
                 <div class="col-md-4 mb-4">
-                    <div class="feature-item">
+                    <div class="feature-box">
                         <div class="feature-icon">
-                            <i class="fas fa-hands-helping"></i>
+                            <i class="fas fa-seedling"></i>
                         </div>
-                        <h5>Personalized Services</h5>
-                        <p>15 hours/week assistance including senior care, childcare, executive support, and tutoring.</p>
+                        <h4>Sustainability Tours</h4>
+                        <p>Behind-the-scenes tours of our sustainable systems and reforestation projects.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Romantic Getaways</h4>
+                        <p>Private picnics, couples' massages, and special arrangements for honeymoons and anniversaries.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table -->
-    <section id="comparison" class="py-5">
+    <!-- Sustainability -->
+    <section class="sustainability-section" id="sustainability">
         <div class="container">
-            <h2 class="section-title">Project Comparison</h2>
-            <p class="text-center mb-5">Compare features across all four eco-village projects</p>
+            <h2 class="section-title text-white">Our Commitment to Sustainability</h2>
+            <p class="section-subtitle text-white">We believe luxury tourism should protect, not exploit, our natural environment.</p>
             
-            <div class="table-responsive">
-                <table class="comparison-table table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Dominican Republic</th>
-                            <th>Panama</th>
-                            <th>USA (Utah)</th>
-                            <th>Colombia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total EcoHomes</strong></td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>42</td>
-                            <td>55</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Rental Apartments</strong></td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>16</td>
-                            <td>50</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Workforce Housing</strong></td>
-                            <td>20 rooms</td>
-                            <td>20 rooms</td>
-                            <td>10 rooms</td>
-                            <td>20 rooms</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Meals per Week</strong></td>
-                            <td>21</td>
-                            <td>21</td>
-                            <td>21</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Personal Assistance</strong></td>
-                            <td>15 hrs/week</td>
-                            <td>15 hrs/week</td>
-                            <td>15 hrs/week</td>
-                            <td>15 hrs/week</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Unique Feature</strong></td>
-                            <td>Local markets & music</td>
-                            <td>White-water rafting</td>
-                            <td>Glamping & reforestation</td>
-                            <td>National park access</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Climate</strong></td>
-                            <td>Tropical</td>
-                            <td>Tropical</td>
-                            <td>Mountain/Desert</td>
-                            <td>Andean</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row mt-5">
+                <div class="col-md-3 col-6">
+                    <div class="sustainability-item">
+                        <div class="sustainability-number">100%</div>
+                        <h5>Renewable Energy</h5>
+                        <p>Solar power and hydroelectric systems</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="sustainability-item">
+                        <div class="sustainability-number">85%</div>
+                        <h5>Water Recycling</h5>
+                        <p>Greywater systems and rainwater collection</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="sustainability-item">
+                        <div class="sustainability-number">50,000+</div>
+                        <h5>Trees Planted</h5>
+                        <p>Reforestation and conservation efforts</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="sustainability-item">
+                        <div class="sustainability-number">100%</div>
+                        <h5>Local Sourcing</h5>
+                        <p>Supporting local farmers and artisans</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead">Rancho Pacifico is certified by the Costa Rican Tourism Board's Certification for Sustainable Tourism (CST) and has received numerous awards for environmental stewardship and sustainable practices.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Finance Section -->
-    <section id="finance" class="py-5 bg-light">
+    <!-- Testimonials -->
+    <section class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Funding & Finance</h2>
-            <p class="text-center mb-5">Investment and financing options for eco-resort projects</p>
+            <h2 class="section-title">Guest Experiences</h2>
+            <p class="section-subtitle">What our guests say about their stay at Rancho Pacifico</p>
             
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="highlight">
-                        <h5><i class="fas fa-handshake"></i> Funding Alternatives</h5>
-                        <ul>
-                            <li>Project-specific financing from local/international banks</li>
-                            <li>Government-backed financing for sustainable infrastructure</li>
-                            <li>Public-private partnerships (PPPs)</li>
-                            <li>Joint ventures with investors</li>
-                            <li>Development bank funding</li>
-                            <li>Crowdfunding platforms</li>
-                            <li>Mezzanine debt</li>
-                            <li>Secured or unsecured notes</li>
-                        </ul>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p>"The most magical place we've ever stayed. The attention to detail, the sustainable practices, and the breathtaking views made this our best vacation ever."</p>
+                        <div class="mt-4">
+                            <h5>Sarah & Michael Johnson</h5>
+                            <p class="text-muted">New York, USA</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-md-6 mb-4">
-                    <div class="highlight">
-                        <h5><i class="fas fa-chart-bar"></i> Fractional Ownership Marketing</h5>
-                        <ul>
-                            <li>Pacaso - tech-enabled platform for luxury second homes</li>
-                            <li>August Collection & International Property Shares</li>
-                            <li>Ritz-Carlton & Hyatt private residence clubs</li>
-                            <li>Ragatz Associates - industry research & consulting</li>
-                            <li>Detailed, visually rich marketing materials</li>
-                            <li>Online real estate portals and social media</li>
-                            <li>Compliance with local real estate laws</li>
-                        </ul>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p>"As an environmentalist, I was impressed by their commitment to sustainability without compromising on luxury. This is how all resorts should operate."</p>
+                        <div class="mt-4">
+                            <h5>Dr. Emma Wilson</h5>
+                            <p class="text-muted">Environmental Scientist, Canada</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="highlight">
-                        <h5><i class="fas fa-plane"></i> Connectivity & Tourism</h5>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h6>Dominican Republic</h6>
-                                <p>8 international airports, Arajet airline hub, major travel connector</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h6>Panama</h6>
-                                <p>Major international aviation hub, strategic Central America location</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h6>USA</h6>
-                                <p>Multiple national parks, year-round tourism, outdoor recreation</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h6>Colombia</h6>
-                                <p>Gateway to Andes, biodiversity hotspot, growing eco-tourism</p>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p>"Our wedding at Rancho Pacifico was perfect. The staff created a magical experience that was both luxurious and eco-friendly. Highly recommended!"</p>
+                        <div class="mt-4">
+                            <h5>James & Lisa Chen</h5>
+                            <p class="text-muted">Singapore</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
@@ -781,50 +798,87 @@
         </div>
     </section>
 
-    <!-- File Upload Section -->
-    <section id="upload" class="py-5">
+    <!-- Gallery -->
+    <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Upload PowerPoint Files</h2>
-            <p class="text-center mb-5">Upload your PowerPoint presentations for review and sharing</p>
+            <h2 class="section-title">Gallery</h2>
+            <p class="section-subtitle">Experience the beauty of Rancho Pacifico through our photos</p>
             
-            <div class="upload-section">
-                <div class="row">
-                    <div class="col-md-8 mx-auto">
-                        <div class="upload-box" id="uploadArea">
-                            <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-primary"></i>
-                            <h4>Drop PowerPoint files here or click to upload</h4>
-                            <p class="text-muted">Supported formats: .ppt, .pptx (Max size: 50MB per file)</p>
-                            <input type="file" id="fileInput" accept=".ppt,.pptx" multiple style="display: none;">
-                        </div>
-                        
-                        <div id="fileList" class="mt-4">
-                            <h5>Uploaded Files:</h5>
-                            <div class="list-group">
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    Dominican_Final.pptx
-                                    <span class="badge bg-success">Uploaded</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Resort" class="gallery-img">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Pool" class="gallery-img">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Wildlife" class="gallery-img">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Sunset" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section-padding bg-light" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Plan Your Stay</h2>
+                    <p class="section-subtitle">Ready to experience sustainable luxury? Contact us to plan your perfect getaway.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-phone"></i>
                                 </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    Panama_Final-1.pptx
-                                    <span class="badge bg-success">Uploaded</span>
-                                </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    THE_SUNDROP_RESORT_FLAMING_GORGE_ECOVILLAGES_1_.pptx
-                                    <span class="badge bg-success">Uploaded</span>
-                                </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    English_version.pptx
-                                    <span class="badge bg-success">Uploaded</span>
-                                </div>
+                                <h5>Call Us</h5>
+                                <p>+506 1234 5678</p>
+                                <p>9am - 6pm Costa Rica Time</p>
                             </div>
                         </div>
                         
-                        <div class="mt-4 text-center">
-                            <button class="btn btn-primary btn-lg" id="uploadBtn">
-                                <i class="fas fa-paper-plane"></i> Submit All Files
-                            </button>
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h5>Email</h5>
+                                <p>reservations@ranchopacifico.com</p>
+                                <p>Response within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h5>Location</h5>
+                                <p>Uvita, Costa Rica</p>
+                                <p>Pacific Coast, Puntarenas</p>
+                            </div>
                         </div>
                     </div>
+                    
+                    <button class="btn book-btn mt-4" style="padding: 15px 50px;">
+                        <i class="fas fa-calendar-alt"></i> Book Your Stay Now
+                    </button>
                 </div>
             </div>
         </div>
@@ -834,108 +888,37 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>EcoResort Projects</h5>
-                    <p>Sustainable living communities combining luxury, nature, and environmental responsibility.</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                <div class="col-lg-4 mb-5">
+                    <div class="footer-logo">Rancho<span>Pacifico</span></div>
+                    <p class="mb-4" style="opacity: 0.8;">Luxury eco-resort committed to sustainability, conservation, and unforgettable guest experiences in Costa Rica's pristine rainforest.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
                     </div>
                 </div>
                 
-                <div class="col-md-4 mb-4">
-                    <h5>Quick Links</h5>
+                <div class="col-lg-2 col-md-6 mb-5">
                     <div class="footer-links">
-                        <a href="#projects">Projects</a>
-                        <a href="#features">Features</a>
-                        <a href="#comparison">Comparison</a>
-                        <a href="#finance">Finance Options</a>
-                        <a href="#upload">File Upload</a>
+                        <h5>Resort</h5>
+                        <a href="#about">About Us</a>
+                        <a href="#accommodations">Accommodations</a>
+                        <a href="#experiences">Experiences</a>
+                        <a href="#sustainability">Sustainability</a>
+                        <a href="#contact">Contact</a>
                     </div>
                 </div>
                 
-                <div class="col-md-4 mb-4">
-                    <h5>Contact Information</h5>
-                    <p><i class="fas fa-envelope me-2"></i> info@ecoresortprojects.com</p>
-                    <p><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> Global Offices Worldwide</p>
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <a href="#">Booking Policy</a>
+                        <a href="#">Sustainability Report</a>
+                        <a href="#">Press & Media</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 EcoResort Projects. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // File upload functionality
-        document.getElementById('uploadArea').addEventListener('click', function() {
-            document.getElementById('fileInput').click();
-        });
-        
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const files = e.target.files;
-            const fileList = document.getElementById('fileList');
-            const listGroup = fileList.querySelector('.list-group');
-            
-            // Clear existing items except the first 4 (default files)
-            while (listGroup.children.length > 4) {
-                listGroup.removeChild(listGroup.lastChild);
-            }
-            
-            // Add new files
-            for (let file of files) {
-                const listItem = document.createElement('div');
-                listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-                listItem.innerHTML = `
-                    ${file.name}
-                    <span class="badge bg-primary">New</span>
-                `;
-                listGroup.appendChild(listItem);
-            }
-        });
-        
-        document.getElementById('uploadBtn').addEventListener('click', function() {
-            const btn = this;
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
-            btn.disabled = true;
-            
-            // Simulate upload process
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Upload Successful!';
-                btn.className = 'btn btn-success btn-lg';
                 
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.className = 'btn btn-primary btn-lg';
-                    btn.disabled = false;
-                }, 2000);
-            }, 1500);
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                <div class
