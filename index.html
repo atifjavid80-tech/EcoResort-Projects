@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rancho Pacifico | Luxury Eco-Resort & Sustainable Living</title>
+    <title>SunDrop Eco-Resorts | Luxury Sustainable Living Communities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -14,6 +14,7 @@
             --gold: #d4af37;
             --earth-brown: #8d6e63;
             --cream: #f5f5dc;
+            --blue-water: #4a90e2;
         }
         
         * {
@@ -104,7 +105,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                         url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
@@ -117,7 +118,7 @@
         }
         
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 300;
             margin-bottom: 20px;
             letter-spacing: 2px;
@@ -130,10 +131,13 @@
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             font-weight: 300;
             letter-spacing: 1px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Section Styles */
@@ -165,64 +169,78 @@
         .section-subtitle {
             text-align: center;
             color: #666;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 50px;
             line-height: 1.8;
         }
         
-        /* Accommodation Cards */
-        .accommodation-card {
+        /* Resort Cards */
+        .resort-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             height: 100%;
             margin-bottom: 30px;
         }
         
-        .accommodation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        .resort-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
-        .accommodation-img {
+        .resort-img {
             height: 250px;
             width: 100%;
             object-fit: cover;
         }
         
-        .accommodation-content {
-            padding: 25px;
+        .resort-content {
+            padding: 30px;
         }
         
-        .accommodation-title {
+        .resort-title {
             color: var(--dark-green);
             font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .accommodation-price {
-            color: var(--gold);
-            font-size: 1.3rem;
-            font-weight: 600;
             margin-bottom: 15px;
+            font-weight: 600;
         }
         
-        /* Feature Boxes */
-        .feature-box {
-            text-align: center;
-            padding: 40px 20px;
+        .resort-location {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .country-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        /* Features Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-item {
             background: white;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
             transition: all 0.3s ease;
-            height: 100%;
         }
         
-        .feature-box:hover {
+        .feature-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
@@ -256,44 +274,49 @@
             margin-bottom: 10px;
         }
         
-        /* Gallery */
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .gallery-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-        }
-        
-        /* Testimonials */
-        .testimonial-card {
+        /* Investment Section */
+        .investment-card {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            margin: 20px 0;
-            position: relative;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
         }
         
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--light-green);
-            opacity: 0.3;
-            font-family: Georgia, serif;
+        .investment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .revenue-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comparison-table th {
+            background: var(--primary-green);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
         }
         
         /* Footer */
@@ -360,52 +383,27 @@
             font-size: 0.9rem;
         }
         
-        /* Booking Modal */
-        .booking-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .booking-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
+        /* Stats Box */
+        .stats-box {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin: 10px 0;
         }
         
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #999;
-            cursor: pointer;
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 10px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .section-padding {
@@ -422,20 +420,41 @@
             }
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Custom Components */
+        .highlight-box {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-green);
+            margin: 20px 0;
         }
         
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
+        .eco-badge {
+            background: var(--light-green);
+            color: var(--dark-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .download-btn {
+            background: var(--blue-water);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #2c80e1;
+            color: white;
         }
     </style>
 </head>
@@ -444,7 +463,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                Rancho<span>Pacifico</span>
+                <i class="fas fa-leaf"></i> Sun<span>Drop</span> Eco-Resorts
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -455,13 +474,13 @@
                         <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#resorts">Our Resorts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#accommodations">Accommodations</a>
+                        <a class="nav-link" href="#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#experiences">Experiences</a>
+                        <a class="nav-link" href="#investment">Investment</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#sustainability">Sustainability</a>
@@ -470,8 +489,8 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <button class="btn book-btn" id="bookNowBtn">
-                            <i class="fas fa-calendar-alt"></i> Book Now
+                        <button class="btn book-btn" id="investBtn">
+                            <i class="fas fa-chart-line"></i> Invest Now
                         </button>
                     </li>
                 </ul>
@@ -484,14 +503,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h1>LUXURY <strong>ECO-RESORT</strong> IN PARADISE</h1>
-                    <p class="hero-subtitle">Sustainable luxury meets breathtaking nature in Costa Rica's pristine rainforest</p>
+                    <h1>LUXURY <strong>ECO-RESORT</strong> COMMUNITIES WORLDWIDE</h1>
+                    <p class="hero-subtitle">Sustainable living meets luxury in four exclusive eco-resort destinations. Experience holistic living, community engagement, and environmental stewardship across the Americas.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3 col-6">
+                            <div class="stats-box">
+                                <div class="stats-number">4</div>
+                                <div class="stats-label">Countries</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stats-box">
+                                <div class="stats-number">207</div>
+                                <div class="stats-label">EcoHomes</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stats-box">
+                                <div class="stats-number">60</div>
+                                <div class="stats-label">Glamping Sites</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stats-box">
+                                <div class="stats-number">100%</div>
+                                <div class="stats-label">Sustainable</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="mt-4">
                         <button class="btn book-btn me-3" style="padding: 15px 40px;">
-                            <i class="fas fa-play-circle"></i> Explore Resort
+                            <i class="fas fa-play-circle"></i> Explore Resorts
                         </button>
-                        <a href="#accommodations" class="btn btn-outline-light" style="padding: 15px 40px;">
-                            <i class="fas fa-bed"></i> View Villas
+                        <a href="#investment" class="btn btn-outline-light" style="padding: 15px 40px;">
+                            <i class="fas fa-dollar-sign"></i> View Investments
                         </a>
                     </div>
                 </div>
@@ -499,52 +544,164 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section-padding" id="about">
+    <!-- Our Resorts Section -->
+    <section class="section-padding" id="resorts">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="section-title text-start">Welcome to Rancho Pacifico</h2>
-                    <p class="mb-4">Nestled in the lush rainforests of Costa Rica's Pacific coast, Rancho Pacifico offers an exclusive sanctuary where luxury and sustainability coexist in perfect harmony.</p>
-                    <p class="mb-4">Our award-winning eco-resort combines breathtaking ocean views, unparalleled privacy, and commitment to environmental stewardship to create unforgettable experiences.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="feature-box">
-                                <div class="feature-icon">
-                                    <i class="fas fa-leaf"></i>
-                                </div>
-                                <h5>Sustainable Luxury</h5>
-                                <p>100% renewable energy, water conservation, and eco-friendly practices.</p>
+            <h2 class="section-title">Our Exclusive Eco-Resorts</h2>
+            <p class="section-subtitle">Four premier sustainable communities offering luxury living, holistic wellness, and environmental stewardship.</p>
+            
+            <div class="row">
+                <!-- Dominican Republic Resort -->
+                <div class="col-lg-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Dominican Republic" class="resort-img">
+                        <div class="resort-content">
+                            <h3 class="resort-title">
+                                <i class="fas fa-sun"></i> SunDrop Resort Paraiso
+                                <img src="https://flagcdn.com/w40/do.png" class="country-flag" alt="Dominican Flag">
+                            </h3>
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> Paraiso, Barahona, Dominican Republic
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-box">
-                                <div class="feature-icon">
-                                    <i class="fas fa-umbrella-beach"></i>
-                                </div>
-                                <h5>Private Beach Access</h5>
-                                <p>Exclusive access to pristine beaches and hidden coves.</p>
+                            <p>Experience authentic Dominican culture with colonial architecture, traditional crafts, and vibrant merengue music. Gateway to Rancho Platón natural attraction.</p>
+                            
+                            <div class="highlight-box">
+                                <h6><i class="fas fa-home"></i> Residential Components:</h6>
+                                <ul>
+                                    <li>55 EcoHomes (20 acres)</li>
+                                    <li>50 Airbnb rental apartments</li>
+                                    <li>20 workforce housing dorm rooms</li>
+                                </ul>
                             </div>
+                            
+                            <div class="mt-3">
+                                <span class="eco-badge">Pathway to Citizenship</span>
+                                <span class="eco-badge">Armed Security</span>
+                                <span class="eco-badge">3 Natural Lakes</span>
+                                <span class="eco-badge">CoOp Farming</span>
+                            </div>
+                            
+                            <a href="Dominican_Final (1).pdf" class="download-btn" download>
+                                <i class="fas fa-download"></i> Download Project PDF
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Resort View" class="img-fluid rounded" style="height: 300px; width: 100%; object-fit: cover;">
+                
+                <!-- Panama Resort -->
+                <div class="col-lg-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Panama" class="resort-img">
+                        <div class="resort-content">
+                            <h3 class="resort-title">
+                                <i class="fas fa-water"></i> SunDrop Resort Mamoni River
+                                <img src="https://flagcdn.com/w40/pa.png" class="country-flag" alt="Panama Flag">
+                            </h3>
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> Near Mamoni River, Panama
+                            </div>
+                            <p>White-water rafting adventures, wildlife viewing, and gateway to exploring Central America. Perfect base for Panama City's UNESCO heritage sites.</p>
+                            
+                            <div class="highlight-box">
+                                <h6><i class="fas fa-tree"></i> Key Features:</h6>
+                                <ul>
+                                    <li>55 EcoHomes across 20 acres</li>
+                                    <li>Full white-water rafting facilities</li>
+                                    <li>Central America travel hub</li>
+                                    <li>Mayan/Aztec sports courts</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <span class="eco-badge">Citizenship Program</span>
+                                <span class="eco-badge">Rafting Center</span>
+                                <span class="eco-badge">Tourism Hub</span>
+                                <span class="eco-badge">Security Staff</span>
+                            </div>
+                            
+                            <a href="Panama_Final-1.pdf" class="download-btn" download>
+                                <i class="fas fa-download"></i> Download Project PDF
+                            </a>
                         </div>
-                        <div class="col-6">
-                            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Rainforest" class="img-fluid rounded" style="height: 300px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                
+                <!-- USA Resort -->
+                <div class="col-lg-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Flaming Gorge" class="resort-img">
+                        <div class="resort-content">
+                            <h3 class="resort-title">
+                                <i class="fas fa-mountain"></i> SunDrop Resort Flaming Gorge
+                                <img src="https://flagcdn.com/w40/us.png" class="country-flag" alt="USA Flag">
+                            </h3>
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> Dutch John, Utah, USA
+                            </div>
+                            <p>Gateway to Utah's "Mighty 5" National Parks and Wyoming's Yellowstone. Year-round recreation at Flaming Gorge Reservoir.</p>
+                            
+                            <div class="highlight-box">
+                                <h6><i class="fas fa-campground"></i> Unique Features:</h6>
+                                <ul>
+                                    <li>42 EcoHomes (1/2 acre density)</li>
+                                    <li>60 Indigenous Glamping sites</li>
+                                    <li>15-year reforestation program</li>
+                                    <li>Micro-hydro power generation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <span class="eco-badge">National Parks</span>
+                                <span class="eco-badge">Indigenous Experience</span>
+                                <span class="eco-badge">Year-round Recreation</span>
+                                <span class="eco-badge">Electric Transport</span>
+                            </div>
+                            
+                            <a href="THE_SUNDROP_RESORT_FLAMING_GORGE_ECOVILLAGES_1_ (1).pdf" class="download-btn" download>
+                                <i class="fas fa-download"></i> Download Project PDF
+                            </a>
                         </div>
-                        <div class="col-6 mt-3">
-                            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Infinity Pool" class="img-fluid rounded" style="height: 250px; width: 100%; object-fit: cover;">
-                        </div>
-                        <div class="col-6 mt-3">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Luxury Interior" class="img-fluid rounded" style="height: 250px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                
+                <!-- Colombia Resort -->
+                <div class="col-lg-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Colombia" class="resort-img">
+                        <div class="resort-content">
+                            <h3 class="resort-title">
+                                <i class="fas fa-mountain"></i> SunDrop Resort Chingaza
+                                <img src="https://flagcdn.com/w40/co.png" class="country-flag" alt="Colombia Flag">
+                            </h3>
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> Guasca, near Chingaza National Park, Colombia
+                            </div>
+                            <p>Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and authentic local cuisine.</p>
+                            
+                            <div class="highlight-box">
+                                <h6><i class="fas fa-park"></i> Local Attractions:</h6>
+                                <ul>
+                                    <li>Chingaza National Natural Park</li>
+                                    <li>Siecha Lakes & petroglyphs</li>
+                                    <li>Hot springs and colonial architecture</li>
+                                    <li>Guascas herb cultivation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <span class="eco-badge">Andean Region</span>
+                                <span class="eco-badge">Birdwatching</span>
+                                <span class="eco-badge">Hot Springs</span>
+                                <span class="eco-badge">Cultural Heritage</span>
+                            </div>
+                            
+                            <a href="English_version.pdf" class="download-btn" download>
+                                <i class="fas fa-download"></i> Download Project PDF
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -552,138 +709,222 @@
         </div>
     </section>
 
-    <!-- Accommodations -->
-    <section class="section-padding bg-light" id="accommodations">
+    <!-- Common Features -->
+    <section id="features" class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Luxury Accommodations</h2>
-            <p class="section-subtitle">Choose from our exclusive collection of villas and suites, each offering privacy, luxury, and stunning views.</p>
+            <h2 class="section-title">Standard Eco-Resort Features</h2>
+            <p class="section-subtitle">All SunDrop resorts include these comprehensive sustainable living features</p>
             
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="accommodation-card">
-                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Villa Pacifica" class="accommodation-img">
-                        <div class="accommodation-content">
-                            <h3 class="accommodation-title">Villa Pacifica</h3>
-                            <div class="accommodation-price">$850 / night</div>
-                            <p>360-degree ocean views, private infinity pool, 3 bedrooms, and full gourmet kitchen.</p>
-                            <ul class="mb-4">
-                                <li>Sleeps 6 guests</li>
-                                <li>Private chef available</li>
-                                <li>Panoramic ocean views</li>
-                                <li>Daily housekeeping</li>
-                            </ul>
-                            <button class="btn book-btn w-100">Book Now</button>
-                        </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
                     </div>
+                    <h4>EcoHomes</h4>
+                    <p>Luxury sustainable homes with 1/3 to 1/2 acre density, built with eco-friendly materials and energy-efficient designs.</p>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="accommodation-card">
-                        <img src="https://images.unsplash.com/photo-1564501049418-3c27787d01e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Rainforest Suite" class="accommodation-img">
-                        <div class="accommodation-content">
-                            <h3 class="accommodation-title">Rainforest Suite</h3>
-                            <div class="accommodation-price">$650 / night</div>
-                            <p>Secluded suite nestled in the canopy with private balcony and outdoor shower.</p>
-                            <ul class="mb-4">
-                                <li>Sleeps 2 guests</li>
-                                <li>Canopy bedroom</li>
-                                <li>Outdoor rainforest shower</li>
-                                <li>Private yoga deck</li>
-                            </ul>
-                            <button class="btn book-btn w-100">Book Now</button>
-                        </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
                     </div>
+                    <h4>Farm-to-Fork Dining</h4>
+                    <p>21 family-style meals per week delivered to each EcoHome, prepared by on-site chefs using CoOp farm produce.</p>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="accommodation-card">
-                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Ocean View Bungalow" class="accommodation-img">
-                        <div class="accommodation-content">
-                            <h3 class="accommodation-title">Ocean View Bungalow</h3>
-                            <div class="accommodation-price">$750 / night</div>
-                            <p>Direct oceanfront bungalow with private plunge pool and sunset views.</p>
-                            <ul class="mb-4">
-                                <li>Sleeps 4 guests</li>
-                                <li>Private plunge pool</li>
-                                <li>Direct beach access</li>
-                                <li>Outdoor dining area</li>
-                            </ul>
-                            <button class="btn book-btn w-100">Book Now</button>
-                        </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-spa"></i>
                     </div>
+                    <h4>Holistic Wellness</h4>
+                    <p>Full-service spa, fitness center with yoga/spin classes, and personalized wellness programs for residents.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Community Services</h4>
+                    <p>15 hours/week personalized assistance including senior care, childcare, executive support, and tutoring.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h4>Sustainable Energy</h4>
+                    <p>Solar arrays, micro-hydro power, battery storage, and LNG backup generators for 100% renewable energy.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h4>Waste Management</h4>
+                    <p>Grey water recycling, black water composting, and comprehensive recycling systems.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Security</h4>
+                    <p>24/7 armed private security, security drivers, and comprehensive safety monitoring.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Reforestation</h4>
+                    <p>15-year program planting 50,000 native trees on 35 acres, with carbon tax credit benefits.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experiences -->
-    <section class="section-padding" id="experiences">
+    <!-- Investment Section -->
+    <section id="investment" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Unique Experiences</h2>
-            <p class="section-subtitle">Create unforgettable memories with our curated experiences and activities.</p>
+            <h2 class="section-title">Investment Opportunity</h2>
+            <p class="section-subtitle">Lucrative fractional ownership with multiple revenue streams and attractive returns</p>
             
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-hiking"></i>
+                <div class="col-lg-6 mb-4">
+                    <div class="investment-card">
+                        <h3 class="mb-4" style="color: var(--dark-green);">
+                            <i class="fas fa-chart-line"></i> Revenue Streams
+                        </h3>
+                        
+                        <div class="revenue-item">
+                            <h5>Glamping Sites</h5>
+                            <p>60 all-inclusive indigenous experience sites</p>
+                            <strong>$3,250,000/year</strong>
                         </div>
-                        <h4>Rainforest Adventures</h4>
-                        <p>Guided hikes through primary rainforest, waterfall rappelling, and wildlife spotting with expert naturalists.</p>
+                        
+                        <div class="revenue-item">
+                            <h5>AirBnB Rentals</h5>
+                            <p>50 all-inclusive apartments and sleeping pods</p>
+                            <strong>$2,250,000/year</strong>
+                        </div>
+                        
+                        <div class="revenue-item">
+                            <h5>Commercial AgroForestry</h5>
+                            <p>Exotic hardwoods, cocoa, avocados, berries</p>
+                            <strong>$750,000/year</strong>
+                        </div>
+                        
+                        <div class="revenue-item">
+                            <h5>Bottled Spring Water</h5>
+                            <p>500,000 gallons/year production</p>
+                            <strong>$500,000/year</strong>
+                        </div>
+                        
+                        <div class="revenue-item">
+                            <h5>Carbon Tax Credits</h5>
+                            <p>50,000 native trees reforestation</p>
+                            <strong>$500,000/year</strong>
+                        </div>
+                        
+                        <div class="highlight-box mt-4">
+                            <h4>Total Projected Revenue: <span style="color: var(--primary-green);">$7,250,000/year</span></h4>
+                            <p>Net Income: $6,000,000/year after expenses</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-water"></i>
+                <div class="col-lg-6 mb-4">
+                    <div class="investment-card">
+                        <h3 class="mb-4" style="color: var(--dark-green);">
+                            <i class="fas fa-handshake"></i> Ownership Structure
+                        </h3>
+                        
+                        <div class="mb-4">
+                            <h5>Founding Owners (55)</h5>
+                            <ul>
+                                <li>$50,000 - $150,000 initial investment</li>
+                                <li>Deeded EcoHome condominium included</li>
+                                <li>1/55 land ownership with development rights</li>
+                                <li>Lifetime discounts on stays and programs</li>
+                                <li>Pathway to citizenship (5 years)</li>
+                            </ul>
                         </div>
-                        <h4>Ocean Activities</h4>
-                        <p>Surfing lessons, snorkeling in marine reserves, sunset sailing, and whale watching tours.</p>
+                        
+                        <div class="mb-4">
+                            <h5>Fractional Ownership</h5>
+                            <ul>
+                                <li>1/4 share = 13 weeks/year usage</li>
+                                <li>$160,000 per 1/4 share</li>
+                                <li>Includes 1/220 ownership of resort</li>
+                                <li>Annual income: $7,000 - $27,272 per share</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h5>Project Costs</h5>
+                            <p>Total Investment: $15.5M - $23M per resort</p>
+                            <p>Includes land, infrastructure, EcoHomes, BLOC campus, and sustainable systems</p>
+                        </div>
+                        
+                        <button class="btn book-btn w-100 mt-4">
+                            <i class="fas fa-file-contract"></i> Download Investment Prospectus
+                        </button>
                     </div>
                 </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <h4>Wellness Retreat</h4>
-                        <p>Yoga sessions with ocean views, holistic spa treatments, meditation classes, and wellness workshops.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h4>Culinary Experiences</h4>
-                        <p>Farm-to-table dining, cooking classes with local chefs, and private candlelight dinners.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h4>Sustainability Tours</h4>
-                        <p>Behind-the-scenes tours of our sustainable systems and reforestation projects.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Romantic Getaways</h4>
-                        <p>Private picnics, couples' massages, and special arrangements for honeymoons and anniversaries.</p>
-                    </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="mt-5">
+                <h3 class="mb-4 text-center" style="color: var(--dark-green);">Resort Comparison</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Dominican Republic</th>
+                                <th>Panama</th>
+                                <th>USA (Utah)</th>
+                                <th>Colombia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>EcoHomes</strong></td>
+                                <td>55</td>
+                                <td>55</td>
+                                <td>42</td>
+                                <td>55</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Investment</strong></td>
+                                <td>$50,000</td>
+                                <td>$50,000</td>
+                                <td>$150,000</td>
+                                <td>$150,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Citizenship</strong></td>
+                                <td>5 years</td>
+                                <td>5 years</td>
+                                <td>N/A</td>
+                                <td>5 years</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Revenue</strong></td>
+                                <td>$7.25M/year</td>
+                                <td>$7.25M/year</td>
+                                <td>$7.25M/year</td>
+                                <td>$7.25M/year</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Unique Feature</strong></td>
+                                <td>Local culture</td>
+                                <td>Rafting center</td>
+                                <td>National parks</td>
+                                <td>Birdwatching</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -692,31 +933,31 @@
     <!-- Sustainability -->
     <section class="sustainability-section" id="sustainability">
         <div class="container">
-            <h2 class="section-title text-white">Our Commitment to Sustainability</h2>
-            <p class="section-subtitle text-white">We believe luxury tourism should protect, not exploit, our natural environment.</p>
+            <h2 class="section-title text-white">Sustainable Practices</h2>
+            <p class="section-subtitle text-white">Our commitment to environmental stewardship and community development</p>
             
             <div class="row mt-5">
                 <div class="col-md-3 col-6">
                     <div class="sustainability-item">
                         <div class="sustainability-number">100%</div>
                         <h5>Renewable Energy</h5>
-                        <p>Solar power and hydroelectric systems</p>
+                        <p>Solar, micro-hydro, and battery systems</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6">
+                    <div class="sustainability-item">
+                        <div class="sustainability-number">50,000</div>
+                        <h5>Trees Planted</h5>
+                        <p>Native reforestation per resort</p>
                     </div>
                 </div>
                 
                 <div class="col-md-3 col-6">
                     <div class="sustainability-item">
                         <div class="sustainability-number">85%</div>
-                        <h5>Water Recycling</h5>
-                        <p>Greywater systems and rainwater collection</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-6">
-                    <div class="sustainability-item">
-                        <div class="sustainability-number">50,000+</div>
-                        <h5>Trees Planted</h5>
-                        <p>Reforestation and conservation efforts</p>
+                        <h5>Water Recycled</h5>
+                        <p>Grey water treatment systems</p>
                     </div>
                 </div>
                 
@@ -724,161 +965,111 @@
                     <div class="sustainability-item">
                         <div class="sustainability-number">100%</div>
                         <h5>Local Sourcing</h5>
-                        <p>Supporting local farmers and artisans</p>
+                        <p>Farm-to-fork CoOp production</p>
                     </div>
                 </div>
             </div>
             
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto text-center">
-                    <p class="lead">Rancho Pacifico is certified by the Costa Rican Tourism Board's Certification for Sustainable Tourism (CST) and has received numerous awards for environmental stewardship and sustainable practices.</p>
+                    <div class="feature-item bg-transparent text-white border-white">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>AgroForestry Operations</h4>
+                        <p>Each resort includes commercial agroforestry with 10,000+ trees (exotic hardwoods, cocoa, avocados, mango, berries) and integrated fish farming, poultry, and small animal ranching for sustainable food production.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Marketing Partners -->
     <section class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Guest Experiences</h2>
-            <p class="section-subtitle">What our guests say about their stay at Rancho Pacifico</p>
+            <h2 class="section-title">Marketing & Sales Partners</h2>
+            <p class="section-subtitle">We partner with leading fractional ownership platforms and luxury brands</p>
             
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p>"The most magical place we've ever stayed. The attention to detail, the sustainable practices, and the breathtaking views made this our best vacation ever."</p>
-                        <div class="mt-4">
-                            <h5>Sarah & Michael Johnson</h5>
-                            <p class="text-muted">New York, USA</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+            <div class="row mt-5">
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="p-4 bg-white rounded" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <h5 class="text-primary">Pacaso</h5>
                     </div>
+                    <p class="mt-2">Tech-enabled fractional ownership</p>
                 </div>
                 
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p>"As an environmentalist, I was impressed by their commitment to sustainability without compromising on luxury. This is how all resorts should operate."</p>
-                        <div class="mt-4">
-                            <h5>Dr. Emma Wilson</h5>
-                            <p class="text-muted">Environmental Scientist, Canada</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="p-4 bg-white rounded" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <h5 class="text-primary">Ritz-Carlton</h5>
                     </div>
+                    <p class="mt-2">Private residence clubs</p>
                 </div>
                 
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p>"Our wedding at Rancho Pacifico was perfect. The staff created a magical experience that was both luxurious and eco-friendly. Highly recommended!"</p>
-                        <div class="mt-4">
-                            <h5>James & Lisa Chen</h5>
-                            <p class="text-muted">Singapore</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="p-4 bg-white rounded" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <h5 class="text-primary">Hyatt</h5>
                     </div>
+                    <p class="mt-2">Fractional ownership programs</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Gallery</h2>
-            <p class="section-subtitle">Experience the beauty of Rancho Pacifico through our photos</p>
-            
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Resort" class="gallery-img">
+                
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="p-4 bg-white rounded" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <h5 class="text-primary">Ragatz Associates</h5>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Pool" class="gallery-img">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Wildlife" class="gallery-img">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Sunset" class="gallery-img">
-                    </div>
+                    <p class="mt-2">Industry research & consulting</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section class="section-padding bg-light" id="contact">
+    <section class="section-padding" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Plan Your Stay</h2>
-                    <p class="section-subtitle">Ready to experience sustainable luxury? Contact us to plan your perfect getaway.</p>
+                    <h2 class="section-title">Become a Founding Owner</h2>
+                    <p class="section-subtitle">Limited opportunities available for founding investors in each eco-resort project</p>
                     
                     <div class="row mt-5">
                         <div class="col-md-4 mb-4">
-                            <div class="feature-box">
+                            <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-phone"></i>
+                                    <i class="fas fa-passport"></i>
                                 </div>
-                                <h5>Call Us</h5>
-                                <p>+506 1234 5678</p>
-                                <p>9am - 6pm Costa Rica Time</p>
+                                <h5>Citizenship Pathway</h5>
+                                <p>5-year pathway to residency and citizenship in Dominican Republic, Panama, and Colombia</p>
                             </div>
                         </div>
                         
                         <div class="col-md-4 mb-4">
-                            <div class="feature-box">
+                            <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-envelope"></i>
+                                    <i class="fas fa-money-bill-wave"></i>
                                 </div>
-                                <h5>Email</h5>
-                                <p>reservations@ranchopacifico.com</p>
-                                <p>Response within 24 hours</p>
+                                <h5>Revenue Share</h5>
+                                <p>Annual income from 5 revenue streams including glamping, rentals, and agroforestry</p>
                             </div>
                         </div>
                         
                         <div class="col-md-4 mb-4">
-                            <div class="feature-box">
+                            <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
+                                    <i class="fas fa-home"></i>
                                 </div>
-                                <h5>Location</h5>
-                                <p>Uvita, Costa Rica</p>
-                                <p>Pacific Coast, Puntarenas</p>
+                                <h5>Deeded Ownership</h5>
+                                <p>Legal deeded fractional ownership of EcoHome and resort share</p>
                             </div>
                         </div>
                     </div>
                     
-                    <button class="btn book-btn mt-4" style="padding: 15px 50px;">
-                        <i class="fas fa-calendar-alt"></i> Book Your Stay Now
-                    </button>
+                    <div class="mt-5">
+                        <button class="btn book-btn me-3" style="padding: 15px 40px;">
+                            <i class="fas fa-calendar-alt"></i> Schedule Consultation
+                        </button>
+                        <button class="btn btn-outline-primary" style="padding: 15px 40px;">
+                            <i class="fas fa-download"></i> Download All Brochures
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -889,36 +1080,99 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5">
-                    <div class="footer-logo">Rancho<span>Pacifico</span></div>
-                    <p class="mb-4" style="opacity: 0.8;">Luxury eco-resort committed to sustainability, conservation, and unforgettable guest experiences in Costa Rica's pristine rainforest.</p>
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i> Sun<span>Drop</span> Eco-Resorts
+                    </div>
+                    <p class="mb-4" style="opacity: 0.8;">Luxury sustainable living communities across the Americas. Combining environmental stewardship with premium amenities and investment opportunities.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="col-lg-2 col-md-6 mb-5">
                     <div class="footer-links">
-                        <h5>Resort</h5>
-                        <a href="#about">About Us</a>
-                        <a href="#accommodations">Accommodations</a>
-                        <a href="#experiences">Experiences</a>
-                        <a href="#sustainability">Sustainability</a>
-                        <a href="#contact">Contact</a>
+                        <h5>Resorts</h5>
+                        <a href="#resorts">Dominican Republic</a>
+                        <a href="#resorts">Panama</a>
+                        <a href="#resorts">USA - Utah</a>
+                        <a href="#resorts">Colombia</a>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="footer-links">
-                        <h5>Information</h5>
-                        <a href="#">Booking Policy</a>
-                        <a href="#">Sustainability Report</a>
-                        <a href="#">Press & Media</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Privacy Policy</a>
+                        <h5>Investment</h5>
+                        <a href="#investment">Revenue Streams</a>
+                        <a href="#investment">Ownership Structure</a>
+                        <a href="#investment">Citizenship Programs</a>
+                        <a href="#investment">Project Costs</a>
                     </div>
                 </div>
                 
-                <div class
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-links">
+                        <h5>Contact</h5>
+                        <a href="mailto:invest@sundropresorts.com">invest@sundropresorts.com</a>
+                        <a href="tel:+18005551234">+1 (800) 555-1234</a>
+                        <a href="#">Global Offices</a>
+                        <a href="#contact">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 SunDrop Eco-Resorts. All rights reserved. | This is a conceptual presentation for investment purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Investment button action
+        document.getElementById('investBtn').addEventListener('click', function() {
+            window.scrollTo({
+                top: document.getElementById('investment').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Auto year update
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearSpan = document.querySelector('.copyright p');
+            const currentYear = new Date().getFullYear();
+            yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', currentYear);
+        });
+    </script>
+</body>
+</html>
