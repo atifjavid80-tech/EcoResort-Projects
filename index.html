@@ -37,11 +37,11 @@
             font-weight: 400;
         }
         
-        /* Navigation - Rancho Pacifico Style */
+        /* Navigation - Updated with Logo */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 20px 0;
+            padding: 15px 0;
             transition: all 0.4s ease;
             position: fixed;
             width: 100%;
@@ -51,17 +51,24 @@
         }
         
         .navbar.scrolled {
-            padding: 12px 0;
+            padding: 8px 0;
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
         
         .navbar-brand {
+            display: flex;
+            align-items: center;
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 600;
             color: var(--primary-green) !important;
             letter-spacing: 0.5px;
+        }
+        
+        .logo-img {
+            height: 45px;
+            margin-right: 12px;
         }
         
         .navbar-brand span {
@@ -311,7 +318,10 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             margin-top: 15px;
         }
         
@@ -476,14 +486,24 @@
             padding: 80px 0 30px;
         }
         
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: white;
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
         }
         
-        .footer-logo span {
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 12px;
+        }
+        
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .footer-logo-text span {
             color: var(--gold);
         }
         
@@ -623,6 +643,10 @@
             .video-container {
                 margin: 0 15px;
             }
+            
+            .logo-img {
+                height: 35px;
+            }
         }
         
         /* Animation */
@@ -660,10 +684,12 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation with Logo -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg" 
+                     alt="SunDrop Eco-Resorts Logo" class="logo-img">
                 Sun<span>Drop</span> Eco-Resorts
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -780,8 +806,8 @@
                             </div>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" class="resort-btn" download>
-    <i class="fas fa-download"></i> Download Brochure
-</a>
+                                <i class="fas fa-download"></i> Download Brochure
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -805,8 +831,7 @@
                             </div>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" class="resort-btn" download>
-    <i class="fas fa-download"></i> Download Brochure
-</a>
+                                <i class="fas fa-download"></i> Download Brochure
                             </a>
                         </div>
                     </div>
@@ -831,8 +856,8 @@
                             </div>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
-    <i class="fas fa-download"></i> Download Brochure
-</a>
+                                <i class="fas fa-download"></i> Download Brochure
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -856,8 +881,8 @@
                             </div>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" class="resort-btn" download>
-    <i class="fas fa-download"></i> Download Brochure
-</a>
+                                <i class="fas fa-download"></i> Download Brochure
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1077,7 +1102,7 @@
                 </div>
             </div>
             
-            <!-- Download Section with NEW PDF Card -->
+            <!-- Download Section with NEW PDF Card and Download Icons -->
 <div class="row mt-5">
     <div class="col-md-3 col-6 mb-4">
         <div class="download-card">
@@ -1086,7 +1111,9 @@
             </div>
             <h5>Dominican Republic</h5>
             <p>Complete project details and investment prospectus</p>
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" class="resort-btn" download>Download PDF</a>
+            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" class="resort-btn" download>
+                <i class="fas fa-download"></i> Download PDF
+            </a>
         </div>
     </div>
     
@@ -1097,7 +1124,9 @@
             </div>
             <h5>Panama</h5>
             <p>Complete project details and investment prospectus</p>
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" class="resort-btn" download>Download PDF</a>
+            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" class="resort-btn" download>
+                <i class="fas fa-download"></i> Download PDF
+            </a>
         </div>
     </div>
     
@@ -1108,7 +1137,9 @@
             </div>
             <h5>USA - Utah</h5>
             <p>Complete project details and investment prospectus</p>
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>Download PDF</a>
+            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
+                <i class="fas fa-download"></i> Download PDF
+            </a>
         </div>
     </div>
     
@@ -1119,7 +1150,9 @@
             </div>
             <h5>Colombia</h5>
             <p>Complete project details and investment prospectus</p>
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" class="resort-btn" download>Download PDF</a>
+            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" class="resort-btn" download>
+                <i class="fas fa-download"></i> Download PDF
+            </a>
         </div>
     </div>
     
@@ -1219,12 +1252,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer with Logo -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5">
-                    <div class="footer-logo">Sun<span>Drop</span> Eco-Resorts</div>
+                    <div class="footer-logo-container">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg" 
+                             alt="SunDrop Eco-Resorts Logo" class="footer-logo-img">
+                        <div class="footer-logo-text">Sun<span>Drop</span> Eco-Resorts</div>
+                    </div>
                     <p class="footer-text">Premium sustainable living communities across the Americas. Combining environmental stewardship with luxury amenities and exclusive investment opportunities.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
