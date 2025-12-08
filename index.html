@@ -117,12 +117,32 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
+            white-space: nowrap;
         }
         
         .nav-btn:hover {
             background: linear-gradient(135deg, #b8941f, var(--gold));
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
+        }
+        
+        /* FIX FOR NAVBAR BUTTON ON MOBILE */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                padding-bottom: 15px;
+            }
+            
+            .nav-item.ms-3 {
+                margin-left: 0 !important;
+                margin-top: 15px;
+                text-align: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
         }
         
         /* Hero Section - Full Screen with Video */
@@ -323,6 +343,7 @@
             justify-content: center;
             gap: 8px;
             margin-top: 15px;
+            text-decoration: none;
         }
         
         .resort-btn:hover {
@@ -477,6 +498,123 @@
         
         .gallery-item:hover .gallery-img {
             transform: scale(1.1);
+        }
+        
+        /* NEW: Resort Plans Section Styles */
+        .plans-section {
+            background: #f9f7f2;
+            padding: 100px 0;
+        }
+        
+        .plan-download-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        
+        .plan-download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .plan-image-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .plan-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .plan-download-card:hover .plan-image {
+            transform: scale(1.05);
+        }
+        
+        .plan-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 71, 42, 0.7), rgba(26, 71, 42, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .plan-download-card:hover .plan-overlay {
+            opacity: 1;
+        }
+        
+        .plan-content {
+            padding: 30px;
+        }
+        
+        .plan-title {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .plan-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .plan-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .plan-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .plan-download-btn {
+            background: linear-gradient(135deg, var(--gold), #d4b483);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .plan-download-btn:hover {
+            background: linear-gradient(135deg, #b8941f, var(--gold));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
+            color: white;
         }
         
         /* Footer */
@@ -647,6 +785,10 @@
             .logo-img {
                 height: 35px;
             }
+            
+            .plan-image-container {
+                height: 200px;
+            }
         }
         
         /* Animation */
@@ -714,6 +856,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#plans">Resort Plans</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -964,7 +1109,7 @@
         </div>
     </section>
 
-    <!-- Video Section (NEWLY ADDED) -->
+    <!-- Video Section -->
     <section class="section-padding video-section" id="video">
         <div class="container">
             <h2 class="section-title">Experience Sustainable Luxury</h2>
@@ -1102,7 +1247,7 @@
                 </div>
             </div>
             
-            <!-- Download Section with NEW PDF Card and Download Icons -->
+            <!-- Download Section -->
 <div class="row mt-5">
     <div class="col-md-3 col-6 mb-4">
         <div class="download-card">
@@ -1156,7 +1301,7 @@
         </div>
     </div>
     
-    <!-- NEW PDF Card Added Here -->
+    <!-- Global Warming PDF Card -->
     <div class="col-md-3 col-6 mb-4">
         <div class="download-card">
             <div class="download-icon">
@@ -1194,6 +1339,85 @@
                 <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" 
      alt="Sunset" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Resort Plans Section -->
+    <section class="section-padding plans-section" id="plans">
+        <div class="container">
+            <h2 class="section-title">Resort Layout & Planning</h2>
+            <p class="section-subtitle">Download detailed architectural plans and land layouts for our sustainable eco-resort communities.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="plan-download-card">
+                        <div class="plan-image-container">
+                            <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
+                                 alt="SunDrop EcoResort Land Plan" class="plan-image">
+                            <div class="plan-overlay">
+                                <span class="plan-download-btn">
+                                    <i class="fas fa-download"></i> Download High-Resolution Plan
+                                </span>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <h3 class="plan-title">Typical SunDrop EcoResort Land Plan</h3>
+                            <p class="plan-description">
+                                Detailed architectural layout showcasing the sustainable design and planning of our premium eco-resort communities. 
+                                This plan illustrates optimal land use, eco-home placement, amenity distribution, and environmental conservation zones.
+                            </p>
+                            
+                            <ul class="plan-features">
+                                <li>Complete land use and zoning layout</li>
+                                <li>Eco-home placement and density planning</li>
+                                <li>Amenity and facility distribution</li>
+                                <li>Environmental conservation zones</li>
+                                <li>Sustainable infrastructure planning</li>
+                                <li>Community space allocation</li>
+                            </ul>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
+                               class="plan-download-btn" download="SunDrop-EcoResort-Land-Plan.jpg">
+                                <i class="fas fa-download"></i> Download Land Plan (JPG)
+                            </a>
+                            
+                            <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
+                                <i class="fas fa-info-circle"></i> High-resolution image suitable for printing and detailed viewing
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h5>Architectural Design</h5>
+                        <p>Thoughtfully planned layouts for optimal living experience</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Sustainable Planning</h5>
+                        <p>Environmentally conscious land use and conservation</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>Community Focused</h5>
+                        <p>Designs that foster community interaction and wellness</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1252,7 +1476,7 @@
         </div>
     </section>
 
-    <!-- Footer with Logo -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -1368,7 +1592,7 @@
             }, observerOptions);
             
             // Observe elements for animation
-            document.querySelectorAll('.resort-card, .luxury-item, .investment-card').forEach(el => {
+            document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card').forEach(el => {
                 observer.observe(el);
             });
         });
