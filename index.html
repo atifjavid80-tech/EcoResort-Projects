@@ -2458,7 +2458,10 @@
             const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
             const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
             
-            // Create invisible download links
+            // Show notification
+            showNotification('Downloading 2 land plans... please wait');
+            
+            // Create download links
             const link1 = document.createElement('a');
             link1.href = image1;
             link1.download = 'Land-Plan-Exclusive-01.jpeg';
@@ -2471,20 +2474,20 @@
             link2.style.display = 'none';
             document.body.appendChild(link2);
             
-            // Trigger downloads with delay
+            // Download first image
             link1.click();
+            
+            // Download second image after 1 second delay
             setTimeout(() => {
                 link2.click();
                 
-                // Clean up
+                // Clean up after both downloads
                 setTimeout(() => {
                     document.body.removeChild(link1);
                     document.body.removeChild(link2);
                 }, 100);
-            }, 500);
+            }, 1000); // 1 second delay
             
-            // Show notification
-            showNotification('Downloading Land Plans...');
             return false;
         }
         
