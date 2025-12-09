@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- JSZip Library for ZIP file creation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         :root {
             --primary-green: #1a472a;
@@ -1329,9 +1331,9 @@
                             
                             <!-- NEW: Land Plans Exclusive Button -->
                             <a href="#" class="resort-btn mt-2" onclick="downloadLandPlans()">
-                                <i class="fas fa-map"></i> 
-                                <span class="en-text">Land Plans Exclusive</span>
-                                <span class="es-text">Planos de Terreno Exclusivos</span>
+                                <i class="fas fa-file-archive"></i> 
+                                <span class="en-text">Land Plans (ZIP)</span>
+                                <span class="es-text">Planos (ZIP)</span>
                             </a>
                         </div>
                     </div>
@@ -2452,42 +2454,58 @@
             });
         }
         
-        // NEW: Download Land Plans Function for USA Utah
+        // NEW: Download Land Plans Function for USA Utah as ZIP
         function downloadLandPlans() {
             // Land plans images URLs
             const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
             const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
             
             // Show notification
-            showNotification('Downloading 2 land plans... please wait');
+            showNotification('Creating ZIP file with land plans...');
             
-            // Create download links
-            const link1 = document.createElement('a');
-            link1.href = image1;
-            link1.download = 'Land-Plan-Exclusive-01.jpeg';
-            link1.style.display = 'none';
-            document.body.appendChild(link1);
+            // Create ZIP file
+            const createZip = async () => {
+                try {
+                    const zip = new JSZip();
+                    
+                    // Fetch first image
+                    const response1 = await fetch(image1);
+                    const blob1 = await response1.blob();
+                    zip.file("Land-Plan-Exclusive-01.jpeg", blob1);
+                    
+                    // Fetch second image
+                    const response2 = await fetch(image2);
+                    const blob2 = await response2.blob();
+                    zip.file("Land-Plan-Exclusive-02.jpg", blob2);
+                    
+                    // Generate ZIP
+                    const content = await zip.generateAsync({type: "blob"});
+                    
+                    // Download ZIP
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(content);
+                    link.download = 'SunDrop-Land-Plans-Exclusive.zip';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                    
+                    showNotification('ZIP file downloaded successfully!');
+                    
+                } catch (error) {
+                    console.error('Error creating ZIP:', error);
+                    showNotification('Error creating ZIP, opening images directly...');
+                    
+                    // Fallback: Open images in new tabs
+                    window.open(image1, '_blank');
+                    setTimeout(() => {
+                        window.open(image2, '_blank');
+                    }, 500);
+                }
+            };
             
-            const link2 = document.createElement('a');
-            link2.href = image2;
-            link2.download = 'Land-Plan-Exclusive-02.jpg';
-            link2.style.display = 'none';
-            document.body.appendChild(link2);
-            
-            // Download first image
-            link1.click();
-            
-            // Download second image after 1 second delay
-            setTimeout(() => {
-                link2.click();
-                
-                // Clean up after both downloads
-                setTimeout(() => {
-                    document.body.removeChild(link1);
-                    document.body.removeChild(link2);
-                }, 100);
-            }, 1000); // 1 second delay
-            
+            createZip();
             return false;
         }
         
