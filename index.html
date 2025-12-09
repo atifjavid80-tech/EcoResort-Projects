@@ -1293,7 +1293,7 @@
                     </div>
                 </div>
                 
-                <!-- USA -->
+                <!-- USA - UPDATED WITH LAND PLANS BUTTON -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="resort-card">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg" 
@@ -1320,10 +1320,18 @@
                                 </span>
                             </div>
                             
+                            <!-- Existing Download Brochure Button -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
                                 <i class="fas fa-download"></i> 
                                 <span class="en-text">Download Brochure</span>
                                 <span class="es-text">Descargar Folleto</span>
+                            </a>
+                            
+                            <!-- NEW: Land Plans Exclusive Button -->
+                            <a href="#" class="resort-btn mt-2" onclick="downloadLandPlans()">
+                                <i class="fas fa-map"></i> 
+                                <span class="en-text">Land Plans Exclusive</span>
+                                <span class="es-text">Planos de Terreno Exclusivos</span>
                             </a>
                         </div>
                     </div>
@@ -2442,6 +2450,42 @@
                 top: targetPosition,
                 behavior: 'smooth'
             });
+        }
+        
+        // NEW: Download Land Plans Function for USA Utah
+        function downloadLandPlans() {
+            // Land plans images URLs
+            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
+            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
+            
+            // Create invisible download links
+            const link1 = document.createElement('a');
+            link1.href = image1;
+            link1.download = 'Land-Plan-Exclusive-01.jpeg';
+            link1.style.display = 'none';
+            document.body.appendChild(link1);
+            
+            const link2 = document.createElement('a');
+            link2.href = image2;
+            link2.download = 'Land-Plan-Exclusive-02.jpg';
+            link2.style.display = 'none';
+            document.body.appendChild(link2);
+            
+            // Trigger downloads with delay
+            link1.click();
+            setTimeout(() => {
+                link2.click();
+                
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(link1);
+                    document.body.removeChild(link2);
+                }, 100);
+            }, 500);
+            
+            // Show notification
+            showNotification('Downloading Land Plans...');
+            return false;
         }
         
         // Auto year update
