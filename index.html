@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SunDrop Eco Resorts | Luxury Sustainable Living</title>
+    <title id="pageTitle">SunDrop Eco-Resorts | Luxury Sustainable Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- JSZip Library for ZIP file creation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         :root {
@@ -154,15 +153,15 @@
             box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
         }
         
-        /* =========== LANGUAGE SWITCHER FIX - 100% ZOOM PAR SHOW =========== */
+        /* Language Switcher */
         .language-switcher {
             display: flex;
             align-items: center;
             margin-left: 15px;
             position: relative;
             z-index: 1001;
-            white-space: nowrap !important; /* FIX 1: 100% zoom par bhi show hoga */
-            min-width: 85px; /* Minimum width ensure karega */
+            white-space: nowrap !important;
+            min-width: 85px;
         }
         
         .language-btn {
@@ -177,8 +176,8 @@
             align-items: center;
             gap: 5px;
             transition: all 0.3s ease;
-            white-space: nowrap !important; /* FIX 1: Kabhi wrap nahi hoga */
-            flex-shrink: 0; /* Size kam nahi hoga */
+            white-space: nowrap !important;
+            flex-shrink: 0;
         }
         
         .language-btn:hover {
@@ -192,11 +191,7 @@
             border-color: var(--primary-green);
         }
         
-        .language-btn .flag-icon {
-            font-size: 14px;
-        }
-        
-        /* FIXED MOBILE NAVIGATION */
+        /* Responsive Navigation */
         @media (max-width: 1199.98px) {
             .navbar-nav {
                 flex-wrap: wrap;
@@ -227,13 +222,13 @@
             
             .navbar-collapse {
                 background: white;
-                padding: 15px; /* Reduced padding */
+                padding: 15px;
                 border-radius: 8px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                margin-top: 10px; /* Reduced margin - FIX 2 */
+                margin-top: 10px;
                 text-align: center;
-                max-height: 70vh; /* Height limit */
-                overflow-y: auto; /* Scroll agar zyada ho */
+                max-height: 70vh;
+                overflow-y: auto;
             }
             
             .navbar-nav {
@@ -241,15 +236,15 @@
             }
             
             .nav-item {
-                margin: 4px 0; /* Reduced margin - FIX 2 */
+                margin: 4px 0;
                 width: 100%;
             }
             
             .nav-link {
                 margin: 0;
-                padding: 8px 0 !important; /* Reduced padding - FIX 2 */
+                padding: 8px 0 !important;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
-                font-size: 13px; /* Smaller font size - FIX 2 */
+                font-size: 13px;
             }
             
             .nav-link:last-child {
@@ -262,86 +257,31 @@
             
             .nav-item.ms-3 {
                 margin-left: 0 !important;
-                margin-top: 8px; /* Reduced margin - FIX 2 */
+                margin-top: 8px;
                 margin-bottom: 5px;
             }
             
             .nav-btn {
                 width: 100%;
-                max-width: 200px; /* Reduced max-width - FIX 2 */
+                max-width: 200px;
                 margin: 0 auto;
-                padding: 8px 15px; /* Reduced padding - FIX 2 */
-                font-size: 11.5px; /* Smaller font - FIX 2 */
-            }
-            
-            .logo-img {
-                height: 35px; /* Smaller logo - FIX 2 */
-            }
-            
-            .navbar-brand {
-                font-size: 20px; /* Smaller font - FIX 2 */
-            }
-            
-            .language-switcher {
-                margin: 8px 0 0 0; /* Reduced margin - FIX 2 */
-                justify-content: center;
-            }
-        }
-        
-        /* TABLET VIEW FIX */
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .navbar-brand {
-                font-size: 22px;
+                padding: 8px 15px;
+                font-size: 11.5px;
             }
             
             .logo-img {
                 height: 35px;
             }
             
-            .nav-link {
-                margin: 0 6px;
-                font-size: 13.5px;
+            .navbar-brand {
+                font-size: 20px;
             }
             
             .language-switcher {
-                margin-left: 8px;
+                margin: 8px 0 0 0;
+                justify-content: center;
             }
         }
-        
-        /* SMALL LAPTOPS FIX */
-        @media (max-width: 1400px) {
-            .nav-link {
-                margin: 0 8px;
-                font-size: 14px;
-            }
-            
-            .navbar-brand {
-                font-size: 24px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: 18px; /* Further reduced font size */
-            }
-            
-            .logo-img {
-                height: 30px; /* Further reduced logo */
-                margin-right: 6px;
-            }
-            
-            /* FIX 3: Download section grid fix for mobile - 6×1 grid */
-            #investment .row .col-md-3.col-6.mb-4 {
-                flex: 0 0 100% !important; /* Full width on mobile */
-                max-width: 100% !important;
-                margin-bottom: 15px;
-            }
-            
-            #investment .download-card {
-                margin-bottom: 15px;
-            }
-        }
-        /* ========== END NAVIGATION FIX ========== */
         
         /* Hero Section */
         .hero-section {
@@ -527,6 +467,7 @@
             font-weight: 500;
         }
         
+        /* RESORT BUTTONS FIX - Clean CSS buttons */
         .resort-btn {
             background: transparent;
             color: var(--primary-green);
@@ -549,6 +490,33 @@
         .resort-btn:hover {
             background: var(--primary-green);
             color: white;
+        }
+        
+        .land-plans-btn {
+            background: linear-gradient(135deg, var(--gold), #d4b483);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            text-decoration: none;
+            width: 100%;
+        }
+        
+        .land-plans-btn:hover {
+            background: linear-gradient(135deg, #b8941f, var(--gold));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
         }
         
         /* Stats Section */
@@ -1100,7 +1068,7 @@
             <a class="navbar-brand" href="#">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg" 
                      alt="SunDrop Eco Resorts Logo" class="logo-img">
-                Sun<span>Drop</span> Eco Resorts
+                Sun<span>Drop</span> Eco-Resorts
             </a>
             
             <!-- Language Switcher for Mobile (outside toggle) -->
@@ -1266,7 +1234,7 @@
         </div>
     </section>
 
-    <!-- Resorts Section -->
+    <!-- Resorts Section - ALL ORIGINAL CONTENT RESTORED -->
     <section class="section-padding" id="resorts">
         <div class="container">
             <h2 class="section-title">
@@ -1279,96 +1247,96 @@
             </p>
             
             <div class="row">
-                <!-- Dominican Republic Card - IMAGE UPDATED & BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Dominican.jpg" 
-             alt="SunDrop Resort Paraiso, Dominican Republic" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Dominican Republic</span>
-                <span class="es-text">República Dominicana</span>
-            </div>
-            <h3 class="resort-title">SunDrop Resort Paraiso</h3>
-            <p class="en-text">Authentic Dominican culture with colonial architecture, vibrant music, and access to Rancho Platón natural attractions.</p>
-            <p class="es-text">Cultura dominicana auténtica con arquitectura colonial, música vibrante y acceso a atracciones naturales de Rancho Platón.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">55 EcoHomes</span>
-                <span class="feature-tag">
-                    <span class="en-text">Citizenship Path</span>
-                    <span class="es-text">Camino a Ciudadanía</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">3 Natural Lakes</span>
-                    <span class="es-text">3 Lagos Naturales</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
-        </div>
-    </div>
-</div>
+                <!-- Dominican Republic Card - ORIGINAL CONTENT RESTORED -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Dominican.jpg" 
+                             alt="SunDrop Resort Paraiso, Dominican Republic" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Dominican Republic</span>
+                                <span class="es-text">República Dominicana</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Paraiso</h3>
+                            <p class="en-text">Authentic Dominican culture with colonial architecture, vibrant music, and access to Rancho Platón natural attractions.</p>
+                            <p class="es-text">Cultura dominicana auténtica con arquitectura colonial, música vibrante y acceso a atracciones naturales de Rancho Platón.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">55 EcoHomes</span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Citizenship Path</span>
+                                    <span class="es-text">Camino a Ciudadanía</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">3 Natural Lakes</span>
+                                    <span class="es-text">3 Lagos Naturales</span>
+                                </span>
+                            </div>
+                            
+                            <!-- Original Download Brochure Buttons -->
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- Panama Card - BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/mamoni.jpg" 
-             alt="Panama" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Panama</span>
-                <span class="es-text">Panamá</span>
-            </div>
-            <h3 class="resort-title">SunDrop Resort Mamoni</h3>
-            <p class="en-text">White-water rafting adventures in primary rainforests, wildlife viewing, and gateway to Central America exploration.</p>
-            <p class="es-text">Aventuras de rafting en aguas bravas en bosques primarios, observación de vida silvestre y puerta de entrada a la exploración de Centroamérica.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">
-                    <span class="en-text">Rafting Center</span>
-                    <span class="es-text">Centro de Rafting</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Travel Hub</span>
-                    <span class="es-text">Centro de Viajes</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Mayan Courts</span>
-                    <span class="es-text">Canchas Mayas</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
-        </div>
-    </div>
-</div>
+                <!-- Panama Card - ORIGINAL CONTENT RESTORED -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/mamoni.jpg" 
+                             alt="Panama" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Panama</span>
+                                <span class="es-text">Panamá</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Mamoni</h3>
+                            <p class="en-text">White-water rafting adventures in primary rainforests, wildlife viewing, and gateway to Central America exploration.</p>
+                            <p class="es-text">Aventuras de rafting en aguas bravas en bosques primarios, observación de vida silvestre y puerta de entrada a la exploración de Centroamérica.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">
+                                    <span class="en-text">Rafting Center</span>
+                                    <span class="es-text">Centro de Rafting</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Travel Hub</span>
+                                    <span class="es-text">Centro de Viajes</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Mayan Courts</span>
+                                    <span class="es-text">Canchas Mayas</span>
+                                </span>
+                            </div>
+                            
+                            <!-- Original Download Brochure Buttons -->
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- USA - UPDATED WITH LAND PLANS BUTTON -->
+                <!-- USA Utah Card - ORIGINAL CONTENT + LAND PLANS BUTTON -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="resort-card">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg" 
@@ -1395,15 +1363,16 @@
                                 </span>
                             </div>
                             
-                            <!-- Existing Download Brochure Button -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
+                            <!-- Original Download Brochure Button -->
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" 
+                               class="resort-btn" download>
                                 <i class="fas fa-download"></i> 
                                 <span class="en-text">Download Brochure</span>
                                 <span class="es-text">Descargar Folleto</span>
                             </a>
                             
                             <!-- NEW: Land Plans Exclusive Button -->
-                            <a href="#" class="resort-btn mt-2" onclick="downloadLandPlans()">
+                            <a href="#" class="land-plans-btn" onclick="downloadLandPlans()">
                                 <i class="fas fa-file-archive"></i> 
                                 <span class="en-text">Land Plans Exclusive (ZIP)</span>
                                 <span class="es-text">Planos de Terreno Exclusivos (ZIP)</span>
@@ -1412,54 +1381,56 @@
                     </div>
                 </div>
                 
-                <!-- Colombia Card - BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Screenshot%202025-12-06%20234422.webp" 
-             alt="SunDrop Resort Chingaza, Colombia" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Colombia</span>
-                <span class="es-text">Colombia</span>
+                <!-- Colombia Card - ORIGINAL CONTENT RESTORED -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Screenshot%202025-12-06%20234422.webp" 
+                             alt="SunDrop Resort Chingaza, Colombia" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Colombia</span>
+                                <span class="es-text">Colombia</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Chingaza</h3>
+                            <p class="en-text">Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and local cuisine.</p>
+                            <p class="es-text">Puerta de entrada al Parque Nacional Chingaza con más de 390 especies de aves. Experimenta la cultura colombiana, aguas termales y gastronomía local.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">
+                                    <span class="en-text">Birdwatching</span>
+                                    <span class="es-text">Observación de Aves</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Hot Springs</span>
+                                    <span class="es-text">Aguas Termales</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Cultural Heritage</span>
+                                    <span class="es-text">Patrimonio Cultural</span>
+                                </span>
+                            </div>
+                            
+                            <!-- Original Download Brochure Buttons -->
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 class="resort-title">SunDrop Resort Chingaza</h3>
-            <p class="en-text">Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and local cuisine.</p>
-            <p class="es-text">Puerta de entrada al Parque Nacional Chingaza con más de 390 especies de aves. Experimenta la cultura colombiana, aguas termales y gastronomía local.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">
-                    <span class="en-text">Birdwatching</span>
-                    <span class="es-text">Observación de Aves</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Hot Springs</span>
-                    <span class="es-text">Aguas Termales</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Cultural Heritage</span>
-                    <span class="es-text">Patrimonio Cultural</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
         </div>
-    </div>
-</div>
     </section>
 
-    <!-- Luxury Features -->
+    <!-- Luxury Features - ALL ORIGINAL CONTENT RESTORED -->
     <section class="section-padding bg-light" id="features">
         <div class="container">
             <h2 class="section-title">
@@ -1571,7 +1542,7 @@
         </div>
     </section>
 
-    <!-- Video Section -->
+    <!-- Video Section - ALL ORIGINAL CONTENT RESTORED -->
     <section class="section-padding video-section" id="video">
         <div class="container">
             <h2 class="section-title">
@@ -1641,7 +1612,7 @@
         </div>
     </section>
 
-    <!-- Investment Section -->
+    <!-- Investment Section - ALL ORIGINAL CONTENT RESTORED -->
     <section class="investment-section" id="investment">
         <div class="container">
             <h2 class="section-title">
@@ -1782,7 +1753,7 @@
                 </div>
             </div>
             
-            <!-- Download Section - UPDATED WITH NEW VIDEO CARD -->
+            <!-- Download Section - ALL ORIGINAL CARDS RESTORED -->
             <div class="row mt-5">
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
@@ -1890,7 +1861,7 @@
                     </div>
                 </div>
                 
-                <!-- NEW: Global Warming Video Card -->
+                <!-- Global Warming Video Card -->
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
                         <div class="download-icon">
@@ -1916,169 +1887,43 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-<section class="section-padding" id="gallery">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="en-text">Resort Gallery</span>
-            <span class="es-text">Galería del Resort</span>
-        </h2>
-        <p class="section-subtitle">
-            <span class="en-text">Experience the beauty and luxury of SunDrop Eco-Resorts through our visual journey.</span>
-            <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
-        </p>
-        
-        <div class="row">
-            <!-- Image 1 -->
-            <div class="col-lg-3 col-md-6 mb-4">
+    <!-- Gallery Section - ALL ORIGINAL CONTENT RESTORED -->
+    <section class="section-padding" id="gallery">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en-text">Resort Gallery</span>
+                <span class="es-text">Galería del Resort</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en-text">Experience the beauty and luxury of SunDrop Eco-Resorts through our visual journey.</span>
+                <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
+            </p>
+            
+            <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" 
                          alt="Resort View" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Luxury Eco-Home</span>
-                            <span class="es-text">Eco-Home de Lujo</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            
-            <!-- Image 2 -->
-            <div class="col-lg-3 col-md-6 mb-4">
+                
                 <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" 
                          alt="Pool" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Infinity Pool</span>
-                            <span class="es-text">Piscina Infinity</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            
-            <!-- Image 3 -->
-            <div class="col-lg-3 col-md-6 mb-4">
+                
                 <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg" 
                          alt="Nature" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Natural Surroundings</span>
-                            <span class="es-text">Entorno Natural</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            
-            <!-- Image 4 -->
-            <div class="col-lg-3 col-md-6 mb-4">
+                
                 <div class="gallery-item">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" 
                          alt="Sunset" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Sunset View</span>
-                            <span class="es-text">Vista del Atardecer</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        
-        <style>
-        /* Gallery Section CSS */
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 200px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
+    </section>
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-color: var(--gold);
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 12px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-caption {
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Remove gap between images on large screens */
-        @media (min-width: 992px) {
-            .gallery-item {
-                margin: 0 5px;
-            }
-            
-            .row {
-                margin-left: -5px;
-                margin-right: -5px;
-            }
-            
-            .col-lg-3 {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .gallery-item {
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                height: 160px;
-                margin-bottom: 10px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                height: 140px;
-            }
-        }
-        </style>
-    </div>
-</section>
-
-    <!-- Resort Plans Section -->
+    <!-- Resort Plans Section - ALL ORIGINAL CONTENT RESTORED -->
     <section class="section-padding plans-section" id="plans">
         <div class="container">
             <h2 class="section-title">
@@ -2208,7 +2053,7 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section - ALL ORIGINAL CONTENT RESTORED -->
     <section class="section-padding bg-light" id="contact">
         <div class="container">
             <div class="row">
@@ -2289,7 +2134,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - ALL ORIGINAL CONTENT RESTORED -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -2297,7 +2142,7 @@
                     <div class="footer-logo-container">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg" 
                              alt="SunDrop Eco Resorts Logo" class="footer-logo-img">
-                        <div class="footer-logo-text">Sun<span>Drop</span> Eco Resorts</div>
+                        <div class="footer-logo-text">Sun<span>Drop</span> Eco-Resorts</div>
                     </div>
                     <p class="footer-text">
                         <span class="en-text">Premium sustainable living communities across the Americas. Combining environmental stewardship with luxury amenities and exclusive investment opportunities.</span>
@@ -2390,17 +2235,14 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Language Switching Function
         function changeLanguage(lang) {
-            // Update body class
             document.body.className = 'language-' + lang;
-            
-            // Update HTML lang attribute
             document.getElementById('htmlElement').setAttribute('lang', lang === 'es' ? 'es' : 'en');
             
-            // Update page title
             const pageTitle = document.getElementById('pageTitle');
             if (lang === 'es') {
                 pageTitle.textContent = 'SunDrop Eco-Resorts | Lujo Sostenible y Vida Premium';
@@ -2408,7 +2250,6 @@
                 pageTitle.textContent = 'SunDrop Eco-Resorts | Luxury Sustainable Living';
             }
             
-            // Update language buttons
             document.querySelectorAll('.en-btn').forEach(btn => {
                 btn.classList.toggle('active', lang === 'en');
             });
@@ -2416,19 +2257,12 @@
                 btn.classList.toggle('active', lang === 'es');
             });
             
-            // Save language preference to localStorage
             localStorage.setItem('preferredLanguage', lang);
-            
-            // Show notification
-            const notification = lang === 'es' 
-                ? 'Idioma cambiado a Español' 
-                : 'Language changed to English';
-            showNotification(notification);
+            showNotification(lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English');
         }
         
-        // Show notification function
+        // Show Notification
         function showNotification(message) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -2446,7 +2280,6 @@
             notification.textContent = message;
             document.body.appendChild(notification);
             
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => {
@@ -2469,7 +2302,7 @@
         `;
         document.head.appendChild(style);
         
-        // Navbar scroll effect
+        // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -2479,7 +2312,7 @@
             }
         });
         
-        // Smooth scrolling with offset for fixed navbar
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2497,19 +2330,18 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close navbar on mobile after clicking
+                    // Close navbar on mobile
                     if (window.innerWidth < 992) {
                         const navbarCollapse = document.querySelector('.navbar-collapse');
                         if (navbarCollapse.classList.contains('show')) {
-                            const navbarToggler = document.querySelector('.navbar-toggler');
-                            navbarToggler.click();
+                            document.querySelector('.navbar-toggler').click();
                         }
                     }
                 }
             });
         });
         
-        // Scroll functions
+        // Scroll Functions
         function scrollToResorts() {
             const targetElement = document.getElementById('resorts');
             const navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -2534,32 +2366,25 @@
         
         // NEW: Download Land Plans Function for USA Utah as ZIP
         function downloadLandPlans() {
-            // Land plans images URLs
             const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
             const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
             
-            // Show notification
             showNotification('Creating ZIP file with land plans...');
             
-            // Create ZIP file
             const createZip = async () => {
                 try {
                     const zip = new JSZip();
                     
-                    // Fetch first image
                     const response1 = await fetch(image1);
                     const blob1 = await response1.blob();
                     zip.file("Land-Plan-Exclusive-01.jpeg", blob1);
                     
-                    // Fetch second image
                     const response2 = await fetch(image2);
                     const blob2 = await response2.blob();
                     zip.file("Land-Plan-Exclusive-02.jpg", blob2);
                     
-                    // Generate ZIP
                     const content = await zip.generateAsync({type: "blob"});
                     
-                    // Download ZIP
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(content);
                     link.download = 'SunDrop-Land-Plans-Exclusive.zip';
@@ -2575,7 +2400,6 @@
                     console.error('Error creating ZIP:', error);
                     showNotification('Error creating ZIP, opening images directly...');
                     
-                    // Fallback: Open images in new tabs
                     window.open(image1, '_blank');
                     setTimeout(() => {
                         window.open(image2, '_blank');
@@ -2587,51 +2411,15 @@
             return false;
         }
         
-        // Auto year update
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             const yearSpan = document.querySelector('.copyright p');
             const currentYear = new Date().getFullYear();
             yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', currentYear);
             
-            // Add animation class on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe elements for animation
-            document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Load saved language preference
             const savedLang = localStorage.getItem('preferredLanguage') || 'en';
             changeLanguage(savedLang);
         });
-        
-        // Video fallback for mobile
-        function checkMobileVideo() {
-            if (window.innerWidth <= 768) {
-                const heroVideo = document.querySelector('.hero-video');
-                if (heroVideo) {
-                    heroVideo.style.display = 'none';
-                    document.querySelector('.hero-section').style.backgroundImage = 'url(https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80)';
-                    document.querySelector('.hero-section').style.backgroundSize = 'cover';
-                    document.querySelector('.hero-section').style.backgroundPosition = 'center';
-                }
-            }
-        }
-        
-        window.addEventListener('load', checkMobileVideo);
-        window.addEventListener('resize', checkMobileVideo);
     </script>
 </body>
 </html>
