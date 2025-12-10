@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SunDrop  Eco Resorts | Luxury Sustainable Living</title>
+    <title id="pageTitle">SunDrop Eco Resorts | Luxury Sustainable Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -161,6 +161,7 @@
             margin-left: 15px;
             position: relative;
             z-index: 1001;
+            white-space: nowrap; /* Added for zoom fix */
         }
         
         .language-btn {
@@ -175,7 +176,7 @@
             align-items: center;
             gap: 5px;
             transition: all 0.3s ease;
-            white-space: nowrap;
+            white-space: nowrap; /* Added for zoom fix */
         }
         
         .language-btn:hover {
@@ -224,10 +225,10 @@
             
             .navbar-collapse {
                 background: white;
-                padding: 20px;
+                padding: 15px; /* Reduced padding */
                 border-radius: 8px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                margin-top: 15px;
+                margin-top: 10px; /* Reduced margin */
                 text-align: center;
             }
             
@@ -236,14 +237,15 @@
             }
             
             .nav-item {
-                margin: 8px 0;
+                margin: 6px 0; /* Reduced margin */
                 width: 100%;
             }
             
             .nav-link {
                 margin: 0;
-                padding: 12px 0 !important;
+                padding: 10px 0 !important; /* Reduced padding */
                 border-bottom: 1px solid rgba(0,0,0,0.05);
+                font-size: 13.5px; /* Smaller font size */
             }
             
             .nav-link:last-child {
@@ -256,15 +258,16 @@
             
             .nav-item.ms-3 {
                 margin-left: 0 !important;
-                margin-top: 15px;
+                margin-top: 10px; /* Reduced margin */
                 margin-bottom: 5px;
             }
             
             .nav-btn {
                 width: 100%;
-                max-width: 250px;
+                max-width: 220px; /* Reduced max-width */
                 margin: 0 auto;
-                padding: 12px 20px;
+                padding: 10px 15px; /* Reduced padding */
+                font-size: 12px; /* Smaller font */
             }
             
             .logo-img {
@@ -272,11 +275,11 @@
             }
             
             .navbar-brand {
-                font-size: 24px;
+                font-size: 22px; /* Smaller font */
             }
             
             .language-switcher {
-                margin: 15px 0 0 0;
+                margin: 10px 0 0 0; /* Reduced margin */
                 justify-content: center;
             }
         }
@@ -315,12 +318,18 @@
         
         @media (max-width: 576px) {
             .navbar-brand {
-                font-size: 22px;
+                font-size: 20px; /* Further reduced font size */
             }
             
             .logo-img {
                 height: 35px;
                 margin-right: 8px;
+            }
+            
+            /* Download section grid fix for mobile - 6×1 grid */
+            .download-card, .col-md-3.col-6.mb-4 {
+                flex: 0 0 100%; /* Full width on mobile */
+                max-width: 100%;
             }
         }
         /* ========== END NAVIGATION FIX ========== */
