@@ -154,14 +154,15 @@
             box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
         }
         
-        /* Language Switcher - FIXED VERSION */
+        /* =========== LANGUAGE SWITCHER FIX - 100% ZOOM PAR SHOW =========== */
         .language-switcher {
             display: flex;
             align-items: center;
             margin-left: 15px;
             position: relative;
             z-index: 1001;
-            white-space: nowrap; /* Added for zoom fix */
+            white-space: nowrap !important; /* FIX 1: 100% zoom par bhi show hoga */
+            min-width: 85px; /* Minimum width ensure karega */
         }
         
         .language-btn {
@@ -176,7 +177,8 @@
             align-items: center;
             gap: 5px;
             transition: all 0.3s ease;
-            white-space: nowrap; /* Added for zoom fix */
+            white-space: nowrap !important; /* FIX 1: Kabhi wrap nahi hoga */
+            flex-shrink: 0; /* Size kam nahi hoga */
         }
         
         .language-btn:hover {
@@ -228,8 +230,10 @@
                 padding: 15px; /* Reduced padding */
                 border-radius: 8px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                margin-top: 10px; /* Reduced margin */
+                margin-top: 10px; /* Reduced margin - FIX 2 */
                 text-align: center;
+                max-height: 70vh; /* Height limit */
+                overflow-y: auto; /* Scroll agar zyada ho */
             }
             
             .navbar-nav {
@@ -237,15 +241,15 @@
             }
             
             .nav-item {
-                margin: 6px 0; /* Reduced margin */
+                margin: 4px 0; /* Reduced margin - FIX 2 */
                 width: 100%;
             }
             
             .nav-link {
                 margin: 0;
-                padding: 10px 0 !important; /* Reduced padding */
+                padding: 8px 0 !important; /* Reduced padding - FIX 2 */
                 border-bottom: 1px solid rgba(0,0,0,0.05);
-                font-size: 13.5px; /* Smaller font size */
+                font-size: 13px; /* Smaller font size - FIX 2 */
             }
             
             .nav-link:last-child {
@@ -258,28 +262,28 @@
             
             .nav-item.ms-3 {
                 margin-left: 0 !important;
-                margin-top: 10px; /* Reduced margin */
+                margin-top: 8px; /* Reduced margin - FIX 2 */
                 margin-bottom: 5px;
             }
             
             .nav-btn {
                 width: 100%;
-                max-width: 220px; /* Reduced max-width */
+                max-width: 200px; /* Reduced max-width - FIX 2 */
                 margin: 0 auto;
-                padding: 10px 15px; /* Reduced padding */
-                font-size: 12px; /* Smaller font */
+                padding: 8px 15px; /* Reduced padding - FIX 2 */
+                font-size: 11.5px; /* Smaller font - FIX 2 */
             }
             
             .logo-img {
-                height: 40px;
+                height: 35px; /* Smaller logo - FIX 2 */
             }
             
             .navbar-brand {
-                font-size: 22px; /* Smaller font */
+                font-size: 20px; /* Smaller font - FIX 2 */
             }
             
             .language-switcher {
-                margin: 10px 0 0 0; /* Reduced margin */
+                margin: 8px 0 0 0; /* Reduced margin - FIX 2 */
                 justify-content: center;
             }
         }
@@ -318,18 +322,23 @@
         
         @media (max-width: 576px) {
             .navbar-brand {
-                font-size: 20px; /* Further reduced font size */
+                font-size: 18px; /* Further reduced font size */
             }
             
             .logo-img {
-                height: 35px;
-                margin-right: 8px;
+                height: 30px; /* Further reduced logo */
+                margin-right: 6px;
             }
             
-            /* Download section grid fix for mobile - 6×1 grid */
-            .download-card, .col-md-3.col-6.mb-4 {
-                flex: 0 0 100%; /* Full width on mobile */
-                max-width: 100%;
+            /* FIX 3: Download section grid fix for mobile - 6×1 grid */
+            #investment .row .col-md-3.col-6.mb-4 {
+                flex: 0 0 100% !important; /* Full width on mobile */
+                max-width: 100% !important;
+                margin-bottom: 15px;
+            }
+            
+            #investment .download-card {
+                margin-bottom: 15px;
             }
         }
         /* ========== END NAVIGATION FIX ========== */
@@ -1041,6 +1050,47 @@
         
         .language-en p.en-text { display: block; }
         .language-en p.es-text { display: none; }
+        
+        /* =========== FIX 3: MOBILE PAR DOWNLOAD SECTION GRID =========== */
+        @media (max-width: 576px) {
+            #investment .row {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            
+            #investment .col-md-3.col-6.mb-4 {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                margin-bottom: 20px !important;
+            }
+            
+            /* Desktop par 3×2 grid, mobile par 6×1 grid */
+            #investment .row .col-md-3.col-6.mb-4:nth-child(1),
+            #investment .row .col-md-3.col-6.mb-4:nth-child(2),
+            #investment .row .col-md-3.col-6.mb-4:nth-child(3),
+            #investment .row .col-md-3.col-6.mb-4:nth-child(4),
+            #investment .row .col-md-3.col-6.mb-4:nth-child(5),
+            #investment .row .col-md-3.col-6.mb-4:nth-child(6) {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+        
+        @media (min-width: 577px) {
+            #investment .row .col-md-3.col-6.mb-4 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            #investment .row .col-md-3.col-6.mb-4 {
+                flex: 0 0 33.333333% !important;
+                max-width: 33.333333% !important;
+            }
+        }
     </style>
 </head>
 <body class="language-en">
