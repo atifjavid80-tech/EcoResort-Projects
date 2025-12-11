@@ -1,0 +1,235 @@
+:root {
+    /* NEW COLOR SCHEME - Professional Oceanic Blend */
+    --primary-blue: #0371B2;       /* Main brand blue */
+    --secondary-purple: #8E2D8D;   /* Accent purple */
+    --accent-amber: #AB6604;       /* Warm amber for highlights */
+    --dark-blue: #03568C;          /* Darker blue variant */
+    --light-blue: #0391D6;         /* Lighter blue variant */
+    --light-purple: #A04A9E;       /* Lighter purple variant */
+    --light-amber: #C77A06;        /* Lighter amber variant */
+    --cream: #f8f9fa;              /* Light background */
+    --light-gray: #e9ecef;         /* Very light gray */
+    --dark-gray: #495057;          /* Dark gray for text */
+    --white: #ffffff;
+}
+
+/* Updated body background */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+    color: var(--dark-gray);
+    line-height: 1.7;
+    overflow-x: hidden;
+    padding-top: 90px;
+}
+
+/* Updated navbar colors */
+.navbar-brand {
+    color: var(--primary-blue) !important;
+}
+
+.navbar-brand span {
+    color: var(--accent-amber);
+}
+
+.nav-link:hover {
+    color: var(--primary-blue) !important;
+}
+
+.nav-link::after {
+    background: var(--secondary-purple);
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, var(--accent-amber), var(--light-amber));
+    color: white;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, #8C5103, var(--accent-amber));
+    box-shadow: 0 5px 15px rgba(171, 102, 4, 0.3);
+}
+
+/* Updated language switcher */
+.language-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.language-btn:hover {
+    border-color: var(--primary-blue);
+}
+
+/* Updated hero buttons */
+.hero-btn-primary {
+    background: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.hero-btn-primary:hover {
+    background: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.hero-btn:hover {
+    background: white;
+    color: var(--primary-blue);
+}
+
+/* Updated section titles */
+.section-title {
+    color: var(--primary-blue);
+}
+
+.section-title::after {
+    background: var(--secondary-purple);
+}
+
+/* Updated resort cards */
+.resort-card:hover {
+    box-shadow: 0 20px 40px rgba(3, 113, 178, 0.12);
+}
+
+.resort-title {
+    color: var(--primary-blue);
+}
+
+.resort-location {
+    color: var(--secondary-purple);
+}
+
+.feature-tag {
+    background: rgba(3, 113, 178, 0.1);
+    color: var(--primary-blue);
+}
+
+.resort-btn {
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+.resort-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Updated stats section */
+.stats-section {
+    background: linear-gradient(rgba(3, 113, 178, 0.9), rgba(3, 113, 178, 0.9)), 
+                url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+}
+
+.stat-number {
+    color: var(--accent-amber);
+}
+
+/* Updated luxury items */
+.luxury-item:hover {
+    border-top: 3px solid var(--secondary-purple);
+}
+
+.luxury-icon {
+    color: var(--secondary-purple);
+}
+
+/* Updated investment section */
+.investment-card::before {
+    background: linear-gradient(to right, var(--accent-amber), var(--primary-blue));
+}
+
+.revenue-amount {
+    color: var(--primary-blue);
+}
+
+/* Updated download cards */
+.download-card:hover {
+    border-color: var(--secondary-purple);
+}
+
+.download-icon {
+    color: var(--secondary-purple);
+}
+
+/* Updated plan download section */
+.plan-download-card::before {
+    background: linear-gradient(to right, var(--accent-amber), var(--primary-blue));
+}
+
+.plan-title {
+    color: var(--primary-blue);
+}
+
+.plan-download-btn {
+    background: linear-gradient(135deg, var(--accent-amber), #d4b483);
+}
+
+.plan-download-btn:hover {
+    background: linear-gradient(135deg, #8C5103, var(--accent-amber));
+    box-shadow: 0 5px 15px rgba(171, 102, 4, 0.3);
+}
+
+/* Updated footer */
+.footer {
+    background: linear-gradient(135deg, var(--dark-blue), #02507A);
+}
+
+.footer-logo-text span {
+    color: var(--accent-amber);
+}
+
+.footer-heading {
+    color: var(--accent-amber);
+}
+
+.footer-links a:hover {
+    color: var(--accent-amber);
+}
+
+.social-icon:hover {
+    background: var(--secondary-purple);
+}
+
+/* Updated scrollbar */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-blue);
+}
+
+/* Updated gallery section */
+.gallery-item:hover {
+    border-color: var(--secondary-purple);
+}
+
+/* Updated video section */
+.video-section {
+    background: rgba(3, 113, 178, 0.03);
+}
+
+/* Updated investment section background */
+.investment-section {
+    background: rgba(142, 45, 141, 0.03);
+}
+
+/* Updated plans section background */
+.plans-section {
+    background: rgba(171, 102, 4, 0.03);
+}
+
+/* Updated contact section background */
+.bg-light {
+    background: rgba(3, 113, 178, 0.03) !important;
+}
+
+/* Updated checkmarks in lists */
+.plan-features li:before,
+.fa-check, .fa-star {
+    color: var(--accent-amber) !important;
+}
+
+/* Updated revenue list borders */
+.revenue-item {
+    border-bottom: 1px solid rgba(3, 113, 178, 0.1);
+}
