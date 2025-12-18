@@ -33,7 +33,7 @@
             line-height: 1.7;
             overflow-x: hidden;
             padding-top: 90px;
-            min-width: 320px; /* Minimum width for zooming */
+            min-width: 320px;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -67,7 +67,7 @@
             display: flex;
             align-items: center;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(18px, 2vw, 26px); /* Responsive font size */
+            font-size: clamp(18px, 2vw, 26px);
             font-weight: 600;
             color: var(--primary-green) !important;
             letter-spacing: 0.5px;
@@ -75,7 +75,7 @@
         }
         
         .logo-img {
-            height: clamp(30px, 4vw, 45px); /* Responsive logo */
+            height: clamp(30px, 4vw, 45px);
             margin-right: 12px;
             flex-shrink: 0;
         }
@@ -113,8 +113,8 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             color: #555 !important;
-            margin: 0 0.5vw; /* Responsive margin */
-            font-size: clamp(12px, 1.2vw, 14.5px); /* Responsive font */
+            margin: 0 0.5vw;
+            font-size: clamp(12px, 1.2vw, 14.5px);
             letter-spacing: 0.3px;
             position: relative;
             transition: color 0.3s ease;
@@ -145,10 +145,10 @@
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
             border: none;
-            padding: 10px clamp(15px, 2vw, 24px); /* Responsive padding */
+            padding: 10px clamp(15px, 2vw, 24px);
             border-radius: 2px;
             font-weight: 600;
-            font-size: clamp(11px, 1.2vw, 13px); /* Responsive font */
+            font-size: clamp(11px, 1.2vw, 13px);
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -206,7 +206,7 @@
             font-size: 14px;
         }
         
-        /* FIXED FOR ALL SCREEN SIZES - NO OVERLAPPING */
+        /* FIXED FOR ALL SCREEN SIZES */
         @media (max-width: 1199.98px) {
             .navbar-nav {
                 flex-wrap: wrap;
@@ -1034,6 +1034,18 @@
             .luxury-item {
                 padding: 30px 20px;
             }
+            
+            /* Fix for contact buttons on mobile */
+            .contact-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 5px 0 !important;
+            }
         }
         
         /* FIX: Download Section Grid System */
@@ -1090,6 +1102,22 @@
             .feature-tag {
                 padding: 4px 8px;
                 font-size: 0.7rem;
+            }
+            
+            /* Fix for investment cards on mobile */
+            .revenue-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .revenue-amount {
+                margin-left: 20px;
+            }
+            
+            /* Fix for plan features on mobile */
+            .plan-features li {
+                font-size: 0.9rem;
             }
         }
         
@@ -1175,6 +1203,20 @@
             .stat-number {
                 font-size: 2rem;
             }
+            
+            /* Fix for very small screens */
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            
+            .resort-content {
+                padding: 15px;
+            }
+            
+            .plan-content {
+                padding: 20px;
+            }
         }
         
         /* Prevent text overflow */
@@ -1213,6 +1255,31 @@
             max-width: 100% !important;
             overflow-x: auto;
             display: block;
+        }
+        
+        /* FIX: Contact Section Button Styling */
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* FIX: Plan Features Mobile Fix */
+        @media (max-width: 576px) {
+            .plan-features {
+                padding-left: 15px;
+            }
+            
+            .plan-features li {
+                padding-left: 20px;
+                font-size: 0.9rem;
+            }
+            
+            .plan-features li:before {
+                left: -5px;
+            }
         }
     </style>
 </head>
@@ -1893,7 +1960,7 @@
                             </ul>
                         </div>
                         
-                        <button class="btn nav-btn w-100" style="padding: 15px;">
+                        <button class="btn nav-btn w-100" style="padding: 15px;" onclick="requestInvestmentPackage()">
                             <i class="fas fa-file-contract"></i> 
                             <span class="en-text">Request Investment Package</span>
                             <span class="es-text">Solicitar Paquete de Inversión</span>
@@ -2238,7 +2305,7 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section - UPDATED WITH info@sundropresorts.com EMAIL -->
     <section class="section-padding bg-light" id="contact">
         <div class="container">
             <div class="row">
@@ -2302,17 +2369,34 @@
                         </div>
                     </div>
                     
-                    <div class="mt-5">
-                        <button class="btn nav-btn me-3" style="padding: 15px 40px;">
+                    <!-- UPDATED: Contact Buttons with info@sundropresorts.com -->
+                    <div class="contact-buttons mt-5">
+                        <button class="btn nav-btn" style="padding: 15px 40px;" onclick="scheduleConsultation()">
                             <i class="fas fa-calendar-alt"></i> 
                             <span class="en-text">Schedule Consultation</span>
                             <span class="es-text">Agendar Consulta</span>
                         </button>
-                        <button class="hero-btn" style="padding: 15px 40px; color: var(--primary-green); border-color: var(--primary-green);">
+                        
+                        <!-- Updated: Contact Sales button now opens email to info@sundropresorts.com -->
+                        <a href="mailto:info@sundropresorts.com" class="hero-btn" style="padding: 15px 40px; color: var(--primary-green); border-color: var(--primary-green); text-decoration: none; display: inline-block;">
+                            <i class="fas fa-envelope"></i> 
+                            <span class="en-text">Contact Sales: info@sundropresorts.com</span>
+                            <span class="es-text">Contactar Ventas: info@sundropresorts.com</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Additional Contact Information -->
+                    <div class="mt-4" style="color: #666; font-size: 0.9rem;">
+                        <p>
                             <i class="fas fa-phone"></i> 
-                            <span class="en-text">Contact Sales</span>
-                            <span class="es-text">Contactar Ventas</span>
-                        </button>
+                            <span class="en-text">Phone: +1 (800) 555-1234</span>
+                            <span class="es-text">Teléfono: +1 (800) 555-1234</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i> 
+                            <span class="en-text">Business Hours: Mon-Fri 9AM-6PM EST</span>
+                            <span class="es-text">Horario Comercial: Lun-Vie 9AM-6PM EST</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2562,6 +2646,24 @@
             });
         }
         
+        // NEW: Function for Schedule Consultation
+        function scheduleConsultation() {
+            const email = 'info@sundropresorts.com';
+            const subject = 'Schedule Consultation - SunDrop Eco-Resorts';
+            const body = 'Hello SunDrop Team,\n\nI would like to schedule a consultation to learn more about your premium investment opportunities.\n\nPlease contact me at your earliest convenience.\n\nBest regards,';
+            
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        // NEW: Function for Request Investment Package
+        function requestInvestmentPackage() {
+            const email = 'info@sundropresorts.com';
+            const subject = 'Request Investment Package - SunDrop Eco-Resorts';
+            const body = 'Hello SunDrop Team,\n\nI am interested in receiving the complete investment package for SunDrop Eco-Resorts.\n\nPlease send me all relevant documents and information.\n\nBest regards,';
+            
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
         // Download Land Plans Function for USA Utah as ZIP
         function downloadLandPlans() {
             // Land plans images URLs
@@ -2699,6 +2801,18 @@
         
         // Fix for touch devices
         document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Mobile menu close on click outside
+        document.addEventListener('click', function(event) {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            
+            if (navbarCollapse.classList.contains('show') && 
+                !navbarCollapse.contains(event.target) && 
+                !navbarToggler.contains(event.target)) {
+                navbarToggler.click();
+            }
+        });
     </script>
 </body>
 </html>
