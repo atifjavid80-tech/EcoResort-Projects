@@ -2,7 +2,7 @@
 <html lang="en" id="htmlElement">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title id="pageTitle">SunDrop Eco Resorts | Luxury Sustainable Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,7 @@
             line-height: 1.7;
             overflow-x: hidden;
             padding-top: 90px;
+            min-width: 320px; /* Minimum width for zooming */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -52,27 +53,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            min-height: 90px;
         }
         
         .navbar.scrolled {
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.99);
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            min-height: 80px;
         }
         
         .navbar-brand {
             display: flex;
             align-items: center;
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: clamp(18px, 2vw, 26px); /* Responsive font size */
             font-weight: 600;
             color: var(--primary-green) !important;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
         
         .logo-img {
-            height: 45px;
+            height: clamp(30px, 4vw, 45px); /* Responsive logo */
             margin-right: 12px;
+            flex-shrink: 0;
         }
         
         .navbar-brand span {
@@ -100,18 +105,21 @@
         
         .navbar-nav {
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
         
         .nav-link {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             color: #555 !important;
-            margin: 0 10px;
-            font-size: 14.5px;
+            margin: 0 0.5vw; /* Responsive margin */
+            font-size: clamp(12px, 1.2vw, 14.5px); /* Responsive font */
             letter-spacing: 0.3px;
             position: relative;
             transition: color 0.3s ease;
             padding: 8px 0 !important;
+            white-space: nowrap;
         }
         
         .nav-link:hover {
@@ -137,15 +145,16 @@
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
             border: none;
-            padding: 10px 24px;
+            padding: 10px clamp(15px, 2vw, 24px); /* Responsive padding */
             border-radius: 2px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: clamp(11px, 1.2vw, 13px); /* Responsive font */
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .nav-btn:hover {
@@ -154,15 +163,16 @@
             box-shadow: 0 5px 15px rgba(200, 169, 105, 0.3);
         }
         
-        /* =========== LANGUAGE SWITCHER FIX - 100% ZOOM PAR SHOW =========== */
+        /* =========== LANGUAGE SWITCHER FIX =========== */
         .language-switcher {
             display: flex;
             align-items: center;
             margin-left: 15px;
             position: relative;
             z-index: 1001;
-            white-space: nowrap !important; /* FIX 1: 100% zoom par bhi show hoga */
-            min-width: 85px; /* Minimum width ensure karega */
+            white-space: nowrap !important;
+            min-width: 85px;
+            flex-shrink: 0;
         }
         
         .language-btn {
@@ -170,15 +180,15 @@
             border: 1px solid #ddd;
             padding: 5px 12px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: clamp(11px, 1vw, 12px);
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
             transition: all 0.3s ease;
-            white-space: nowrap !important; /* FIX 1: Kabhi wrap nahi hoga */
-            flex-shrink: 0; /* Size kam nahi hoga */
+            white-space: nowrap !important;
+            flex-shrink: 0;
         }
         
         .language-btn:hover {
@@ -196,23 +206,25 @@
             font-size: 14px;
         }
         
-        /* FIXED MOBILE NAVIGATION */
+        /* FIXED FOR ALL SCREEN SIZES - NO OVERLAPPING */
         @media (max-width: 1199.98px) {
             .navbar-nav {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 5px;
             }
             
             .language-switcher {
                 margin: 10px auto 0 auto;
                 order: 3;
-                width: 100%;
+                width: auto;
                 justify-content: center;
             }
             
             .nav-item.ms-3 {
                 margin-left: 0 !important;
                 margin-top: 10px;
+                order: 2;
             }
         }
         
@@ -223,33 +235,42 @@
             
             .navbar {
                 padding: 12px 0;
+                min-height: 80px;
             }
             
             .navbar-collapse {
                 background: white;
-                padding: 15px; /* Reduced padding */
+                padding: 15px;
                 border-radius: 8px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                margin-top: 10px; /* Reduced margin - FIX 2 */
+                margin-top: 10px;
                 text-align: center;
-                max-height: 70vh; /* Height limit */
-                overflow-y: auto; /* Scroll agar zyada ho */
+                max-height: 70vh;
+                overflow-y: auto;
+                position: absolute;
+                top: 100%;
+                left: 15px;
+                right: 15px;
+                width: calc(100% - 30px);
             }
             
             .navbar-nav {
                 width: 100%;
+                display: block;
             }
             
             .nav-item {
-                margin: 4px 0; /* Reduced margin - FIX 2 */
+                margin: 4px 0;
                 width: 100%;
             }
             
             .nav-link {
                 margin: 0;
-                padding: 8px 0 !important; /* Reduced padding - FIX 2 */
+                padding: 8px 0 !important;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
-                font-size: 13px; /* Smaller font size - FIX 2 */
+                font-size: 13px;
+                display: block;
+                text-align: center;
             }
             
             .nav-link:last-child {
@@ -262,86 +283,73 @@
             
             .nav-item.ms-3 {
                 margin-left: 0 !important;
-                margin-top: 8px; /* Reduced margin - FIX 2 */
+                margin-top: 8px;
                 margin-bottom: 5px;
             }
             
             .nav-btn {
                 width: 100%;
-                max-width: 200px; /* Reduced max-width - FIX 2 */
+                max-width: 200px;
                 margin: 0 auto;
-                padding: 8px 15px; /* Reduced padding - FIX 2 */
-                font-size: 11.5px; /* Smaller font - FIX 2 */
-            }
-            
-            .logo-img {
-                height: 35px; /* Smaller logo - FIX 2 */
-            }
-            
-            .navbar-brand {
-                font-size: 20px; /* Smaller font - FIX 2 */
-            }
-            
-            .language-switcher {
-                margin: 8px 0 0 0; /* Reduced margin - FIX 2 */
-                justify-content: center;
-            }
-        }
-        
-        /* TABLET VIEW FIX */
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .navbar-brand {
-                font-size: 22px;
+                padding: 8px 15px;
+                font-size: 11.5px;
             }
             
             .logo-img {
                 height: 35px;
             }
             
-            .nav-link {
-                margin: 0 6px;
-                font-size: 13.5px;
+            .navbar-brand {
+                font-size: 18px;
             }
             
             .language-switcher {
-                margin-left: 8px;
+                margin: 8px 0 0 0;
+                justify-content: center;
+                display: flex !important;
             }
         }
         
-        /* SMALL LAPTOPS FIX */
-        @media (max-width: 1400px) {
-            .nav-link {
-                margin: 0 8px;
-                font-size: 14px;
-            }
-            
+        /* EXTREME ZOOM FIXES */
+        @media (max-width: 400px) {
             .navbar-brand {
-                font-size: 24px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: 18px; /* Further reduced font size */
+                font-size: 16px;
             }
             
             .logo-img {
-                height: 30px; /* Further reduced logo */
-                margin-right: 6px;
+                height: 30px;
+                margin-right: 8px;
             }
             
-            /* FIX 3: Download section grid fix for mobile - 6×1 grid */
-            #investment .row .col-md-3.col-6.mb-4 {
-                flex: 0 0 100% !important; /* Full width on mobile */
-                max-width: 100% !important;
-                margin-bottom: 15px;
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 10px;
             }
             
-            #investment .download-card {
-                margin-bottom: 15px;
+            .language-switcher {
+                min-width: 75px;
+            }
+            
+            .language-btn {
+                padding: 4px 8px;
+                font-size: 10px;
             }
         }
-        /* ========== END NAVIGATION FIX ========== */
+        
+        @media (max-width: 320px) {
+            .navbar-brand {
+                font-size: 14px;
+            }
+            
+            .logo-img {
+                height: 25px;
+                margin-right: 5px;
+            }
+            
+            .language-switcher {
+                min-width: 70px;
+            }
+        }
         
         /* Hero Section */
         .hero-section {
@@ -385,15 +393,16 @@
         }
         
         .hero-title {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 300;
             margin-bottom: 20px;
             letter-spacing: 1px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
         }
         
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             font-weight: 300;
             margin-bottom: 40px;
             letter-spacing: 0.5px;
@@ -401,20 +410,23 @@
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
+            line-height: 1.6;
         }
         
         .hero-btn {
             background: transparent;
             color: white;
             border: 2px solid white;
-            padding: 15px 40px;
+            padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 40px);
             border-radius: 2px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: clamp(12px, 1.2vw, 14px);
             letter-spacing: 1px;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            margin: 0 10px;
+            margin: 0 5px;
+            display: inline-block;
+            white-space: nowrap;
         }
         
         .hero-btn:hover {
@@ -436,16 +448,17 @@
         
         /* Section Styles */
         .section-padding {
-            padding: 100px 0;
+            padding: clamp(50px, 8vw, 100px) 0;
         }
         
         .section-title {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             color: var(--primary-green);
             margin-bottom: 20px;
             text-align: center;
             position: relative;
             padding-bottom: 20px;
+            line-height: 1.3;
         }
         
         .section-title::after {
@@ -462,10 +475,11 @@
         .section-subtitle {
             text-align: center;
             color: #666;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             max-width: 700px;
-            margin: 0 auto 60px;
+            margin: 0 auto clamp(30px, 5vw, 60px);
             line-height: 1.8;
+            padding: 0 15px;
         }
         
         /* Resort Cards */
@@ -500,6 +514,7 @@
             color: var(--primary-green);
             margin-bottom: 10px;
             font-weight: 500;
+            line-height: 1.3;
         }
         
         .resort-location {
@@ -525,6 +540,7 @@
             border-radius: 2px;
             font-size: 0.8rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         
         .resort-btn {
@@ -544,6 +560,9 @@
             gap: 8px;
             margin-top: 15px;
             text-decoration: none;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
         }
         
         .resort-btn:hover {
@@ -558,7 +577,7 @@
             background-size: cover;
             background-attachment: fixed;
             color: white;
-            padding: 100px 0;
+            padding: clamp(50px, 8vw, 100px) 0;
         }
         
         .stat-item {
@@ -567,7 +586,7 @@
         }
         
         .stat-number {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 300;
             color: var(--gold);
             margin-bottom: 10px;
@@ -575,10 +594,11 @@
         }
         
         .stat-label {
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
             opacity: 0.9;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.4;
         }
         
         /* Luxury Features Grid */
@@ -627,12 +647,12 @@
         /* Investment Section */
         .investment-section {
             background: #f9f7f2;
-            padding: 100px 0;
+            padding: clamp(50px, 8vw, 100px) 0;
         }
         
         .investment-card {
             background: white;
-            padding: 50px 40px;
+            padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             height: 100%;
@@ -662,6 +682,7 @@
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
         }
         
         .revenue-item:last-child {
@@ -671,13 +692,14 @@
         .revenue-amount {
             font-weight: 600;
             color: var(--primary-green);
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            white-space: nowrap;
         }
         
         /* Gallery Section */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 50px;
         }
@@ -703,7 +725,7 @@
         /* Resort Plans Section */
         .plans-section {
             background: #f9f7f2;
-            padding: 100px 0;
+            padding: clamp(50px, 8vw, 100px) 0;
         }
         
         .plan-download-card {
@@ -760,10 +782,11 @@
         }
         
         .plan-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 2.5vw, 1.8rem);
             color: var(--primary-green);
             margin-bottom: 15px;
             font-weight: 500;
+            line-height: 1.3;
         }
         
         .plan-description {
@@ -808,6 +831,7 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            white-space: nowrap;
         }
         
         .plan-download-btn:hover {
@@ -821,24 +845,26 @@
         .footer {
             background: var(--dark-green);
             color: white;
-            padding: 80px 0 30px;
+            padding: clamp(40px, 6vw, 80px) 0 30px;
         }
         
         .footer-logo-container {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .footer-logo-img {
-            height: 40px;
+            height: clamp(30px, 4vw, 40px);
             margin-right: 12px;
         }
         
         .footer-logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
             color: white;
+            line-height: 1.3;
         }
         
         .footer-logo-text span {
@@ -849,11 +875,12 @@
             opacity: 0.7;
             margin-bottom: 30px;
             line-height: 1.8;
+            font-size: clamp(0.85rem, 1.2vw, 1rem);
         }
         
         .footer-heading {
             color: var(--gold);
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 1.3vw, 1.1rem);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -872,6 +899,7 @@
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: clamp(0.85rem, 1.1vw, 0.95rem);
         }
         
         .footer-links a:hover {
@@ -883,6 +911,7 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         .social-icon {
@@ -895,6 +924,7 @@
             justify-content: center;
             color: white;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
         
         .social-icon:hover {
@@ -908,7 +938,7 @@
             margin-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
         }
         
         /* Download Cards */
@@ -930,7 +960,7 @@
         }
         
         .download-icon {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 3vw, 2.5rem);
             color: var(--gold);
             margin-bottom: 20px;
         }
@@ -938,15 +968,11 @@
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 3.5rem;
-            }
-            
-            .section-padding {
-                padding: 80px 0;
+                font-size: clamp(2rem, 5vw, 3.5rem);
             }
             
             .section-title {
-                font-size: 2.5rem;
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             }
             
             .hero-section {
@@ -957,29 +983,36 @@
             .hero-content {
                 margin-top: 80px;
             }
+            
+            .resort-image {
+                height: 220px;
+            }
         }
         
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.8rem;
+                font-size: clamp(1.8rem, 4vw, 2.8rem);
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: clamp(0.9rem, 1.8vw, 1.1rem);
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: clamp(1.6rem, 3vw, 2.2rem);
             }
             
             .hero-buttons {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
+                align-items: center;
             }
             
             .hero-btn {
                 margin: 5px 0;
+                width: 100%;
+                max-width: 300px;
             }
             
             .video-container {
@@ -991,7 +1024,72 @@
             }
             
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .luxury-grid {
+                gap: 20px;
+            }
+            
+            .luxury-item {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* FIX: Download Section Grid System */
+        #investment .row {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            margin: 0 -10px !important;
+        }
+        
+        #investment .col-md-3.col-6.mb-4 {
+            padding: 0 10px !important;
+            margin-bottom: 20px !important;
+            width: 100% !important;
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+        }
+        
+        @media (min-width: 577px) {
+            #investment .col-md-3.col-6.mb-4 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            #investment .col-md-3.col-6.mb-4 {
+                flex: 0 0 33.333333% !important;
+                max-width: 33.333333% !important;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            #investment .col-md-3.col-6.mb-4 {
+                flex: 0 0 25% !important;
+                max-width: 25% !important;
+            }
+        }
+        
+        /* Fix for resort cards on small screens */
+        @media (max-width: 576px) {
+            .resort-btn {
+                padding: 8px 15px;
+                font-size: 11px;
+            }
+            
+            .resort-content {
+                padding: 20px;
+            }
+            
+            .resort-image {
+                height: 180px;
+            }
+            
+            .feature-tag {
+                padding: 4px 8px;
+                font-size: 0.7rem;
             }
         }
         
@@ -1051,45 +1149,70 @@
         .language-en p.en-text { display: block; }
         .language-en p.es-text { display: none; }
         
-        /* =========== FIX 3: MOBILE PAR DOWNLOAD SECTION GRID =========== */
-        @media (max-width: 576px) {
-            #investment .row {
-                display: flex !important;
-                flex-direction: column !important;
+        /* Extra small devices fixes */
+        @media (max-width: 360px) {
+            .navbar-brand {
+                font-size: 14px;
             }
             
-            #investment .col-md-3.col-6.mb-4 {
-                flex: 0 0 100% !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                margin-bottom: 20px !important;
+            .logo-img {
+                height: 25px;
+                margin-right: 5px;
             }
             
-            /* Desktop par 3×2 grid, mobile par 6×1 grid */
-            #investment .row .col-md-3.col-6.mb-4:nth-child(1),
-            #investment .row .col-md-3.col-6.mb-4:nth-child(2),
-            #investment .row .col-md-3.col-6.mb-4:nth-child(3),
-            #investment .row .col-md-3.col-6.mb-4:nth-child(4),
-            #investment .row .col-md-3.col-6.mb-4:nth-child(5),
-            #investment .row .col-md-3.col-6.mb-4:nth-child(6) {
-                flex: 0 0 100% !important;
-                max-width: 100% !important;
-                width: 100% !important;
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .stat-item {
+                padding: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
             }
         }
         
-        @media (min-width: 577px) {
-            #investment .row .col-md-3.col-6.mb-4 {
-                flex: 0 0 50% !important;
-                max-width: 50% !important;
-            }
+        /* Prevent text overflow */
+        .text-overflow-fix {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
         }
         
-        @media (min-width: 768px) {
-            #investment .row .col-md-3.col-6.mb-4 {
-                flex: 0 0 33.333333% !important;
-                max-width: 33.333333% !important;
-            }
+        /* Ensure no horizontal scroll on zoom */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        /* Button click effects */
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* Image responsive fix */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Table responsive fix */
+        table {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: auto;
+            display: block;
         }
     </style>
 </head>
@@ -1279,96 +1402,94 @@
             </p>
             
             <div class="row">
-                <!-- Dominican Republic Card - IMAGE UPDATED & BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Dominican.jpg" 
-             alt="SunDrop Resort Paraiso, Dominican Republic" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Dominican Republic</span>
-                <span class="es-text">República Dominicana</span>
-            </div>
-            <h3 class="resort-title">SunDrop Resort Paraiso</h3>
-            <p class="en-text">Authentic Dominican culture with colonial architecture, vibrant music, and access to Rancho Platón natural attractions.</p>
-            <p class="es-text">Cultura dominicana auténtica con arquitectura colonial, música vibrante y acceso a atracciones naturales de Rancho Platón.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">55 EcoHomes</span>
-                <span class="feature-tag">
-                    <span class="en-text">Citizenship Path</span>
-                    <span class="es-text">Camino a Ciudadanía</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">3 Natural Lakes</span>
-                    <span class="es-text">3 Lagos Naturales</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
-        </div>
-    </div>
-</div>
+                <!-- Dominican Republic Card -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Dominican.jpg" 
+                             alt="SunDrop Resort Paraiso, Dominican Republic" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Dominican Republic</span>
+                                <span class="es-text">República Dominicana</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Paraiso</h3>
+                            <p class="en-text">Authentic Dominican culture with colonial architecture, vibrant music, and access to Rancho Platón natural attractions.</p>
+                            <p class="es-text">Cultura dominicana auténtica con arquitectura colonial, música vibrante y acceso a atracciones naturales de Rancho Platón.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">55 EcoHomes</span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Citizenship Path</span>
+                                    <span class="es-text">Camino a Ciudadanía</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">3 Natural Lakes</span>
+                                    <span class="es-text">3 Lagos Naturales</span>
+                                </span>
+                            </div>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- Panama Card - BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/mamoni.jpg" 
-             alt="Panama" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Panama</span>
-                <span class="es-text">Panamá</span>
-            </div>
-            <h3 class="resort-title">SunDrop Resort Mamoni</h3>
-            <p class="en-text">White-water rafting adventures in primary rainforests, wildlife viewing, and gateway to Central America exploration.</p>
-            <p class="es-text">Aventuras de rafting en aguas bravas en bosques primarios, observación de vida silvestre y puerta de entrada a la exploración de Centroamérica.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">
-                    <span class="en-text">Rafting Center</span>
-                    <span class="es-text">Centro de Rafting</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Travel Hub</span>
-                    <span class="es-text">Centro de Viajes</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Mayan Courts</span>
-                    <span class="es-text">Canchas Mayas</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
-        </div>
-    </div>
-</div>
+                <!-- Panama Card -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/mamoni.jpg" 
+                             alt="Panama" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Panama</span>
+                                <span class="es-text">Panamá</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Mamoni</h3>
+                            <p class="en-text">White-water rafting adventures in primary rainforests, wildlife viewing, and gateway to Central America exploration.</p>
+                            <p class="es-text">Aventuras de rafting en aguas bravas en bosques primarios, observación de vida silvestre y puerta de entrada a la exploración de Centroamérica.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">
+                                    <span class="en-text">Rafting Center</span>
+                                    <span class="es-text">Centro de Rafting</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Travel Hub</span>
+                                    <span class="es-text">Centro de Viajes</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Mayan Courts</span>
+                                    <span class="es-text">Canchas Mayas</span>
+                                </span>
+                            </div>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- USA - UPDATED WITH LAND PLANS BUTTON -->
+                <!-- USA Card -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="resort-card">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg" 
@@ -1395,14 +1516,12 @@
                                 </span>
                             </div>
                             
-                            <!-- Existing Download Brochure Button -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
                                 <i class="fas fa-download"></i> 
                                 <span class="en-text">Download Brochure</span>
                                 <span class="es-text">Descargar Folleto</span>
                             </a>
                             
-                            <!-- NEW: Land Plans Exclusive Button -->
                             <a href="#" class="resort-btn mt-2" onclick="downloadLandPlans()">
                                 <i class="fas fa-file-archive"></i> 
                                 <span class="en-text">Land Plans Exclusive (ZIP)</span>
@@ -1412,51 +1531,52 @@
                     </div>
                 </div>
                 
-                <!-- Colombia Card - BILINGUAL PDF -->
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="resort-card">
-        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Screenshot%202025-12-06%20234422.webp" 
-             alt="SunDrop Resort Chingaza, Colombia" class="resort-image">
-        <div class="resort-content">
-            <div class="resort-location">
-                <i class="fas fa-map-marker-alt"></i> 
-                <span class="en-text">Colombia</span>
-                <span class="es-text">Colombia</span>
+                <!-- Colombia Card -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="resort-card">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Screenshot%202025-12-06%20234422.webp" 
+                             alt="SunDrop Resort Chingaza, Colombia" class="resort-image">
+                        <div class="resort-content">
+                            <div class="resort-location">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span class="en-text">Colombia</span>
+                                <span class="es-text">Colombia</span>
+                            </div>
+                            <h3 class="resort-title">SunDrop Resort Chingaza</h3>
+                            <p class="en-text">Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and local cuisine.</p>
+                            <p class="es-text">Puerta de entrada al Parque Nacional Chingaza con más de 390 especies de aves. Experimenta la cultura colombiana, aguas termales y gastronomía local.</p>
+                            
+                            <div class="resort-features">
+                                <span class="feature-tag">
+                                    <span class="en-text">Birdwatching</span>
+                                    <span class="es-text">Observación de Aves</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Hot Springs</span>
+                                    <span class="es-text">Aguas Termales</span>
+                                </span>
+                                <span class="feature-tag">
+                                    <span class="en-text">Cultural Heritage</span>
+                                    <span class="es-text">Patrimonio Cultural</span>
+                                </span>
+                            </div>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
+                               class="resort-btn en-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="en-text">Download Brochure</span>
+                            </a>
+                            
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
+                               class="resort-btn es-text" download>
+                                <i class="fas fa-download"></i> 
+                                <span class="es-text">Descargar Folleto</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 class="resort-title">SunDrop Resort Chingaza</h3>
-            <p class="en-text">Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and local cuisine.</p>
-            <p class="es-text">Puerta de entrada al Parque Nacional Chingaza con más de 390 especies de aves. Experimenta la cultura colombiana, aguas termales y gastronomía local.</p>
-            
-            <div class="resort-features">
-                <span class="feature-tag">
-                    <span class="en-text">Birdwatching</span>
-                    <span class="es-text">Observación de Aves</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Hot Springs</span>
-                    <span class="es-text">Aguas Termales</span>
-                </span>
-                <span class="feature-tag">
-                    <span class="en-text">Cultural Heritage</span>
-                    <span class="es-text">Patrimonio Cultural</span>
-                </span>
-            </div>
-            
-            <!-- Updated Bilingual PDF Download -->
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
-               class="resort-btn en-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="en-text">Download Brochure</span>
-            </a>
-            
-            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
-               class="resort-btn es-text" download>
-                <i class="fas fa-download"></i> 
-                <span class="es-text">Descargar Folleto</span>
-            </a>
         </div>
-    </div>
-</div>
     </section>
 
     <!-- Luxury Features -->
@@ -1782,7 +1902,7 @@
                 </div>
             </div>
             
-            <!-- Download Section - UPDATED WITH NEW VIDEO CARD -->
+            <!-- Download Section -->
             <div class="row mt-5">
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
@@ -1890,7 +2010,7 @@
                     </div>
                 </div>
                 
-                <!-- NEW: Global Warming Video Card -->
+                <!-- Global Warming Video Card -->
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
                         <div class="download-icon">
@@ -1917,166 +2037,76 @@
     </section>
 
     <!-- Gallery Section -->
-<section class="section-padding" id="gallery">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="en-text">Resort Gallery</span>
-            <span class="es-text">Galería del Resort</span>
-        </h2>
-        <p class="section-subtitle">
-            <span class="en-text">Experience the beauty and luxury of SunDrop Eco-Resorts through our visual journey.</span>
-            <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
-        </p>
-        
-        <div class="row">
-            <!-- Image 1 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" 
-                         alt="Resort View" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Luxury Eco-Home</span>
-                            <span class="es-text">Eco-Home de Lujo</span>
+    <section class="section-padding" id="gallery">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en-text">Resort Gallery</span>
+                <span class="es-text">Galería del Resort</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en-text">Experience the beauty and luxury of SunDrop Eco-Resorts through our visual journey.</span>
+                <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
+            </p>
+            
+            <div class="row">
+                <!-- Image 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" 
+                             alt="Resort View" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <span class="en-text">Luxury Eco-Home</span>
+                                <span class="es-text">Eco-Home de Lujo</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Image 2 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" 
-                         alt="Pool" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Infinity Pool</span>
-                            <span class="es-text">Piscina Infinity</span>
+                
+                <!-- Image 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" 
+                             alt="Pool" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <span class="en-text">Infinity Pool</span>
+                                <span class="es-text">Piscina Infinity</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Image 3 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg" 
-                         alt="Nature" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Natural Surroundings</span>
-                            <span class="es-text">Entorno Natural</span>
+                
+                <!-- Image 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg" 
+                             alt="Nature" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <span class="en-text">Natural Surroundings</span>
+                                <span class="es-text">Entorno Natural</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Image 4 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="gallery-item">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" 
-                         alt="Sunset" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <div class="gallery-caption">
-                            <span class="en-text">Sunset View</span>
-                            <span class="es-text">Vista del Atardecer</span>
+                
+                <!-- Image 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" 
+                             alt="Sunset" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <span class="en-text">Sunset View</span>
+                                <span class="es-text">Vista del Atardecer</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <style>
-        /* Gallery Section CSS */
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 200px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-color: var(--gold);
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 12px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-caption {
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Remove gap between images on large screens */
-        @media (min-width: 992px) {
-            .gallery-item {
-                margin: 0 5px;
-            }
-            
-            .row {
-                margin-left: -5px;
-                margin-right: -5px;
-            }
-            
-            .col-lg-3 {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .gallery-item {
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                height: 160px;
-                margin-bottom: 10px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                height: 140px;
-            }
-        }
-        </style>
-    </div>
-</section>
+    </section>
 
     <!-- Resort Plans Section -->
     <section class="section-padding plans-section" id="plans">
@@ -2532,7 +2562,7 @@
             });
         }
         
-        // NEW: Download Land Plans Function for USA Utah as ZIP
+        // Download Land Plans Function for USA Utah as ZIP
         function downloadLandPlans() {
             // Land plans images URLs
             const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
@@ -2615,7 +2645,41 @@
             // Load saved language preference
             const savedLang = localStorage.getItem('preferredLanguage') || 'en';
             changeLanguage(savedLang);
+            
+            // Fix for zoom level issues
+            checkZoomLevel();
         });
+        
+        // Check and fix zoom level issues
+        function checkZoomLevel() {
+            // Prevent horizontal scroll on zoom
+            document.body.style.overflowX = 'hidden';
+            
+            // Check if elements are overlapping
+            const checkOverlap = () => {
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar.offsetHeight;
+                
+                // Adjust body padding based on navbar height
+                document.body.style.paddingTop = navbarHeight + 'px';
+                
+                // Check for overlapping elements
+                const elements = document.querySelectorAll('.resort-card, .luxury-item, .investment-card');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.left < 0 || rect.right > window.innerWidth) {
+                        el.style.margin = '10px';
+                    }
+                });
+            };
+            
+            // Initial check
+            checkOverlap();
+            
+            // Check on resize and zoom
+            window.addEventListener('resize', checkOverlap);
+            window.addEventListener('orientationchange', checkOverlap);
+        }
         
         // Video fallback for mobile
         function checkMobileVideo() {
@@ -2632,6 +2696,9 @@
         
         window.addEventListener('load', checkMobileVideo);
         window.addEventListener('resize', checkMobileVideo);
+        
+        // Fix for touch devices
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </body>
 </html>
