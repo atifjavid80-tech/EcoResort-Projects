@@ -1488,18 +1488,22 @@
                             <span class="es-text">Planos del Resort</span>
                         </a>
                     </li>
+                    <!-- UPDATED: Contact Link as Email Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">
+                        <a class="nav-link" href="mailto:info@sundropresorts.com?subject=Contact Inquiry - SunDrop Eco-Resorts">
+                            <i class="fas fa-envelope"></i> 
                             <span class="en-text">Contact</span>
                             <span class="es-text">Contacto</span>
                         </a>
                     </li>
+                    
+                    <!-- UPDATED: Invest Now Button as Email Link -->
                     <li class="nav-item ms-3">
-                        <button class="btn nav-btn" onclick="scrollToInvestment()">
+                        <a href="mailto:info@sundropresorts.com?subject=Investment Inquiry - SunDrop Eco-Resorts" class="btn nav-btn">
                             <i class="fas fa-chart-line"></i> 
                             <span class="en-text">Invest Now</span>
                             <span class="es-text">Invertir Ahora</span>
-                        </button>
+                        </a>
                     </li>
                     
                     <!-- Language Switcher for Desktop (inside nav) -->
@@ -2096,11 +2100,12 @@
                             </ul>
                         </div>
                         
-                        <button class="btn nav-btn w-100 request-investment-btn" style="padding: 15px;" onclick="requestInvestmentPackage()">
+                        <a href="mailto:info@sundropresorts.com?subject=Request Investment Package - SunDrop Eco-Resorts" 
+                           class="btn nav-btn w-100 request-investment-btn" style="padding: 15px; text-decoration: none;">
                             <i class="fas fa-file-contract"></i> 
                             <span class="en-text">Request Investment Package</span>
                             <span class="es-text">Solicitar Paquete de Inversión</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2508,20 +2513,21 @@
                     
                     <!-- UPDATED: Contact Buttons with info@sundropresorts.com -->
                     <div class="contact-buttons mt-5">
-                        <button class="btn nav-btn" style="padding: 15px 40px;" onclick="scheduleConsultation()">
+                        <a href="mailto:info@sundropresorts.com?subject=Schedule Consultation - SunDrop Eco-Resorts" class="btn nav-btn" style="padding: 15px 40px; text-decoration: none;">
                             <i class="fas fa-calendar-alt"></i> 
                             <span class="en-text">Schedule Consultation</span>
                             <span class="es-text">Agendar Consulta</span>
-                        </button>
+                        </a>
                         
                         <!-- Updated: Contact Sales button now opens email to info@sundropresorts.com -->
-                        <a href="mailto:info@sundropresorts.com" class="hero-btn" style="padding: 15px 40px; color: var(--primary-green); border-color: var(--primary-green); text-decoration: none; display: inline-block;">
+                        <a href="mailto:info@sundropresorts.com?subject=Contact Sales - SunDrop Eco-Resorts" 
+                           class="hero-btn" 
+                           style="padding: 15px 40px; color: var(--primary-green); border-color: var(--primary-green); text-decoration: none; display: inline-block;">
                             <i class="fas fa-envelope"></i> 
-                            <span class="en-text">Contact Sales:</span>
-                            <span class="es-text">Contactar Ventas:</span>
+                            <span class="en-text">Contact Sales</span>
+                            <span class="es-text">Contactar Ventas</span>
                         </a>
                     </div>
-                
                 </div>
             </div>
         </div>
@@ -2767,24 +2773,6 @@
                 top: targetPosition,
                 behavior: 'smooth'
             });
-        }
-        
-        // NEW: Function for Schedule Consultation
-        function scheduleConsultation() {
-            const email = 'info@sundropresorts.com';
-            const subject = 'Schedule Consultation - SunDrop Eco-Resorts';
-            const body = 'Hello SunDrop Team,\n\nI would like to schedule a consultation to learn more about your premium investment opportunities.\n\nPlease contact me at your earliest convenience.\n\nBest regards,';
-            
-            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-        
-        // NEW: Function for Request Investment Package
-        function requestInvestmentPackage() {
-            const email = 'info@sundropresorts.com';
-            const subject = 'Request Investment Package - SunDrop Eco-Resorts';
-            const body = 'Hello SunDrop Team,\n\nI am interested in receiving the complete investment package for SunDrop Eco-Resorts.\n\nPlease send me all relevant documents and information.\n\nBest regards,';
-            
-            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
         
         // Download Land Plans Function for USA Utah as ZIP
