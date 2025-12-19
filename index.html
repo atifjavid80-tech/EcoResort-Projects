@@ -1281,6 +1281,142 @@
                 left: -5px;
             }
         }
+        
+        /* ========== MOBILE FIXES FOR MAILTO LINKS ========== */
+        /* MOBILE FIX: Prevent background distortion after mailto link click */
+        @media (max-width: 768px) {
+            /* Fix for mailto links not breaking layout */
+            a[href^="mailto:"] {
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            
+            /* Specific fix for investment package button */
+            .investment-card .nav-btn {
+                position: relative;
+                z-index: 10;
+                overflow: visible !important;
+            }
+            
+            /* Fix for contact section buttons */
+            .contact-buttons a.hero-btn {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 20px !important;
+            }
+            
+            /* Prevent background shift on mailto click */
+            body::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--cream);
+                z-index: -1;
+                display: none;
+            }
+            
+            /* Fix for iOS Safari specific issues */
+            @supports (-webkit-touch-callout: none) {
+                .hero-section,
+                .investment-section,
+                .plans-section {
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    transform: translateZ(0);
+                }
+            }
+        }
+        
+        /* EXTRA FIX for very small screens */
+        @media (max-width: 576px) {
+            /* Investment section specific fixes */
+            #investment .investment-card {
+                padding: 25px 15px;
+            }
+            
+            #investment .nav-btn {
+                padding: 12px 15px !important;
+                font-size: 12px;
+                word-break: keep-all;
+                white-space: normal;
+                line-height: 1.4;
+            }
+            
+            /* Contact section button fixes */
+            .contact-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .contact-buttons .btn,
+            .contact-buttons a.hero-btn {
+                width: 100%;
+                margin: 8px 0 !important;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Prevent layout shift when buttons are pressed */
+            button:active,
+            a:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+        }
+        
+        /* FIX: iOS Safari mailto link background issue */
+        @supports (-webkit-touch-callout: none) {
+            a[href^="mailto:"]:active {
+                background-color: rgba(0,0,0,0.05);
+                border-radius: 4px;
+            }
+        }
+        
+        /* FIX: Prevent flash of unstyled content after mailto */
+        body.mailto-clicked {
+            overflow: hidden;
+        }
+        
+        /* Add smooth transitions to prevent jarring changes */
+        .investment-card,
+        .resort-card,
+        .plan-download-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+        
+        /* Ensure investment package button maintains its appearance */
+        .request-investment-btn {
+            position: relative;
+            isolation: isolate;
+        }
+        
+        .request-investment-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), var(--primary-green));
+            border-radius: 4px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .request-investment-btn:hover::before {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="language-en">
@@ -1960,7 +2096,7 @@
                             </ul>
                         </div>
                         
-                        <button class="btn nav-btn w-100" style="padding: 15px;" onclick="requestInvestmentPackage()">
+                        <button class="btn nav-btn w-100 request-investment-btn" style="padding: 15px;" onclick="requestInvestmentPackage()">
                             <i class="fas fa-file-contract"></i> 
                             <span class="en-text">Request Investment Package</span>
                             <span class="es-text">Solicitar Paquete de Inversión</span>
@@ -2175,136 +2311,136 @@
         </div>
     </section>
 
-    <!-- Resort Plans Section کو یہ updated code سے replace کریں -->
-<section class="section-padding plans-section" id="plans">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="en-text">Resort Layout & Planning</span>
-            <span class="es-text">Distribución y Planificación del Resort</span>
-        </h2>
-        <p class="section-subtitle">
-            <span class="en-text">Download detailed architectural plans and land layouts for our sustainable eco-resort communities.</span>
-            <span class="es-text">Descarga planos arquitectónicos detallados y distribuciones de terreno para nuestras comunidades de eco-resorts sostenibles.</span>
-        </p>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="plan-download-card">
-                    <div class="plan-image-container">
-                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                             alt="SunDrop EcoResort Land Plan" class="plan-image">
-                        <div class="plan-overlay">
+    <!-- Resort Plans Section -->
+    <section class="section-padding plans-section" id="plans">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en-text">Resort Layout & Planning</span>
+                <span class="es-text">Distribución y Planificación del Resort</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en-text">Download detailed architectural plans and land layouts for our sustainable eco-resort communities.</span>
+                <span class="es-text">Descarga planos arquitectónicos detallados y distribuciones de terreno para nuestras comunidades de eco-resorts sostenibles.</span>
+            </p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="plan-download-card">
+                        <div class="plan-image-container">
+                            <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
+                                 alt="SunDrop EcoResort Land Plan" class="plan-image">
+                            <div class="plan-overlay">
+                                <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
+                                   class="plan-download-btn" download="Typical-SunDrop-EcoResort-Land-Plan.jpg">
+                                    <i class="fas fa-download"></i> 
+                                    <span class="en-text">Download High-Resolution Plan</span>
+                                    <span class="es-text">Descargar Plan de Alta Resolución</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <h3 class="plan-title">
+                                <span class="en-text">Typical SunDrop EcoResort Land Plan</span>
+                                <span class="es-text">Plan de Terreno Típico SunDrop Eco Resort</span>
+                            </h3>
+                            <p class="plan-description">
+                                <span class="en-text">Detailed architectural layout showcasing the sustainable design and planning of our premium eco-resort communities. This plan illustrates optimal land use, eco-home placement, amenity distribution, and environmental conservation zones.</span>
+                                <span class="es-text">Diseño arquitectónico detallado que muestra el diseño sostenible y la planificación de nuestras comunidades premium de eco-resorts. Este plan ilustra el uso óptimo del terreno, ubicación de eco-homes, distribución de amenidades y zonas de conservación ambiental.</span>
+                            </p>
+                            
+                            <ul class="plan-features">
+                                <li>
+                                    <span class="en-text">Complete land use and zoning layout</span>
+                                    <span class="es-text">Distribución completa de uso de suelo y zonificación</span>
+                                </li>
+                                <li>
+                                    <span class="en-text">Eco-home placement and density planning</span>
+                                    <span class="es-text">Ubicación y densidad de eco-homes</span>
+                                </li>
+                                <li>
+                                    <span class="en-text">Amenity and facility distribution</span>
+                                    <span class="es-text">Distribución de amenidades e instalaciones</span>
+                                </li>
+                                <li>
+                                    <span class="en-text">Environmental conservation zones</span>
+                                    <span class="es-text">Zonas de conservación ambiental</span>
+                                </li>
+                                <li>
+                                    <span class="en-text">Sustainable infrastructure planning</span>
+                                    <span class="es-text">Planificación de infraestructura sostenible</span>
+                                </li>
+                                <li>
+                                    <span class="en-text">Community space allocation</span>
+                                    <span class="es-text">Asignación de espacios comunitarios</span>
+                                </li>
+                            </ul>
+                            
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
                                class="plan-download-btn" download="Typical-SunDrop-EcoResort-Land-Plan.jpg">
                                 <i class="fas fa-download"></i> 
-                                <span class="en-text">Download High-Resolution Plan</span>
-                                <span class="es-text">Descargar Plan de Alta Resolución</span>
+                                <span class="en-text">Download Land Plan (JPG)</span>
+                                <span class="es-text">Descargar Plan de Terreno (JPG)</span>
                             </a>
+                            
+                            <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
+                                <i class="fas fa-info-circle"></i> 
+                                <span class="en-text">High-resolution image suitable for printing and detailed viewing</span>
+                                <span class="es-text">Imagen de alta resolución apta para impresión y visualización detallada</span>
+                            </p>
                         </div>
                     </div>
-                    <div class="plan-content">
-                        <h3 class="plan-title">
-                            <span class="en-text">Typical SunDrop EcoResort Land Plan</span>
-                            <span class="es-text">Plan de Terreno Típico SunDrop Eco Resort</span>
-                        </h3>
-                        <p class="plan-description">
-                            <span class="en-text">Detailed architectural layout showcasing the sustainable design and planning of our premium eco-resort communities. This plan illustrates optimal land use, eco-home placement, amenity distribution, and environmental conservation zones.</span>
-                            <span class="es-text">Diseño arquitectónico detallado que muestra el diseño sostenible y la planificación de nuestras comunidades premium de eco-resorts. Este plan ilustra el uso óptimo del terreno, ubicación de eco-homes, distribución de amenidades y zonas de conservación ambiental.</span>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h5>
+                            <span class="en-text">Architectural Design</span>
+                            <span class="es-text">Diseño Arquitectónico</span>
+                        </h5>
+                        <p>
+                            <span class="en-text">Thoughtfully planned layouts for optimal living experience</span>
+                            <span class="es-text">Distribuciones planificadas para una experiencia de vida óptima</span>
                         </p>
-                        
-                        <ul class="plan-features">
-                            <li>
-                                <span class="en-text">Complete land use and zoning layout</span>
-                                <span class="es-text">Distribución completa de uso de suelo y zonificación</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Eco-home placement and density planning</span>
-                                <span class="es-text">Ubicación y densidad de eco-homes</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Amenity and facility distribution</span>
-                                <span class="es-text">Distribución de amenidades e instalaciones</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Environmental conservation zones</span>
-                                <span class="es-text">Zonas de conservación ambiental</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Sustainable infrastructure planning</span>
-                                <span class="es-text">Planificación de infraestructura sostenible</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Community space allocation</span>
-                                <span class="es-text">Asignación de espacios comunitarios</span>
-                            </li>
-                        </ul>
-                        
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                           class="plan-download-btn" download="Typical-SunDrop-EcoResort-Land-Plan.jpg">
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download Land Plan (JPG)</span>
-                            <span class="es-text">Descargar Plan de Terreno (JPG)</span>
-                        </a>
-                        
-                        <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
-                            <i class="fas fa-info-circle"></i> 
-                            <span class="en-text">High-resolution image suitable for printing and detailed viewing</span>
-                            <span class="es-text">Imagen de alta resolución apta para impresión y visualización detallada</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>
+                            <span class="en-text">Sustainable Planning</span>
+                            <span class="es-text">Planificación Sostenible</span>
+                        </h5>
+                        <p>
+                            <span class="en-text">Environmentally conscious land use and conservation</span>
+                            <span class="es-text">Uso de suelo y conservación ambientalmente consciente</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="luxury-item" style="background: transparent; box-shadow: none;">
+                        <div class="luxury-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>
+                            <span class="en-text">Community Focused</span>
+                            <span class="es-text">Enfoque Comunitario</span>
+                        </h5>
+                        <p>
+                            <span class="en-text">Designs that foster community interaction and wellness</span>
+                            <span class="es-text">Diseños que fomentan la interacción comunitaria y el bienestar</span>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="row mt-5">
-            <div class="col-md-4 text-center">
-                <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Architectural Design</span>
-                        <span class="es-text">Diseño Arquitectónico</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Thoughtfully planned layouts for optimal living experience</span>
-                        <span class="es-text">Distribuciones planificadas para una experiencia de vida óptima</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Sustainable Planning</span>
-                        <span class="es-text">Planificación Sostenible</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Environmentally conscious land use and conservation</span>
-                        <span class="es-text">Uso de suelo y conservación ambientalmente consciente</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Community Focused</span>
-                        <span class="es-text">Enfoque Comunitario</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Designs that foster community interaction and wellness</span>
-                        <span class="es-text">Diseños que fomentan la interacción comunitaria y el bienestar</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
     
     <!-- Contact Section - UPDATED WITH info@sundropresorts.com EMAIL -->
     <section class="section-padding bg-light" id="contact">
@@ -2389,6 +2525,9 @@
                     <!-- Additional Contact Information -->
                     <div class="mt-4" style="color: #666; font-size: 0.9rem;">
                         <p>
+                            <i class="fas fa-envelope"></i> info@sundropresorts.com
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2473,14 +2612,13 @@
                     </h5>
                     <ul class="footer-links">
                         <li><a href="mailto:info@sundropresorts.com">info@sundropresorts.com</a></li>
-                        <li><a href=""></a></li>
-                        <li><a href="#">
-                            <span class="en-text"></span>
-                            <span class="es-text"></span>
-                        </a></li>
                         <li><a href="#contact">
-                            <span class="en-text"></span>
-                            <span class="es-text"></span>
+                            <span class="en-text">Schedule Consultation</span>
+                            <span class="es-text">Agendar Consulta</span>
+                        </a></li>
+                        <li><a href="#investment">
+                            <span class="en-text">Investment Package</span>
+                            <span class="es-text">Paquete de Inversión</span>
                         </a></li>
                     </ul>
                 </div>
@@ -2710,6 +2848,47 @@
             return false;
         }
         
+        // Fix for mobile mailto link issues
+        function fixMobileMailtoLinks() {
+            if (window.innerWidth <= 768) {
+                // Add click handlers to mailto links
+                document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        // Prevent immediate navigation to allow animation
+                        e.preventDefault();
+                        
+                        // Add a class to body to maintain layout
+                        document.body.classList.add('mailto-clicked');
+                        
+                        // Show a brief loading state
+                        this.classList.add('clicked');
+                        
+                        // Navigate after a short delay
+                        setTimeout(() => {
+                            window.location.href = this.href;
+                        }, 100);
+                    });
+                    
+                    // Add touch-specific handling for mobile
+                    link.addEventListener('touchstart', function() {
+                        this.classList.add('touch-active');
+                    });
+                    
+                    link.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('touch-active');
+                        }, 300);
+                    });
+                });
+                
+                // Also fix investment package button specifically
+                const investmentBtn = document.querySelector('.investment-card .nav-btn');
+                if (investmentBtn) {
+                    investmentBtn.classList.add('request-investment-btn');
+                }
+            }
+        }
+        
         // Auto year update
         document.addEventListener('DOMContentLoaded', function() {
             const yearSpan = document.querySelector('.copyright p');
@@ -2741,6 +2920,9 @@
             
             // Fix for zoom level issues
             checkZoomLevel();
+            
+            // Fix mobile mailto links
+            fixMobileMailtoLinks();
         });
         
         // Check and fix zoom level issues
@@ -2802,6 +2984,16 @@
                 !navbarCollapse.contains(event.target) && 
                 !navbarToggler.contains(event.target)) {
                 navbarToggler.click();
+            }
+        });
+        
+        // Also fix on window resize
+        window.addEventListener('resize', fixMobileMailtoLinks);
+        
+        // Remove the mailto-clicked class when returning to page
+        window.addEventListener('pageshow', function(event) {
+            if (document.body.classList.contains('mailto-clicked')) {
+                document.body.classList.remove('mailto-clicked');
             }
         });
     </script>
