@@ -976,6 +976,34 @@
             margin-bottom: 20px;
         }
         
+        /* PDF View Button */
+        .pdf-view-btn {
+            background: transparent;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+            padding: 10px 25px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .pdf-view-btn:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
@@ -1097,7 +1125,7 @@
         
         /* Fix for resort cards on small screens */
         @media (max-width: 576px) {
-            .resort-btn {
+            .resort-btn, .pdf-view-btn {
                 padding: 8px 15px;
                 font-size: 11px;
             }
@@ -1647,16 +1675,17 @@
                                 </span>
                             </div>
                             
+                            <!-- CHANGED: PDF View button instead of download -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
-                               class="resort-btn en-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="en-text">Download Brochure</span>
+                               target="_blank" class="pdf-view-btn en-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="en-text">View Brochure</span>
                             </a>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
-                               class="resort-btn es-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="es-text">Descargar Folleto</span>
+                               target="_blank" class="pdf-view-btn es-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="es-text">Ver Folleto</span>
                             </a>
                         </div>
                     </div>
@@ -1692,16 +1721,17 @@
                                 </span>
                             </div>
                             
+                            <!-- CHANGED: PDF View button instead of download -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
-                               class="resort-btn en-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="en-text">Download Brochure</span>
+                               target="_blank" class="pdf-view-btn en-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="en-text">View Brochure</span>
                             </a>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
-                               class="resort-btn es-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="es-text">Descargar Folleto</span>
+                               target="_blank" class="pdf-view-btn es-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="es-text">Ver Folleto</span>
                             </a>
                         </div>
                     </div>
@@ -1734,16 +1764,19 @@
                                 </span>
                             </div>
                             
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="en-text">Download Brochure</span>
-                                <span class="es-text">Descargar Folleto</span>
+                            <!-- CHANGED: PDF View button instead of download -->
+                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" 
+                               target="_blank" class="pdf-view-btn">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="en-text">View Brochure</span>
+                                <span class="es-text">Ver Folleto</span>
                             </a>
                             
-                            <a href="#" class="resort-btn mt-2" onclick="downloadLandPlans()">
-                                <i class="fas fa-file-archive"></i> 
-                                <span class="en-text">Land Plans Exclusive (ZIP)</span>
-                                <span class="es-text">Planos de Terreno Exclusivos (ZIP)</span>
+                            <!-- CHANGED: Land Plans button for viewing -->
+                            <a href="javascript:void(0)" class="pdf-view-btn mt-2" onclick="viewLandPlans()">
+                                <i class="fas fa-images"></i> 
+                                <span class="en-text">View Land Plans</span>
+                                <span class="es-text">Ver Planos de Terreno</span>
                             </a>
                         </div>
                     </div>
@@ -1779,16 +1812,17 @@
                                 </span>
                             </div>
                             
+                            <!-- CHANGED: PDF View button instead of download -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
-                               class="resort-btn en-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="en-text">Download Brochure</span>
+                               target="_blank" class="pdf-view-btn en-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="en-text">View Brochure</span>
                             </a>
                             
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
-                               class="resort-btn es-text" download>
-                                <i class="fas fa-download"></i> 
-                                <span class="es-text">Descargar Folleto</span>
+                               target="_blank" class="pdf-view-btn es-text">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="es-text">Ver Folleto</span>
                             </a>
                         </div>
                     </div>
@@ -2121,7 +2155,7 @@
                 </div>
             </div>
             
-            <!-- Download Section -->
+            <!-- View Section (Changed from Download) -->
             <div class="row mt-5">
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
@@ -2136,10 +2170,12 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" class="resort-btn" download>
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download PDF</span>
-                            <span class="es-text">Descargar PDF</span>
+                        <!-- CHANGED: PDF View button -->
+                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">View PDF</span>
+                            <span class="es-text">Ver PDF</span>
                         </a>
                     </div>
                 </div>
@@ -2157,10 +2193,12 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" class="resort-btn" download>
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download PDF</span>
-                            <span class="es-text">Descargar PDF</span>
+                        <!-- CHANGED: PDF View button -->
+                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">View PDF</span>
+                            <span class="es-text">Ver PDF</span>
                         </a>
                     </div>
                 </div>
@@ -2178,10 +2216,12 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" class="resort-btn" download>
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download PDF</span>
-                            <span class="es-text">Descargar PDF</span>
+                        <!-- CHANGED: PDF View button -->
+                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" 
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">View PDF</span>
+                            <span class="es-text">Ver PDF</span>
                         </a>
                     </div>
                 </div>
@@ -2199,10 +2239,12 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" class="resort-btn" download>
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download PDF</span>
-                            <span class="es-text">Descargar PDF</span>
+                        <!-- CHANGED: PDF View button -->
+                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">View PDF</span>
+                            <span class="es-text">Ver PDF</span>
                         </a>
                     </div>
                 </div>
@@ -2221,10 +2263,12 @@
                             <span class="en-text">One comprehensive solution to address climate change</span>
                             <span class="es-text">Una solución integral para abordar el cambio climático</span>
                         </p>
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/One%20Solution%20To%20Solve%20Global%20Warming.pdf" class="resort-btn" download>
-                            <i class="fas fa-download"></i> 
-                            <span class="en-text">Download PDF</span>
-                            <span class="es-text">Descargar PDF</span>
+                        <!-- CHANGED: PDF View button -->
+                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/One%20Solution%20To%20Solve%20Global%20Warming.pdf" 
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">View PDF</span>
+                            <span class="es-text">Ver PDF</span>
                         </a>
                     </div>
                 </div>
@@ -2243,11 +2287,12 @@
                             <span class="en-text">Video presentation with audio explanation of sustainable solutions</span>
                             <span class="es-text">Presentación en video con explicación de audio de soluciones sostenibles</span>
                         </p>
+                        <!-- CHANGED: Video View button -->
                         <a href="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mov" 
-                           class="resort-btn" download="Global-Warming-Solution-Video.mov">
-                            <i class="fas fa-headphones"></i> 
-                            <span class="en-text">Download with Audio</span>
-                            <span class="es-text">Descargar con Audio</span>
+                           target="_blank" class="pdf-view-btn">
+                            <i class="fas fa-video"></i> 
+                            <span class="en-text">View Video</span>
+                            <span class="es-text">Ver Video</span>
                         </a>
                     </div>
                 </div>
@@ -2346,11 +2391,12 @@
                             <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
                                  alt="SunDrop EcoResort Land Plan" class="plan-image">
                             <div class="plan-overlay">
+                                <!-- CHANGED: View button instead of download -->
                                 <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                                   class="plan-download-btn" download="Typical-SunDrop-EcoResort-Land-Plan.jpg">
-                                    <i class="fas fa-download"></i> 
-                                    <span class="en-text">Download High-Resolution Plan</span>
-                                    <span class="es-text">Descargar Plan de Alta Resolución</span>
+                                   target="_blank" class="plan-download-btn">
+                                    <i class="fas fa-external-link-alt"></i> 
+                                    <span class="en-text">View High-Resolution Plan</span>
+                                    <span class="es-text">Ver Plan de Alta Resolución</span>
                                 </a>
                             </div>
                         </div>
@@ -2391,17 +2437,18 @@
                                 </li>
                             </ul>
                             
+                            <!-- CHANGED: View button instead of download -->
                             <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                               class="plan-download-btn" download="Typical-SunDrop-EcoResort-Land-Plan.jpg">
-                                <i class="fas fa-download"></i> 
-                                <span class="en-text">Download Land Plan (JPG)</span>
-                                <span class="es-text">Descargar Plan de Terreno (JPG)</span>
+                               target="_blank" class="plan-download-btn">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="en-text">View Land Plan</span>
+                                <span class="es-text">Ver Plan de Terreno</span>
                             </a>
                             
                             <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
                                 <i class="fas fa-info-circle"></i> 
-                                <span class="en-text">High-resolution image suitable for printing and detailed viewing</span>
-                                <span class="es-text">Imagen de alta resolución apta para impresión y visualización detallada</span>
+                                <span class="en-text">High-resolution image suitable for detailed viewing</span>
+                                <span class="es-text">Imagen de alta resolución apta para visualización detallada</span>
                             </p>
                         </div>
                     </div>
@@ -2786,58 +2833,18 @@
             });
         }
         
-        // Download Land Plans Function for USA Utah as ZIP
-        function downloadLandPlans() {
+        // View Land Plans Function for USA Utah (instead of download)
+        function viewLandPlans() {
             // Land plans images URLs
             const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
             const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
             
-            // Show notification
-            showNotification('Creating ZIP file with land plans...');
+            // Open both images in new tabs
+            window.open(image1, '_blank');
+            setTimeout(() => {
+                window.open(image2, '_blank');
+            }, 500);
             
-            // Create ZIP file
-            const createZip = async () => {
-                try {
-                    const zip = new JSZip();
-                    
-                    // Fetch first image
-                    const response1 = await fetch(image1);
-                    const blob1 = await response1.blob();
-                    zip.file("Land-Plan-Exclusive-01.jpeg", blob1);
-                    
-                    // Fetch second image
-                    const response2 = await fetch(image2);
-                    const blob2 = await response2.blob();
-                    zip.file("Land-Plan-Exclusive-02.jpg", blob2);
-                    
-                    // Generate ZIP
-                    const content = await zip.generateAsync({type: "blob"});
-                    
-                    // Download ZIP
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(content);
-                    link.download = 'SunDrop-Land-Plans-Exclusive.zip';
-                    link.style.display = 'none';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(link.href);
-                    
-                    showNotification('ZIP file downloaded successfully!');
-                    
-                } catch (error) {
-                    console.error('Error creating ZIP:', error);
-                    showNotification('Error creating ZIP, opening images directly...');
-                    
-                    // Fallback: Open images in new tabs
-                    window.open(image1, '_blank');
-                    setTimeout(() => {
-                        window.open(image2, '_blank');
-                    }, 500);
-                }
-            };
-            
-            createZip();
             return false;
         }
         
