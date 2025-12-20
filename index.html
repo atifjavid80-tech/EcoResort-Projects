@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- JSZip Library for ZIP file creation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         :root {
             --primary-green: #1a472a;
@@ -50,6 +48,99 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
+        }
+        
+        /* PDF Modal Styles */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+        
+        .pdf-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 95%;
+            max-width: 1000px;
+            height: 85vh;
+            position: relative;
+        }
+        
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pdf-modal-title {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin: 0;
+        }
+        
+        .close-pdf-modal {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-pdf-modal:hover {
+            color: #000;
+        }
+        
+        .pdf-viewer-container {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+        }
+        
+        /* PDF View Button Styles */
+        .pdf-view-btn {
+            background: transparent;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+            padding: 10px 25px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .pdf-view-btn:hover {
+            background: var(--primary-green);
+            color: white;
         }
         
         /* ========== FIXED NAVIGATION ========== */
@@ -976,34 +1067,6 @@
             margin-bottom: 20px;
         }
         
-        /* PDF View Button */
-        .pdf-view-btn {
-            background: transparent;
-            color: var(--primary-green);
-            border: 1px solid var(--primary-green);
-            padding: 10px 25px;
-            border-radius: 2px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-            text-decoration: none;
-            white-space: nowrap;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .pdf-view-btn:hover {
-            background: var(--primary-green);
-            color: white;
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
@@ -1025,6 +1088,12 @@
             
             .resort-image {
                 height: 220px;
+            }
+            
+            .pdf-modal-content {
+                width: 98%;
+                margin: 2% auto;
+                height: 90vh;
             }
         }
         
@@ -1157,6 +1226,15 @@
             /* Fix for plan features on mobile */
             .plan-features li {
                 font-size: 0.9rem;
+            }
+            
+            .pdf-modal-content {
+                padding: 10px;
+                height: 95vh;
+            }
+            
+            .pdf-modal-title {
+                font-size: 1.2rem;
             }
         }
         
@@ -1459,6 +1537,17 @@
     </style>
 </head>
 <body class="language-en">
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 class="pdf-modal-title" id="pdfModalTitle">PDF Viewer</h3>
+                <button class="close-pdf-modal" onclick="closePDFModal()">&times;</button>
+            </div>
+            <iframe id="pdfViewer" class="pdf-viewer-container" src="" title="PDF Viewer"></iframe>
+        </div>
+    </div>
+
     <!-- FIXED NAVIGATION -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -1675,18 +1764,15 @@
                                 </span>
                             </div>
                             
-                            <!-- CHANGED: PDF View button instead of download -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
-                               target="_blank" class="pdf-view-btn en-text">
+                            <button class="pdf-view-btn en-text" onclick="openPDF('Dominican Republic Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="en-text">View Brochure</span>
-                            </a>
+                            </button>
                             
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf" 
-                               target="_blank" class="pdf-view-btn es-text">
+                            <button class="pdf-view-btn es-text" onclick="openPDF('Folleto República Dominicana', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="es-text">Ver Folleto</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1721,18 +1807,15 @@
                                 </span>
                             </div>
                             
-                            <!-- CHANGED: PDF View button instead of download -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
-                               target="_blank" class="pdf-view-btn en-text">
+                            <button class="pdf-view-btn en-text" onclick="openPDF('Panama Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="en-text">View Brochure</span>
-                            </a>
+                            </button>
                             
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf" 
-                               target="_blank" class="pdf-view-btn es-text">
+                            <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Panamá', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="es-text">Ver Folleto</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1764,20 +1847,17 @@
                                 </span>
                             </div>
                             
-                            <!-- CHANGED: PDF View button instead of download -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" 
-                               target="_blank" class="pdf-view-btn">
+                            <button class="pdf-view-btn" onclick="openPDF('USA Utah Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="en-text">View Brochure</span>
                                 <span class="es-text">Ver Folleto</span>
-                            </a>
+                            </button>
                             
-                            <!-- CHANGED: Land Plans button for viewing -->
-                            <a href="javascript:void(0)" class="pdf-view-btn mt-2" onclick="viewLandPlans()">
+                            <button class="pdf-view-btn mt-2" onclick="viewLandPlans()">
                                 <i class="fas fa-images"></i> 
                                 <span class="en-text">View Land Plans</span>
                                 <span class="es-text">Ver Planos de Terreno</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1812,18 +1892,15 @@
                                 </span>
                             </div>
                             
-                            <!-- CHANGED: PDF View button instead of download -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
-                               target="_blank" class="pdf-view-btn en-text">
+                            <button class="pdf-view-btn en-text" onclick="openPDF('Colombia Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="en-text">View Brochure</span>
-                            </a>
+                            </button>
                             
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf" 
-                               target="_blank" class="pdf-view-btn es-text">
+                            <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Colombia', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf&embedded=true')">
                                 <i class="fas fa-external-link-alt"></i> 
                                 <span class="es-text">Ver Folleto</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2170,13 +2247,11 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <!-- CHANGED: PDF View button -->
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('Dominican Republic PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf&embedded=true')">
                             <i class="fas fa-external-link-alt"></i> 
                             <span class="en-text">View PDF</span>
                             <span class="es-text">Ver PDF</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -2193,13 +2268,11 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <!-- CHANGED: PDF View button -->
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('Panama PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf&embedded=true')">
                             <i class="fas fa-external-link-alt"></i> 
                             <span class="en-text">View PDF</span>
                             <span class="es-text">Ver PDF</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -2216,13 +2289,11 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <!-- CHANGED: PDF View button -->
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('USA Utah PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf&embedded=true')">
                             <i class="fas fa-external-link-alt"></i> 
                             <span class="en-text">View PDF</span>
                             <span class="es-text">Ver PDF</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -2239,13 +2310,11 @@
                             <span class="en-text">Complete project details and investment prospectus</span>
                             <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
                         </p>
-                        <!-- CHANGED: PDF View button -->
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('Colombia PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf&embedded=true')">
                             <i class="fas fa-external-link-alt"></i> 
                             <span class="en-text">View PDF</span>
                             <span class="es-text">Ver PDF</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -2263,13 +2332,11 @@
                             <span class="en-text">One comprehensive solution to address climate change</span>
                             <span class="es-text">Una solución integral para abordar el cambio climático</span>
                         </p>
-                        <!-- CHANGED: PDF View button -->
-                        <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/One%20Solution%20To%20Solve%20Global%20Warming.pdf" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('Global Warming Solution PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/One%20Solution%20To%20Solve%20Global%20Warming.pdf&embedded=true')">
                             <i class="fas fa-external-link-alt"></i> 
                             <span class="en-text">View PDF</span>
                             <span class="es-text">Ver PDF</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -2287,13 +2354,11 @@
                             <span class="en-text">Video presentation with audio explanation of sustainable solutions</span>
                             <span class="es-text">Presentación en video con explicación de audio de soluciones sostenibles</span>
                         </p>
-                        <!-- CHANGED: Video View button -->
-                        <a href="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mov" 
-                           target="_blank" class="pdf-view-btn">
+                        <button class="pdf-view-btn" onclick="openPDF('Global Warming Solution Video', 'https://docs.google.com/viewer?url=https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mov&embedded=true')">
                             <i class="fas fa-video"></i> 
                             <span class="en-text">View Video</span>
                             <span class="es-text">Ver Video</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2391,13 +2456,11 @@
                             <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
                                  alt="SunDrop EcoResort Land Plan" class="plan-image">
                             <div class="plan-overlay">
-                                <!-- CHANGED: View button instead of download -->
-                                <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                                   target="_blank" class="plan-download-btn">
-                                    <i class="fas fa-external-link-alt"></i> 
-                                    <span class="en-text">View High-Resolution Plan</span>
-                                    <span class="es-text">Ver Plan de Alta Resolución</span>
-                                </a>
+                                <button class="plan-download-btn" onclick="viewImageFullscreen('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg', 'Land Plan')">
+                                    <i class="fas fa-expand"></i> 
+                                    <span class="en-text">View Full Screen</span>
+                                    <span class="es-text">Ver Pantalla Completa</span>
+                                </button>
                             </div>
                         </div>
                         <div class="plan-content">
@@ -2437,13 +2500,11 @@
                                 </li>
                             </ul>
                             
-                            <!-- CHANGED: View button instead of download -->
-                            <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg" 
-                               target="_blank" class="plan-download-btn">
-                                <i class="fas fa-external-link-alt"></i> 
-                                <span class="en-text">View Land Plan</span>
-                                <span class="es-text">Ver Plan de Terreno</span>
-                            </a>
+                            <button class="plan-download-btn" onclick="viewImageFullscreen('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg', 'Land Plan')">
+                                <i class="fas fa-expand"></i> 
+                                <span class="en-text">View Full Screen</span>
+                                <span class="es-text">Ver Pantalla Completa</span>
+                            </button>
                             
                             <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
                                 <i class="fas fa-info-circle"></i> 
@@ -2770,6 +2831,49 @@
         `;
         document.head.appendChild(style);
         
+        // PDF Modal Functions
+        function openPDF(title, url) {
+            document.getElementById('pdfModalTitle').textContent = title;
+            document.getElementById('pdfViewer').src = url;
+            document.getElementById('pdfModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePDFModal() {
+            document.getElementById('pdfModal').style.display = 'none';
+            document.getElementById('pdfViewer').src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // View image in fullscreen
+        function viewImageFullscreen(imageUrl, title) {
+            openPDF(title, imageUrl);
+        }
+        
+        // View Land Plans Function
+        function viewLandPlans() {
+            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
+            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
+            
+            // Open first image in modal
+            openPDF('Land Plan Image 1', image1);
+            
+            // Show notification about second image
+            setTimeout(() => {
+                showNotification('Click again to view second land plan image');
+            }, 2000);
+            
+            return false;
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target == modal) {
+                closePDFModal();
+            }
+        }
+        
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -2831,21 +2935,6 @@
                 top: targetPosition,
                 behavior: 'smooth'
             });
-        }
-        
-        // View Land Plans Function for USA Utah (instead of download)
-        function viewLandPlans() {
-            // Land plans images URLs
-            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
-            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
-            
-            // Open both images in new tabs
-            window.open(image1, '_blank');
-            setTimeout(() => {
-                window.open(image2, '_blank');
-            }, 500);
-            
-            return false;
         }
         
         // Fix for mobile mailto link issues
