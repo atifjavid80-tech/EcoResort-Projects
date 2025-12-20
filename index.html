@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
     <!-- ========== WORKING FAVICON ========== -->
-    <!-- Option 1: Google Favicon Service (Guaranteed Working) -->
     <link rel="icon" href="https://www.google.com/s2/favicons?domain=sundropresorts.com&sz=32" 
           type="image/png" sizes="32x32">
     <link rel="shortcut icon" href="https://www.google.com/s2/favicons?domain=sundropresorts.com&sz=32">
@@ -48,6 +47,80 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
+        }
+        
+        /* VIDEO MODAL STYLES - NEW */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+        }
+        
+        .video-modal-content {
+            position: relative;
+            width: 95%;
+            max-width: 1000px;
+            height: 80vh;
+            margin: 5vh auto;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .video-modal-title {
+            font-size: 1.2rem;
+            color: white;
+            margin: 0;
+        }
+        
+        .close-video-modal {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-video-modal:hover {
+            color: var(--gold);
+        }
+        
+        .video-player-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-player-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
         }
         
         /* PDF Modal Styles */
@@ -112,6 +185,36 @@
             width: 100%;
             height: calc(100% - 60px);
             border: none;
+        }
+        
+        /* Video Play Button Styles */
+        .video-play-btn {
+            background: linear-gradient(135deg, #1a472a, #2a623d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .video-play-btn:hover {
+            background: linear-gradient(135deg, #0d2818, #1a472a);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 71, 42, 0.3);
         }
         
         /* PDF View Button Styles */
@@ -409,6 +512,13 @@
                 margin: 8px 0 0 0;
                 justify-content: center;
                 display: flex !important;
+            }
+            
+            /* Video Modal Mobile Fix */
+            .video-modal-content {
+                width: 98%;
+                height: 60vh;
+                margin: 20vh auto;
             }
         }
         
@@ -744,6 +854,20 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: #000;
+        }
+        
+        /* Video player styles */
+        .main-video-player {
+            width: 100%;
+            height: 500px;
+            background: #000;
+        }
+        
+        .main-video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         /* Investment Section */
@@ -1095,6 +1219,10 @@
                 margin: 2% auto;
                 height: 90vh;
             }
+            
+            .main-video-player {
+                height: 400px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1141,6 +1269,10 @@
             
             .luxury-item {
                 padding: 30px 20px;
+            }
+            
+            .main-video-player {
+                height: 300px;
             }
             
             /* Fix for contact buttons on mobile */
@@ -1194,7 +1326,7 @@
         
         /* Fix for resort cards on small screens */
         @media (max-width: 576px) {
-            .resort-btn, .pdf-view-btn {
+            .resort-btn, .pdf-view-btn, .video-play-btn {
                 padding: 8px 15px;
                 font-size: 11px;
             }
@@ -1235,6 +1367,10 @@
             
             .pdf-modal-title {
                 font-size: 1.2rem;
+            }
+            
+            .main-video-player {
+                height: 250px;
             }
         }
         
@@ -1333,6 +1469,10 @@
             
             .plan-content {
                 padding: 20px;
+            }
+            
+            .main-video-player {
+                height: 200px;
             }
         }
         
@@ -1534,9 +1674,45 @@
         .request-investment-btn:hover::before {
             opacity: 1;
         }
+        
+        /* Video error message */
+        .video-error {
+            background: #f8f8f8;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .video-error i {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .video-error p {
+            margin-bottom: 20px;
+            color: #666;
+        }
     </style>
 </head>
 <body class="language-en">
+    <!-- VIDEO MODAL - NEW -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 class="video-modal-title" id="videoModalTitle">Video Player</h3>
+                <button class="close-video-modal" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-player-container">
+                <video id="modalVideoPlayer" controls>
+                    <span class="en-text">Your browser does not support the video tag.</span>
+                    <span class="es-text">Tu navegador no soporta el tag de video.</span>
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- PDF Modal -->
     <div id="pdfModal" class="pdf-modal">
         <div class="pdf-modal-content">
@@ -1630,7 +1806,7 @@
                         <a href="mailto:info@sundropresorts.com?subject=Investment Inquiry - SunDrop Eco-Resorts" class="btn nav-btn">
                             <i class="fas fa-chart-line"></i> 
                             <span class="en-text">Invest Now</span>
-                            <span class="es-text">Invertir Ahora</span>
+<span class="es-text">Invertir Ahora</span>
                         </a>
                     </li>
                     
@@ -2020,7 +2196,7 @@
         </div>
     </section>
 
-    <!-- Video Section -->
+    <!-- Video Section - FIXED -->
     <section class="section-padding video-section" id="video">
         <div class="container">
             <h2 class="section-title">
@@ -2032,12 +2208,43 @@
                 <span class="es-text">Haz un recorrido virtual de nuestra Eco-Home premium y presencia la armonía del lujo y la naturaleza</span>
             </p>
             
+            <!-- FIXED VIDEO PLAYER -->
             <div class="video-container">
-                <video controls style="width: 100%; display: block;">
-                    <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/interior%20exterior%20video.mp4" type="video/mp4">
-                    <span class="en-text">Your browser does not support the video tag.</span>
-                    <span class="es-text">Tu navegador no soporta el tag de video.</span>
-                </video>
+                <div class="main-video-player">
+                    <video id="mainVideo" controls preload="metadata" playsinline>
+                        <!-- MULTIPLE SOURCES FOR COMPATIBILITY -->
+                        <!-- Main Source: Direct MP4 URL -->
+                        <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/interior%20exterior%20video.mp4" type="video/mp4">
+                        
+                        <!-- Alternative Source 1: GitHub raw with different URL -->
+                        <source src="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/interior%20exterior%20video.mp4" type="video/mp4">
+                        
+                        <!-- Alternative Source 2: jsDelivr CDN -->
+                        <source src="https://cdn.jsdelivr.net/gh/atifjavid80-tech/EcoResort-Projects@main/interior%20exterior%20video.mp4" type="video/mp4">
+                        
+                        <!-- Fallback Message -->
+                        <div class="video-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p class="en-text">Sorry, the video cannot be played directly in your browser.</p>
+                            <p class="es-text">Lo sentimos, el video no se puede reproducir directamente en su navegador.</p>
+                            <a href="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/interior%20exterior%20video.mp4" 
+                               class="video-play-btn" download>
+                                <i class="fas fa-download"></i>
+                                <span class="en-text">Download Video (MP4)</span>
+                                <span class="es-text">Descargar Video (MP4)</span>
+                            </a>
+                        </div>
+                    </video>
+                </div>
+            </div>
+            
+            <!-- Video Controls -->
+            <div class="text-center mt-4">
+                <p style="color: #666; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="en-text">If video doesn't play, try downloading it or using a different browser (Chrome, Firefox recommended)</span>
+                    <span class="es-text">Si el video no se reproduce, intenta descargarlo o usa un navegador diferente (Chrome, Firefox recomendados)</span>
+                </p>
             </div>
             
             <div class="row mt-5">
@@ -2232,7 +2439,7 @@
                 </div>
             </div>
             
-            <!-- View Section (Changed from Download) -->
+            <!-- View Section -->
             <div class="row mt-5">
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
@@ -2340,7 +2547,7 @@
                     </div>
                 </div>
                 
-                <!-- Global Warming Video Card -->
+                <!-- Global Warming Video Card - FIXED -->
                 <div class="col-md-3 col-6 mb-4">
                     <div class="download-card">
                         <div class="download-icon">
@@ -2354,10 +2561,11 @@
                             <span class="en-text">Video presentation with audio explanation of sustainable solutions</span>
                             <span class="es-text">Presentación en video con explicación de audio de soluciones sostenibles</span>
                         </p>
-                        <button class="pdf-view-btn" onclick="openPDF('Global Warming Solution Video', 'https://docs.google.com/viewer?url=https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mov&embedded=true')">
-                            <i class="fas fa-video"></i> 
-                            <span class="en-text">View Video</span>
-                            <span class="es-text">Ver Video</span>
+                        <!-- FIXED: Now opens in video modal -->
+                        <button class="video-play-btn" onclick="playVideo('Global Warming Solution Video', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mov')">
+                            <i class="fas fa-play-circle"></i> 
+                            <span class="en-text">Play Video</span>
+                            <span class="es-text">Reproducir Video</span>
                         </button>
                     </div>
                 </div>
@@ -2754,6 +2962,132 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // =================== VIDEO FUNCTIONS ===================
+        
+        // Open video in modal
+        function playVideo(title, videoUrl) {
+            document.getElementById('videoModalTitle').textContent = title;
+            const videoPlayer = document.getElementById('modalVideoPlayer');
+            
+            // Clear previous sources
+            videoPlayer.innerHTML = '';
+            
+            // Add multiple source formats for compatibility
+            const sources = [
+                {src: videoUrl, type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'},
+                {src: videoUrl.replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/raw/refs/heads/main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'},
+                {src: videoUrl.replace('raw.githubusercontent.com', 'cdn.jsdelivr.net/gh').replace('/main/', '@main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'}
+            ];
+            
+            sources.forEach(source => {
+                const sourceElement = document.createElement('source');
+                sourceElement.src = source.src;
+                sourceElement.type = source.type;
+                videoPlayer.appendChild(sourceElement);
+            });
+            
+            // Add fallback message
+            const fallback = document.createElement('p');
+            fallback.innerHTML = '<span class="en-text">Your browser does not support this video format. <a href="' + videoUrl + '" download>Download the video</a></span>' +
+                                '<span class="es-text">Tu navegador no soporta este formato de video. <a href="' + videoUrl + '" download>Descargar el video</a></span>';
+            videoPlayer.appendChild(fallback);
+            
+            // Show modal
+            document.getElementById('videoModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Try to play the video
+            videoPlayer.load();
+            videoPlayer.play().catch(e => {
+                console.log('Auto-play failed:', e);
+                // Show play button
+                videoPlayer.controls = true;
+            });
+        }
+        
+        // Close video modal
+        function closeVideoModal() {
+            const videoPlayer = document.getElementById('modalVideoPlayer');
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            document.getElementById('videoModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Play video directly (for main video)
+        function playVideoDirect(title, videoUrl) {
+            const mainVideo = document.getElementById('mainVideo');
+            if (mainVideo) {
+                mainVideo.src = videoUrl;
+                mainVideo.load();
+                mainVideo.play();
+                
+                // Scroll to video section
+                const videoSection = document.getElementById('video');
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = videoSection.offsetTop - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                playVideo(title, videoUrl);
+            }
+        }
+        
+        // =================== PDF FUNCTIONS ===================
+        
+        // Open PDF modal
+        function openPDF(title, url) {
+            document.getElementById('pdfModalTitle').textContent = title;
+            document.getElementById('pdfViewer').src = url;
+            document.getElementById('pdfModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close PDF modal
+        function closePDFModal() {
+            document.getElementById('pdfModal').style.display = 'none';
+            document.getElementById('pdfViewer').src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // View image in fullscreen
+        function viewImageFullscreen(imageUrl, title) {
+            openPDF(title, imageUrl);
+        }
+        
+        // View Land Plans Function
+        function viewLandPlans() {
+            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
+            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
+            
+            // Open first image in modal
+            openPDF('Land Plan Image 1', image1);
+            
+            // Show notification about second image
+            setTimeout(() => {
+                showNotification('Click again to view second land plan image');
+            }, 2000);
+            
+            return false;
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const videoModal = document.getElementById('videoModal');
+            const pdfModal = document.getElementById('pdfModal');
+            
+            if (event.target == videoModal) {
+                closeVideoModal();
+            }
+            if (event.target == pdfModal) {
+                closePDFModal();
+            }
+        }
+        
+        // =================== LANGUAGE FUNCTIONS ===================
+        
         // Language Switching Function
         function changeLanguage(lang) {
             // Update body class
@@ -2787,6 +3121,8 @@
                 : 'Language changed to English';
             showNotification(notification);
         }
+        
+        // =================== UTILITY FUNCTIONS ===================
         
         // Show notification function
         function showNotification(message) {
@@ -2830,49 +3166,6 @@
             }
         `;
         document.head.appendChild(style);
-        
-        // PDF Modal Functions
-        function openPDF(title, url) {
-            document.getElementById('pdfModalTitle').textContent = title;
-            document.getElementById('pdfViewer').src = url;
-            document.getElementById('pdfModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closePDFModal() {
-            document.getElementById('pdfModal').style.display = 'none';
-            document.getElementById('pdfViewer').src = '';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // View image in fullscreen
-        function viewImageFullscreen(imageUrl, title) {
-            openPDF(title, imageUrl);
-        }
-        
-        // View Land Plans Function
-        function viewLandPlans() {
-            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
-            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
-            
-            // Open first image in modal
-            openPDF('Land Plan Image 1', image1);
-            
-            // Show notification about second image
-            setTimeout(() => {
-                showNotification('Click again to view second land plan image');
-            }, 2000);
-            
-            return false;
-        }
-        
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('pdfModal');
-            if (event.target == modal) {
-                closePDFModal();
-            }
-        }
         
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -3012,7 +3305,37 @@
             
             // Fix mobile mailto links
             fixMobileMailtoLinks();
+            
+            // Initialize video
+            initializeVideo();
         });
+        
+        // Initialize video player
+        function initializeVideo() {
+            const mainVideo = document.getElementById('mainVideo');
+            if (mainVideo) {
+                // Check if video can play
+                mainVideo.addEventListener('error', function(e) {
+                    console.log('Video error:', mainVideo.error);
+                    
+                    // Try alternative sources
+                    if (mainVideo.error && mainVideo.error.code === 4) {
+                        const currentSrc = mainVideo.currentSrc || mainVideo.src;
+                        if (currentSrc.includes('raw.githubusercontent.com')) {
+                            // Try alternative URL
+                            const altSrc = currentSrc.replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/raw/refs/heads/main/');
+                            mainVideo.src = altSrc;
+                            mainVideo.load();
+                        }
+                    }
+                });
+                
+                // Show controls on touch devices
+                mainVideo.addEventListener('touchstart', function() {
+                    this.controls = true;
+                });
+            }
+        }
         
         // Check and fix zoom level issues
         function checkZoomLevel() {
@@ -3069,7 +3392,7 @@
             const navbarCollapse = document.querySelector('.navbar-collapse');
             const navbarToggler = document.querySelector('.navbar-toggler');
             
-            if (navbarCollapse.classList.contains('show') && 
+            if (navbarCollapse && navbarCollapse.classList.contains('show') && 
                 !navbarCollapse.contains(event.target) && 
                 !navbarToggler.contains(event.target)) {
                 navbarToggler.click();
