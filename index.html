@@ -1054,7 +1054,7 @@
             white-space: nowrap;
         }
         
-        /* =========== FIXED: GALLERY SECTION - REMOVED GRAY OVERLAY =========== */
+        /* =========== FIXED: GALLERY SECTION - COMPLETELY REMOVED GRAY OVERLAY =========== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1067,7 +1067,8 @@
             overflow: hidden;
             border-radius: 4px;
             height: 250px;
-            background: transparent; /* FIX: Ensure no background color */
+            background: transparent;
+            cursor: pointer;
         }
         
         .gallery-img {
@@ -1075,17 +1076,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
-            display: block; /* FIX: Ensure proper display */
+            display: block;
         }
         
         .gallery-item:hover .gallery-img {
             transform: scale(1.1);
-        }
-        
-        /* FIXED: Removed the gray overlay elements */
-        .gallery-overlay,
-        .gallery-caption {
-            display: none !important; /* FIX: Completely hide the overlay */
         }
         
         /* Resort Plans Section */
@@ -2758,7 +2753,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - FIXED -->
+    <!-- Gallery Section - FIXED: REMOVED GRAY OVERLAY -->
     <section class="section-padding" id="gallery">
         <div class="container">
             <h2 class="section-title">
@@ -2773,7 +2768,7 @@
             <div class="row">
                 <!-- Image 1 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openImageModal('Luxury Eco-Home', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg')">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" 
                              alt="Luxury Eco-Home" class="gallery-img">
                     </div>
@@ -2781,7 +2776,7 @@
                 
                 <!-- Image 2 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openImageModal('Infinity Pool', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png')">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" 
                              alt="Infinity Pool" class="gallery-img">
                     </div>
@@ -2789,7 +2784,7 @@
                 
                 <!-- Image 3 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openImageModal('Natural Surroundings', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg')">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg" 
                              alt="Natural Surroundings" class="gallery-img">
                     </div>
@@ -2797,7 +2792,7 @@
                 
                 <!-- Image 4 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openImageModal('Sunset View', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg')">
                         <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" 
                              alt="Sunset View" class="gallery-img">
                     </div>
@@ -3247,22 +3242,6 @@
             document.getElementById('pdfModal').style.display = 'none';
             document.getElementById('pdfViewer').src = '';
             document.body.style.overflow = 'auto';
-        }
-        
-        // View Land Plans Function - UPDATED TO USE IMAGE MODAL
-        function viewLandPlans() {
-            const image1 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2001.jpeg';
-            const image2 = 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Land%20Plans%20Exclusive%20Image%2002.jpg';
-            
-            // Open first image in modal
-            openImageModal('Land Plan Image 1', image1);
-            
-            // Show notification about second image
-            setTimeout(() => {
-                showNotification('Click again to view second land plan image');
-            }, 2000);
-            
-            return false;
         }
         
         // =================== MODAL CLOSE HANDLERS ===================
