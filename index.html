@@ -375,6 +375,14 @@
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
+        /* FIX: Ensure space between SunDrop and EcuResorts */
+        .navbar-brand .brand-space {
+            display: inline-block;
+            min-width: 0.25em;
+        }
+        .navbar-brand .drop-span {
+            margin-right: 0.25em;
+        }
         .logo-img {
             height: clamp(30px, 4vw, 45px);
             margin-right: 12px;
@@ -1655,7 +1663,7 @@
             <a class="navbar-brand" href="#">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg"
                 alt="SunDrop EcuResorts Logo" class="logo-img">
-                Sun<span class="gold">Drop</span> <span class="gold">EcuResorts</span>
+                Sun<span class="gold drop-span">Drop</span><span class="brand-space">&nbsp;</span><span class="gold">EcuResorts</span>
             </a>
 
             <div class="language-switcher d-lg-none me-3">
