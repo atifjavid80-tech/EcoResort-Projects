@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/favicon.png">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/favicon.png">
 
-    <!-- Option 2: Default Favicon (Fallback) -->
     <link rel="icon" href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/favicon.png">
 
     <title id="pageTitle">SunDrop EcuResorts | Luxury Sustainable Living</title>
@@ -54,7 +53,7 @@
             font-weight: 400;
         }
 
-        /* VIDEO MODAL STYLES - NEW */
+        /* VIDEO MODAL STYLES */
         .video-modal {
             display: none;
             position: fixed;
@@ -128,7 +127,7 @@
             background: #000;
         }
 
-        /* PDF Modal Styles - FIXED FOR IMAGES TOO */
+        /* PDF Modal Styles */
         .pdf-modal {
             display: none;
             position: fixed;
@@ -199,7 +198,7 @@
             border-radius: 0 0 8px 8px;
         }
 
-        /* NEW: Image Fullscreen Modal Styles */
+        /* Image Fullscreen Modal Styles */
         .image-modal {
             display: none;
             position: fixed;
@@ -345,7 +344,7 @@
             color: white;
         }
 
-        /* Image Fullscreen Button Styles - FIXED */
+        /* Image Fullscreen Button Styles */
         .image-fullscreen-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
@@ -538,7 +537,6 @@
             font-size: 14px;
         }
 
-        /* FIXED FOR ALL SCREEN SIZES */
         @media (max-width: 1199.98px) {
             .navbar-nav {
                 flex-wrap: wrap;
@@ -641,14 +639,12 @@
                 display: flex !important;
             }
 
-            /* Video Modal Mobile Fix */
             .video-modal-content {
                 width: 98%;
                 height: 60vh;
                 margin: 20vh auto;
             }
 
-            /* Image Modal Mobile Fix */
             .image-modal-content {
                 padding: 0;
             }
@@ -659,7 +655,6 @@
             }
         }
 
-        /* EXTREME ZOOM FIXES */
         @media (max-width: 400px) {
             .navbar-brand {
                 font-size: 16px;
@@ -700,16 +695,7 @@
             }
         }
 
-        /* ========== FIXED HERO SECTION ========== */
-        /* VIDEO COMPLETELY REMOVED, ONLY PICTURE SHOWN */
-        .hero-video {
-            display: none !important;
-        }
-
-        .hero-overlay {
-            display: none !important;
-        }
-
+        /* ========== HERO SECTION ========== */
         .hero-section {
             height: calc(100vh - 90px);
             position: relative;
@@ -719,7 +705,6 @@
             justify-content: center;
             color: white;
             margin-top: -90px;
-            /* BACKGROUND IMAGE - NO OVERLAY */
             background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
@@ -738,11 +723,9 @@
         .hero-title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
-            /* Bolder for better visibility */
             margin-bottom: 20px;
             letter-spacing: 1px;
             text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
-            /* Darker shadow */
             line-height: 1.2;
             color: white;
         }
@@ -750,17 +733,14 @@
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.3rem);
             font-weight: 500;
-            /* Slightly bold */
             margin-bottom: 40px;
             letter-spacing: 0.5px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
-            /* Darker shadow */
             line-height: 1.6;
             background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent background */
             padding: 15px 25px;
             border-radius: 8px;
         }
@@ -779,6 +759,7 @@
             margin: 0 5px;
             display: inline-block;
             white-space: nowrap;
+            text-decoration: none;
         }
 
         .hero-btn:hover {
@@ -895,33 +876,6 @@
             white-space: nowrap;
         }
 
-        .resort-btn {
-            background: transparent;
-            color: var(--primary-green);
-            border: 1px solid var(--primary-green);
-            padding: 10px 25px;
-            border-radius: 2px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-            text-decoration: none;
-            white-space: nowrap;
-            width: 100%;
-            text-align: center;
-        }
-
-        .resort-btn:hover {
-            background: var(--primary-green);
-            color: white;
-        }
-
         /* Stats Section */
         .stats-section {
             background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(26, 71, 42, 0.9)),
@@ -997,7 +951,6 @@
             background: #000;
         }
 
-        /* Video player styles */
         .main-video-player {
             width: 100%;
             height: 500px;
@@ -1062,7 +1015,7 @@
             white-space: nowrap;
         }
 
-        /* =========== FIXED: GALLERY SECTION - 3x3 COLLAGE =========== */
+        /* Gallery Section - 3x3 COLLAGE */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1089,6 +1042,26 @@
 
         .gallery-item:hover .gallery-img {
             transform: scale(1.1);
+        }
+
+        .gallery-item .gallery-overlay-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 30px 15px 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .gallery-overlay-label {
+            opacity: 1;
         }
 
         /* Resort Plans Section */
@@ -1335,594 +1308,7 @@
             margin-bottom: 20px;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: clamp(2rem, 5vw, 3.5rem);
-            }
-
-            .section-title {
-                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            }
-
-            .hero-section {
-                height: calc(100vh - 80px);
-                margin-top: -80px;
-            }
-
-            .hero-content {
-                margin-top: 80px;
-            }
-
-            .resort-image {
-                height: 220px;
-            }
-
-            .pdf-modal-content {
-                width: 98%;
-                margin: 2% auto;
-                height: 90vh;
-            }
-
-            .main-video-player {
-                height: 400px;
-            }
-
-            /* Gallery 3x3 becomes 2x2 on tablet */
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: clamp(1.8rem, 4vw, 2.8rem);
-            }
-
-            .hero-subtitle {
-                font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-            }
-
-            .section-title {
-                font-size: clamp(1.6rem, 3vw, 2.2rem);
-            }
-
-            .hero-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-
-            .hero-btn {
-                margin: 5px 0;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .video-container {
-                margin: 0 15px;
-            }
-
-            .plan-image-container {
-                height: 200px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .gallery-item {
-                height: 200px;
-            }
-
-            .luxury-grid {
-                gap: 20px;
-            }
-
-            .luxury-item {
-                padding: 30px 20px;
-            }
-
-            .main-video-player {
-                height: 300px;
-            }
-
-            /* Fix for contact buttons on mobile */
-            .contact-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .contact-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 5px 0 !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .gallery-item {
-                height: 160px;
-            }
-
-            .resort-btn,
-            .pdf-view-btn,
-            .video-play-btn {
-                padding: 8px 15px;
-                font-size: 11px;
-            }
-
-            .resort-content {
-                padding: 20px;
-            }
-
-            .resort-image {
-                height: 180px;
-            }
-
-            .feature-tag {
-                padding: 4px 8px;
-                font-size: 0.7rem;
-            }
-
-            /* Fix for investment cards on mobile */
-            .revenue-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-
-            .revenue-amount {
-                margin-left: 20px;
-            }
-
-            /* Fix for plan features on mobile */
-            .plan-features li {
-                font-size: 0.9rem;
-            }
-
-            .pdf-modal-content {
-                padding: 10px;
-                height: 95vh;
-            }
-
-            .pdf-modal-title {
-                font-size: 1.2rem;
-            }
-
-            .main-video-player {
-                height: 250px;
-            }
-
-            /* Image modal mobile fixes */
-            .fullscreen-image {
-                max-height: 70vh;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-
-            .gallery-item {
-                height: 130px;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-green);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--dark-green);
-        }
-
-        /* Language Text */
-        .es-text {
-            display: none;
-        }
-        .en-text {
-            display: inline;
-        }
-
-        .language-es .es-text {
-            display: inline;
-        }
-        .language-es .en-text {
-            display: none;
-        }
-
-        .language-es .es-block {
-            display: block;
-        }
-        .language-es .en-block {
-            display: none;
-        }
-
-        .language-en .es-text {
-            display: none;
-        }
-        .language-en .en-text {
-            display: inline;
-        }
-
-        .language-en .es-block {
-            display: none;
-        }
-        .language-en .en-block {
-            display: block;
-        }
-
-        /* Language text for paragraphs */
-        .language-es p.en-text {
-            display: none;
-        }
-        .language-es p.es-text {
-            display: block;
-        }
-
-        .language-en p.en-text {
-            display: block;
-        }
-        .language-en p.es-text {
-            display: none;
-        }
-
-        /* Extra small devices fixes */
-        @media (max-width: 360px) {
-            .navbar-brand {
-                font-size: 14px;
-            }
-
-            .logo-img {
-                height: 25px;
-                margin-right: 5px;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .stat-item {
-                padding: 15px;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            /* Fix for very small screens */
-            .container {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            .resort-content {
-                padding: 15px;
-            }
-
-            .plan-content {
-                padding: 20px;
-            }
-
-            .main-video-player {
-                height: 200px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
-            }
-
-            .gallery-item {
-                height: 110px;
-            }
-        }
-
-        /* Prevent text overflow */
-        .text-overflow-fix {
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            hyphens: auto;
-        }
-
-        /* Ensure no horizontal scroll on zoom */
-        html,
-        body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        /* Button click effects */
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Image responsive fix */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Table responsive fix */
-        table {
-            width: 100% !important;
-            max-width: 100% !important;
-            overflow-x: auto;
-            display: block;
-        }
-
-        /* FIX: Contact Section Button Styling */
-        .contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        /* FIX: Plan Features Mobile Fix */
-        @media (max-width: 576px) {
-            .plan-features {
-                padding-left: 15px;
-            }
-
-            .plan-features li {
-                padding-left: 20px;
-                font-size: 0.9rem;
-            }
-
-            .plan-features li:before {
-                left: -5px;
-            }
-        }
-
-        /* ========== MOBILE FIXES FOR MAILTO LINKS ========== */
-        /* MOBILE FIX: Prevent background distortion after mailto link click */
-        @media (max-width: 768px) {
-            /* Fix for mailto links not breaking layout */
-            a[href^="mailto:"] {
-                display: inline-block;
-                max-width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-
-            /* Specific fix for investment package button */
-            .investment-card .nav-btn {
-                position: relative;
-                z-index: 10;
-                overflow: visible !important;
-            }
-
-            /* Fix for contact section buttons */
-            .contact-buttons a.hero-btn {
-                min-height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 12px 20px !important;
-            }
-
-            /* Prevent background shift on mailto click */
-            body::after {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--cream);
-                z-index: -1;
-                display: none;
-            }
-
-            /* Fix for iOS Safari specific issues */
-            @supports (-webkit-touch-callout: none) {
-                .hero-section,
-                .investment-section,
-                .plans-section {
-                    -webkit-backface-visibility: hidden;
-                    backface-visibility: hidden;
-                    transform: translateZ(0);
-                }
-            }
-        }
-
-        /* EXTRA FIX for very small screens */
-        @media (max-width: 576px) {
-            /* Investment section specific fixes */
-            #investment .investment-card {
-                padding: 25px 15px;
-            }
-
-            #investment .nav-btn {
-                padding: 12px 15px !important;
-                font-size: 12px;
-                word-break: keep-all;
-                white-space: normal;
-                line-height: 1.4;
-            }
-
-            /* Contact section button fixes */
-            .contact-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .contact-buttons .btn,
-            .contact-buttons a.hero-btn {
-                width: 100%;
-                margin: 8px 0 !important;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* Prevent layout shift when buttons are pressed */
-            button:active,
-            a:active {
-                transform: scale(0.98);
-                transition: transform 0.1s ease;
-            }
-        }
-
-        /* FIX: iOS Safari mailto link background issue */
-        @supports (-webkit-touch-callout: none) {
-            a[href^="mailto:"]:active {
-                background-color: rgba(0, 0, 0, 0.05);
-                border-radius: 4px;
-            }
-        }
-
-        /* FIX: Prevent flash of unstyled content after mailto */
-        body.mailto-clicked {
-            overflow: hidden;
-        }
-
-        /* Add smooth transitions to prevent jarring changes */
-        .investment-card,
-        .resort-card,
-        .plan-download-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-        }
-
-        /* Ensure investment package button maintains its appearance */
-        .request-investment-btn {
-            position: relative;
-            isolation: isolate;
-        }
-
-        .request-investment-btn::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, var(--gold), var(--primary-green));
-            border-radius: 4px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .request-investment-btn:hover::before {
-            opacity: 1;
-        }
-
-        /* Video error message */
-        .video-error {
-            background: #f8f8f8;
-            padding: 40px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .video-error i {
-            font-size: 3rem;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        .video-error p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        /* Image Loading Animation */
-        .image-loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid var(--gold);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* 3x3 Gallery Collage - additional styling */
-        .gallery-collage-wrapper {
-            position: relative;
-        }
-
-        .gallery-item .gallery-overlay-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-            color: white;
-            padding: 30px 15px 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            text-align: center;
-            pointer-events: none;
-        }
-
-        .gallery-item:hover .gallery-overlay-label {
-            opacity: 1;
-        }
-
-        /* Fix for download cards grid - 9 items (3x3) */
+        /* Download grid - 9 items (3x3) */
         #investment .row.download-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr);
@@ -1943,6 +1329,31 @@
             #investment .row.download-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+            .main-video-player {
+                height: 300px;
+            }
+            .contact-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .contact-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 5px 0 !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1950,17 +1361,313 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .gallery-item {
+                height: 160px;
+            }
+            .resort-image {
+                height: 180px;
+            }
+            .main-video-player {
+                height: 250px;
+            }
+            .revenue-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .revenue-amount {
+                margin-left: 20px;
+            }
         }
 
         @media (max-width: 400px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .gallery-item {
+                height: 130px;
+            }
             #investment .row.download-grid {
                 grid-template-columns: repeat(1, 1fr);
             }
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-green);
+        }
+
+        /* Language Text */
+        .es-text {
+            display: none;
+        }
+        .en-text {
+            display: inline;
+        }
+
+        .language-es .es-text {
+            display: inline;
+        }
+        .language-es .en-text {
+            display: none;
+        }
+        .language-es .es-block {
+            display: block;
+        }
+        .language-es .en-block {
+            display: none;
+        }
+
+        .language-en .es-text {
+            display: none;
+        }
+        .language-en .en-text {
+            display: inline;
+        }
+        .language-en .es-block {
+            display: none;
+        }
+        .language-en .en-block {
+            display: block;
+        }
+
+        .language-es p.en-text {
+            display: none;
+        }
+        .language-es p.es-text {
+            display: block;
+        }
+        .language-en p.en-text {
+            display: block;
+        }
+        .language-en p.es-text {
+            display: none;
+        }
+
+        /* Utility */
+        .text-overflow-fix {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* WhatsApp button styling */
+        .whatsapp-btn {
+            background: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+        .whatsapp-btn:hover {
+            background: #1da851;
+            border-color: #1da851;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Video error message */
+        .video-error {
+            background: #f8f8f8;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .video-error i {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        .video-error p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .image-loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            a[href^="mailto:"] {
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .investment-card .nav-btn {
+                position: relative;
+                z-index: 10;
+                overflow: visible !important;
+            }
+            .contact-buttons a.hero-btn {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 20px !important;
+            }
+            body::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--cream);
+                z-index: -1;
+                display: none;
+            }
+            @supports (-webkit-touch-callout: none) {
+                .hero-section,
+                .investment-section,
+                .plans-section {
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    transform: translateZ(0);
+                }
+            }
+        }
+
+        @media (max-width: 576px) {
+            #investment .investment-card {
+                padding: 25px 15px;
+            }
+            #investment .nav-btn {
+                padding: 12px 15px !important;
+                font-size: 12px;
+                word-break: keep-all;
+                white-space: normal;
+                line-height: 1.4;
+            }
+            .contact-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .contact-buttons .btn,
+            .contact-buttons a.hero-btn {
+                width: 100%;
+                margin: 8px 0 !important;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            button:active,
+            a:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            a[href^="mailto:"]:active {
+                background-color: rgba(0, 0, 0, 0.05);
+                border-radius: 4px;
+            }
+        }
+
+        body.mailto-clicked {
+            overflow: hidden;
+        }
+
+        .investment-card,
+        .resort-card,
+        .plan-download-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+
+        .request-investment-btn {
+            position: relative;
+            isolation: isolate;
+        }
+        .request-investment-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), var(--primary-green));
+            border-radius: 4px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .request-investment-btn:hover::before {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="language-en">
-    <!-- VIDEO MODAL - NEW -->
+    <!-- VIDEO MODAL -->
     <div id="videoModal" class="video-modal">
         <div class="video-modal-content">
             <div class="video-modal-header">
@@ -1987,7 +1694,7 @@
         </div>
     </div>
 
-    <!-- NEW: Image Fullscreen Modal -->
+    <!-- Image Fullscreen Modal -->
     <div id="imageModal" class="image-modal">
         <div class="image-modal-content">
             <div class="image-modal-header">
@@ -2014,7 +1721,6 @@
                 Sun<span>Drop</span> EcuResorts
             </a>
 
-            <!-- Language Switcher for Mobile (outside toggle) -->
             <div class="language-switcher d-lg-none me-3">
                 <button class="language-btn en-btn active" onclick="changeLanguage('en')">
                     <span class="flag-icon">🇺🇸</span> EN
@@ -2073,25 +1779,25 @@
                         <span class="es-text">Planos del Resort</span>
                     </a>
                 </li>
-                <!-- UPDATED: Contact Link as Email Link -->
+                <!-- Contact Link - WhatsApp -->
                 <li class="nav-item">
-                    <a class="nav-link" href="mailto:info@sundropresorts.com?subject=Contact Inquiry - SunDrop EcuResorts">
-                        <i class="fas fa-envelope"></i>
+                    <a class="nav-link" href="https://wa.me/13852228100" target="_blank">
+                        <i class="fab fa-whatsapp" style="color:#25D366;"></i>
                         <span class="en-text">Contact</span>
                         <span class="es-text">Contacto</span>
                     </a>
                 </li>
 
-                <!-- UPDATED: Invest Now Button as Email Link -->
+                <!-- Invest Now Button - WhatsApp -->
                 <li class="nav-item ms-3">
-                    <a href="mailto:info@sundropresorts.com?subject=Investment Inquiry - SunDrop EcuResorts" class="btn nav-btn">
-                        <i class="fas fa-chart-line"></i>
+                    <a href="https://wa.me/13852228100" target="_blank" class="btn nav-btn" style="background:#25D366; border-color:#25D366;">
+                        <i class="fab fa-whatsapp"></i>
                         <span class="en-text">Invest Now</span>
                         <span class="es-text">Invertir Ahora</span>
                     </a>
                 </li>
 
-                <!-- Language Switcher for Desktop (inside nav) -->
+                <!-- Language Switcher for Desktop -->
                 <li class="nav-item d-none d-lg-block">
                     <div class="language-switcher">
                         <button class="language-btn en-btn active" onclick="changeLanguage('en')">
@@ -2107,7 +1813,7 @@
     </div>
 </nav>
 
-<!-- Hero Section - FIXED: NO VIDEO, NO OVERLAY, ONLY PICTURE -->
+<!-- Hero Section -->
 <section class="hero-section" id="home">
     <div class="hero-content">
         <h1 class="hero-title">
@@ -2204,27 +1910,16 @@
                         <h3 class="resort-title">SunDrop Resort Paraiso</h3>
                         <p class="en-text">Authentic Dominican culture with colonial architecture, vibrant music, and access to Rancho Platón natural attractions.</p>
                         <p class="es-text">Cultura dominicana auténtica con arquitectura colonial, música vibrante y acceso a atracciones naturales de Rancho Platón.</p>
-
                         <div class="resort-features">
                             <span class="feature-tag">55 EcoHomes</span>
-                            <span class="feature-tag">
-                                <span class="en-text">Citizenship Path</span>
-                                <span class="es-text">Camino a Ciudadanía</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">3 Natural Lakes</span>
-                                <span class="es-text">3 Lagos Naturales</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">Citizenship Path</span><span class="es-text">Camino a Ciudadanía</span></span>
+                            <span class="feature-tag"><span class="en-text">3 Natural Lakes</span><span class="es-text">3 Lagos Naturales</span></span>
                         </div>
-
                         <button class="pdf-view-btn en-text" onclick="openPDF('Dominican Republic Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span>
                         </button>
-
                         <button class="pdf-view-btn es-text" onclick="openPDF('Folleto República Dominicana', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Rep%C3%BAblica%20Dominicana.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Folleto</span>
                         </button>
                     </div>
                 </div>
@@ -2244,30 +1939,16 @@
                         <h3 class="resort-title">SunDrop Resort Mamoni</h3>
                         <p class="en-text">White-water rafting adventures in primary rainforests, wildlife viewing, and gateway to Central America exploration.</p>
                         <p class="es-text">Aventuras de rafting en aguas bravas en bosques primarios, observación de vida silvestre y puerta de entrada a la exploración de Centroamérica.</p>
-
                         <div class="resort-features">
-                            <span class="feature-tag">
-                                <span class="en-text">Rafting Center</span>
-                                <span class="es-text">Centro de Rafting</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Travel Hub</span>
-                                <span class="es-text">Centro de Viajes</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Mayan Courts</span>
-                                <span class="es-text">Canchas Mayas</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">Rafting Center</span><span class="es-text">Centro de Rafting</span></span>
+                            <span class="feature-tag"><span class="en-text">Travel Hub</span><span class="es-text">Centro de Viajes</span></span>
+                            <span class="feature-tag"><span class="en-text">Mayan Courts</span><span class="es-text">Canchas Mayas</span></span>
                         </div>
-
                         <button class="pdf-view-btn en-text" onclick="openPDF('Panama Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span>
                         </button>
-
                         <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Panamá', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAM%C3%81.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Folleto</span>
                         </button>
                     </div>
                 </div>
@@ -2287,29 +1968,16 @@
                         <h3 class="resort-title">SunDrop Resort Flaming Gorge</h3>
                         <p class="en-text">Gateway to Utah's "Mighty 5" National Parks and Wyoming's Yellowstone. Year-round recreation at Flaming Gorge.</p>
                         <p class="es-text">Puerta de entrada a los 5 parques nacionales "Mighty" de Utah y el Yellowstone de Wyoming. Recreación durante todo el año en Flaming Gorge.</p>
-
                         <div class="resort-features">
                             <span class="feature-tag">280 EcoHomes</span>
-                            <span class="feature-tag">
-                                <span class="en-text">Glamping</span>
-                                <span class="es-text">Glamping</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">National Parks</span>
-                                <span class="es-text">Parques Nacionales</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">Glamping</span><span class="es-text">Glamping</span></span>
+                            <span class="feature-tag"><span class="en-text">National Parks</span><span class="es-text">Parques Nacionales</span></span>
                         </div>
-
                         <button class="pdf-view-btn" onclick="openPDF('USA Utah Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span><span class="es-text">Ver Folleto</span>
                         </button>
-
                         <button class="pdf-view-btn mt-2" onclick="openPDF('Land Plans Exclusive Images', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Land%20Plans%20Exclusive%20Images.pdf&embedded=true')">
-                            <i class="fas fa-file-pdf"></i>
-                            <span class="en-text">View Land Plans (PDF)</span>
-                            <span class="es-text">Ver Planos de Terreno (PDF)</span>
+                            <i class="fas fa-file-pdf"></i> <span class="en-text">View Land Plans (PDF)</span><span class="es-text">Ver Planos de Terreno (PDF)</span>
                         </button>
                     </div>
                 </div>
@@ -2329,36 +1997,22 @@
                         <h3 class="resort-title">SunDrop Resort Chingaza</h3>
                         <p class="en-text">Gateway to Chingaza National Park with 390+ bird species. Experience Colombian culture, hot springs, and local cuisine.</p>
                         <p class="es-text">Puerta de entrada al Parque Nacional Chingaza con más de 390 especies de aves. Experimenta la cultura colombiana, aguas termales y gastronomía local.</p>
-
                         <div class="resort-features">
-                            <span class="feature-tag">
-                                <span class="en-text">Birdwatching</span>
-                                <span class="es-text">Observación de Aves</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Hot Springs</span>
-                                <span class="es-text">Aguas Termales</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Cultural Heritage</span>
-                                <span class="es-text">Patrimonio Cultural</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">Birdwatching</span><span class="es-text">Observación de Aves</span></span>
+                            <span class="feature-tag"><span class="en-text">Hot Springs</span><span class="es-text">Aguas Termales</span></span>
+                            <span class="feature-tag"><span class="en-text">Cultural Heritage</span><span class="es-text">Patrimonio Cultural</span></span>
                         </div>
-
                         <button class="pdf-view-btn en-text" onclick="openPDF('Colombia Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span>
                         </button>
-
                         <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Colombia', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Colombia.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Folleto</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- PERU Card - Puerto Inca (5th) -->
+            <!-- PERU Card - Puerto Inca -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="resort-card">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png"
@@ -2372,33 +2026,22 @@
                         <h3 class="resort-title">SunDrop Resort Puerto Inca</h3>
                         <p class="en-text">Deep in the Peruvian Amazon, offering true jungle immersion with authentic local life, farming communities, and connection with nature.</p>
                         <p class="es-text">En lo profundo de la Amazonía peruana, ofreciendo una verdadera inmersión en la jungla con vida local auténtica, comunidades agrícolas y conexión con la naturaleza.</p>
-
                         <div class="resort-features">
                             <span class="feature-tag">55 EcoHomes</span>
-                            <span class="feature-tag">
-                                <span class="en-text">60 Glamping Sites</span>
-                                <span class="es-text">60 Sitios de Glamping</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Gateway to Amazon</span>
-                                <span class="es-text">Puerta a la Amazonía</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">60 Glamping Sites</span><span class="es-text">60 Sitios de Glamping</span></span>
+                            <span class="feature-tag"><span class="en-text">Gateway to Amazon</span><span class="es-text">Puerta a la Amazonía</span></span>
                         </div>
-
                         <button class="pdf-view-btn en-text" onclick="openPDF('Peru Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Peru.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span>
                         </button>
-
                         <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Perú', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Peru_Spanish.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Folleto</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- ========== UPDATED 6TH RESORT: Canita/Lake Bayano (now Panama) ========== -->
+            <!-- Canita/Lake Bayano (Panama) -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="resort-card">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png"
@@ -2412,39 +2055,21 @@
                         <h3 class="resort-title">Canita/Lake Bayano</h3>
                         <p class="en-text">A pristine eco-sanctuary in the heart of Panama's diverse landscape. Offering immersive nature experiences, sustainable farming, and luxury eco-living surrounded by breathtaking Andean views.</p>
                         <p class="es-text">Un santuario ecológico prístino en el corazón del diverso paisaje panameño. Ofrece experiencias inmersivas en la naturaleza, agricultura sostenible y vida ecológica de lujo rodeada de impresionantes vistas andinas.</p>
-
                         <div class="resort-features">
                             <span class="feature-tag">40 EcoHomes</span>
-                            <span class="feature-tag">
-                                <span class="en-text">Jungle & Lake Bayano Views</span>
-                                <span class="es-text">Vistas a la Jungla y al Lago Bayano</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Organic Farming</span>
-                                <span class="es-text">Agricultura Orgánica</span>
-                            </span>
-                            <span class="feature-tag">
-                                <span class="en-text">Wellness Retreat</span>
-                                <span class="es-text">Retiro de Bienestar</span>
-                            </span>
+                            <span class="feature-tag"><span class="en-text">Jungle & Lake Bayano Views</span><span class="es-text">Vistas a la Jungla y al Lago Bayano</span></span>
+                            <span class="feature-tag"><span class="en-text">Organic Farming</span><span class="es-text">Agricultura Orgánica</span></span>
+                            <span class="feature-tag"><span class="en-text">Wellness Retreat</span><span class="es-text">Retiro de Bienestar</span></span>
                         </div>
-
-                        <!-- English PDF Button (unchanged) -->
                         <button class="pdf-view-btn en-text" onclick="openPDF('Canita/Lake Bayano Brochure', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/SunDrop%20Canita%20Brochure.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">View Brochure</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="en-text">View Brochure</span>
                         </button>
-
-                        <!-- Spanish PDF Button now points to Spanish_Brochure.pdf -->
                         <button class="pdf-view-btn es-text" onclick="openPDF('Folleto Canita/Lake Bayano', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Spanish_Brochure.pdf&embedded=true')">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="es-text">Ver Folleto</span>
+                            <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Folleto</span>
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- ========== END UPDATED RESORT ========== -->
-
         </div>
     </div>
 </section>
@@ -2463,146 +2088,75 @@
 
         <div class="luxury-grid">
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Luxury EcoHomes</span>
-                    <span class="es-text">EcoHomes de Lujo</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-home"></i></div>
+                <h4><span class="en-text">Luxury EcoHomes</span><span class="es-text">EcoHomes de Lujo</span></h4>
                 <p class="en-text">Premium sustainable homes with 1/3 to 1/2 acre density, eco-friendly materials, and energy-efficient designs.</p>
                 <p class="es-text">Casas sostenibles premium con densidad de 1/3 a 1/2 acre, materiales ecológicos y diseños energéticamente eficientes.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Gourmet Dining</span>
-                    <span class="es-text">Gastronomía Gourmet</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-utensils"></i></div>
+                <h4><span class="en-text">Gourmet Dining</span><span class="es-text">Gastronomía Gourmet</span></h4>
                 <p class="en-text">21 family-style meals per week prepared by on-site chefs using organic produce from our CoOp farms.</p>
                 <p class="es-text">21 comidas familiares por semana preparadas por chefs en el sitio usando productos orgánicos de nuestras granjas CoOp.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-spa"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Holistic Wellness</span>
-                    <span class="es-text">Bienestar Holístico</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-spa"></i></div>
+                <h4><span class="en-text">Holistic Wellness</span><span class="es-text">Bienestar Holístico</span></h4>
                 <p class="en-text">Full-service spa, yoga studios, fitness centers, and personalized wellness programs for residents.</p>
                 <p class="es-text">Spa de servicio completo, estudios de yoga, centros de fitness y programas de bienestar personalizados para residentes.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-solar-panel"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Sustainable Energy</span>
-                    <span class="es-text">Energía Sostenible</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-solar-panel"></i></div>
+                <h4><span class="en-text">Sustainable Energy</span><span class="es-text">Energía Sostenible</span></h4>
                 <p class="en-text">100% renewable energy from solar arrays, micro-hydro power, and battery storage systems.</p>
                 <p class="es-text">100% energía renovable de paneles solares, micro-hidroeléctrica y sistemas de almacenamiento de baterías.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-tree"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Reforestation</span>
-                    <span class="es-text">Reforestación</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-tree"></i></div>
+                <h4><span class="en-text">Reforestation</span><span class="es-text">Reforestación</span></h4>
                 <p class="en-text">15-year program planting 50,000 native trees with carbon tax credit benefits for investors.</p>
                 <p class="es-text">Programa de 15 años plantando 50,000 árboles nativos con beneficios de créditos de carbono para inversionistas.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Premium Security</span>
-                    <span class="es-text">Seguridad Premium</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4><span class="en-text">Premium Security</span><span class="es-text">Seguridad Premium</span></h4>
                 <p class="en-text">24/7 armed private security, surveillance systems, and dedicated security drivers.</p>
                 <p class="es-text">Seguridad privada armada 24/7, sistemas de vigilancia y conductores de seguridad dedicados.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Community Services</span>
-                    <span class="es-text">Servicios Comunitarios</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-users"></i></div>
+                <h4><span class="en-text">Community Services</span><span class="es-text">Servicios Comunitarios</span></h4>
                 <p class="en-text">15 hours/week personalized assistance including senior care, childcare, and executive support.</p>
                 <p class="es-text">15 horas/semana de asistencia personalizada incluyendo cuidado de ancianos, cuidado infantil y apoyo ejecutivo.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-tractor"></i>
-                </div>
-                <h4>
-                    <span class="en-text">AgroForestry</span>
-                    <span class="es-text">Agroforestería</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-tractor"></i></div>
+                <h4><span class="en-text">AgroForestry</span><span class="es-text">Agroforestería</span></h4>
                 <p class="en-text">Commercial farming of exotic hardwoods, cocoa, avocados, and berries for sustainable income.</p>
                 <p class="es-text">Agricultura comercial de maderas exóticas, cacao, aguacates y bayas para ingresos sostenibles.</p>
             </div>
-
-            <!-- ====== NEW FEATURES: Tours, Education, Meditation, Healing ====== -->
+            <!-- NEW: Tours, Education, Meditation, Healing -->
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-hiking"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Tours</span>
-                    <span class="es-text">Excursiones</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-hiking"></i></div>
+                <h4><span class="en-text">Tours</span><span class="es-text">Excursiones</span></h4>
                 <p class="en-text">Guided nature tours, cultural excursions, and adventure activities tailored to all interests and fitness levels.</p>
                 <p class="es-text">Excursiones guiadas por la naturaleza, salidas culturales y actividades de aventura adaptadas a todos los intereses y niveles de condición física.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Education</span>
-                    <span class="es-text">Educación</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h4><span class="en-text">Education</span><span class="es-text">Educación</span></h4>
                 <p class="en-text">On-site learning programs covering sustainability, permaculture, local culture, and environmental stewardship.</p>
                 <p class="es-text">Programas educativos en el sitio que cubren sostenibilidad, permacultura, cultura local y gestión ambiental.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Meditation</span>
-                    <span class="es-text">Meditación</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-brain"></i></div>
+                <h4><span class="en-text">Meditation</span><span class="es-text">Meditación</span></h4>
                 <p class="en-text">Daily guided meditation sessions in serene natural settings, promoting mental clarity and inner peace.</p>
                 <p class="es-text">Sesiones de meditación guiada diarias en entornos naturales serenos, promoviendo la claridad mental y la paz interior.</p>
             </div>
-
             <div class="luxury-item">
-                <div class="luxury-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h4>
-                    <span class="en-text">Healing</span>
-                    <span class="es-text">Sanación</span>
-                </h4>
+                <div class="luxury-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4><span class="en-text">Healing</span><span class="es-text">Sanación</span></h4>
                 <p class="en-text">Holistic healing therapies including reiki, sound baths, energy work, and traditional wellness practices.</p>
                 <p class="es-text">Terapias de sanación holística que incluyen reiki, baños de sonido, trabajo energético y prácticas de bienestar tradicionales.</p>
             </div>
@@ -2610,7 +2164,7 @@
     </div>
 </section>
 
-<!-- Video Section - FIXED -->
+<!-- Video Section -->
 <section class="section-padding video-section" id="video">
     <div class="container">
         <h2 class="section-title">
@@ -2621,22 +2175,12 @@
             <span class="en-text">Take a virtual tour of our premium Eco-Home and witness the harmony of luxury and nature</span>
             <span class="es-text">Haz un recorrido virtual de nuestra Eco-Home premium y presencia la armonía del lujo y la naturaleza</span>
         </p>
-
-        <!-- FIXED VIDEO PLAYER -->
         <div class="video-container">
             <div class="main-video-player">
                 <video id="mainVideo" controls preload="metadata" playsinline>
-                    <!-- MULTIPLE SOURCES FOR COMPATIBILITY -->
-                    <!-- Main Source: Direct MP4 URL -->
                     <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/interior%20exterior%20video.mp4" type="video/mp4">
-
-                    <!-- Alternative Source 1: GitHub raw with different URL -->
                     <source src="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/interior%20exterior%20video.mp4" type="video/mp4">
-
-                    <!-- Alternative Source 2: jsDelivr CDN -->
                     <source src="https://cdn.jsdelivr.net/gh/atifjavid80-tech/EcoResort-Projects@main/interior%20exterior%20video.mp4" type="video/mp4">
-
-                    <!-- Fallback Message -->
                     <div class="video-error">
                         <i class="fas fa-exclamation-triangle"></i>
                         <p class="en-text">Sorry, the video cannot be played directly in your browser.</p>
@@ -2651,8 +2195,6 @@
             </video>
         </div>
     </div>
-
-    <!-- Video Controls -->
     <div class="text-center mt-4">
         <p style="color: #666; font-size: 0.9rem;">
             <i class="fas fa-info-circle"></i>
@@ -2660,51 +2202,26 @@
             <span class="es-text">Si el video no se reproduce, intenta descargarlo o usa un navegador diferente (Chrome, Firefox recomendados)</span>
         </p>
     </div>
-
     <div class="row mt-5">
         <div class="col-md-4 text-center">
             <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                <div class="luxury-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Sustainable Design</span>
-                    <span class="es-text">Diseño Sostenible</span>
-                </h5>
-                <p>
-                    <span class="en-text">Eco-friendly architecture that blends with nature</span>
-                    <span class="es-text">Arquitectura ecológica que se integra con la naturaleza</span>
-                </p>
+                <div class="luxury-icon"><i class="fas fa-leaf"></i></div>
+                <h5><span class="en-text">Sustainable Design</span><span class="es-text">Diseño Sostenible</span></h5>
+                <p><span class="en-text">Eco-friendly architecture that blends with nature</span><span class="es-text">Arquitectura ecológica que se integra con la naturaleza</span></p>
             </div>
         </div>
         <div class="col-md-4 text-center">
             <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                <div class="luxury-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Luxury Living</span>
-                    <span class="es-text">Vida de Lujo</span>
-                </h5>
-                <p>
-                    <span class="en-text">Premium amenities with modern comforts</span>
-                    <span class="es-text">Amenidades premium con comodidades modernas</span>
-                </p>
+                <div class="luxury-icon"><i class="fas fa-home"></i></div>
+                <h5><span class="en-text">Luxury Living</span><span class="es-text">Vida de Lujo</span></h5>
+                <p><span class="en-text">Premium amenities with modern comforts</span><span class="es-text">Amenidades premium con comodidades modernas</span></p>
             </div>
         </div>
         <div class="col-md-4 text-center">
             <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                <div class="luxury-icon">
-                    <i class="fas fa-mountain"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Natural Beauty</span>
-                    <span class="es-text">Belleza Natural</span>
-                </h5>
-                <p>
-                    <span class="en-text">Breathtaking views in pristine locations</span>
-                    <span class="es-text">Vistas impresionantes en ubicaciones prístinas</span>
-                </p>
+                <div class="luxury-icon"><i class="fas fa-mountain"></i></div>
+                <h5><span class="en-text">Natural Beauty</span><span class="es-text">Belleza Natural</span></h5>
+                <p><span class="en-text">Breathtaking views in pristine locations</span><span class="es-text">Vistas impresionantes en ubicaciones prístinas</span></p>
             </div>
         </div>
     </div>
@@ -2727,57 +2244,40 @@
             <div class="col-lg-6 mb-4">
                 <div class="investment-card">
                     <h3 class="mb-4" style="color: var(--primary-green);">
-                        <span class="en-text">Revenue Streams (Average)</span>
-                        <span class="es-text">Flujos de Ingresos (Promedio)</span>
+                        <span class="en-text">Revenue Streams (Average/Year)</span>
+                        <span class="es-text">Flujos de Ingresos (Promedio/Año)</span>
                     </h3>
-
                     <ul class="revenue-list">
                         <li class="revenue-item">
-                            <span>
-                                <span class="en-text">Glamping Sites (60 units)</span>
-                                <span class="es-text">Sitios de Glamping (60 unidades)</span>
-                            </span>
-                            <span class="revenue-amount">$3,250,000/año</span>
+                            <span><span class="en-text">Glamping Sites (420 units)</span><span class="es-text">Sitios de Glamping (420 unidades)</span></span>
+                            <span class="revenue-amount">$18,000,000</span>
                         </li>
                         <li class="revenue-item">
-                            <span>
-                                <span class="en-text">AirBnB Rentals (50 units)</span>
-                                <span class="es-text">Alquileres AirBnB (50 unidades)</span>
-                            </span>
-                            <span class="revenue-amount">$2,250,000/año</span>
+                            <span><span class="en-text">AirBnB Rentals (350 units)</span><span class="es-text">Alquileres AirBnB (350 unidades)</span></span>
+                            <span class="revenue-amount">$18,000,000</span>
                         </li>
                         <li class="revenue-item">
-                            <span>
-                                <span class="en-text">Commercial AgroForestry</span>
-                                <span class="es-text">Agroforestería Comercial</span>
-                            </span>
+                            <span><span class="en-text">Commercial AgroForestry</span><span class="es-text">Agroforestería Comercial</span></span>
                             <span class="revenue-amount">$750,000/año</span>
                         </li>
                         <li class="revenue-item">
-                            <span>
-                                <span class="en-text">Bottled Spring Water</span>
-                                <span class="es-text">Agua de Manantial Embotellada</span>
-                            </span>
+                            <span><span class="en-text">Bottled Spring Water</span><span class="es-text">Agua de Manantial Embotellada</span></span>
                             <span class="revenue-amount">$500,000/año</span>
                         </li>
                         <li class="revenue-item">
-                            <span>
-                                <span class="en-text">Carbon Tax Credits</span>
-                                <span class="es-text">Créditos de Impuestos de Carbono</span>
-                            </span>
+                            <span><span class="en-text">Carbon Tax Credits</span><span class="es-text">Créditos de Impuestos de Carbono</span></span>
                             <span class="revenue-amount">$500,000/año</span>
                         </li>
                     </ul>
-
                     <div style="background: #f9f7f2; padding: 20px; border-radius: 4px; margin-top: 30px;">
                         <h5 style="color: var(--primary-green); margin-bottom: 10px;">
                             <span class="en-text">Total Projected Development</span>
                             <span class="es-text">Desarrollo Total Proyectado</span>
                         </h5>
-                        <h3 style="color: var(--gold); margin: 0;">$7,250,000/year</h3>
+                        <h3 style="color: var(--gold); margin: 0;">$37,750,000/year</h3>
                         <p style="margin-top: 10px; opacity: 0.8;">
-                            <span class="en-text">Net Income: $6,000,000/year after expenses</span>
-                            <span class="es-text">Ingreso Neto: $6,000,000/año después de gastos</span>
+                            <span class="en-text">Net Income: $30,000,000+/year after expenses</span>
+                            <span class="es-text">Ingreso Neto: $30,000,000+/año después de gastos</span>
                         </p>
                     </div>
                 </div>
@@ -2789,7 +2289,6 @@
                         <span class="en-text">Ownership Structure</span>
                         <span class="es-text">Estructura de Propiedad</span>
                     </h3>
-
                     <div class="mb-4">
                         <h5 style="color: var(--primary-green); margin-bottom: 15px;">
                             <span class="en-text">Founding Owners</span>
@@ -2818,7 +2317,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="mb-4">
                         <h5 style="color: var(--primary-green); margin-bottom: 15px;">
                             <span class="en-text">Fractional Ownership</span>
@@ -2842,10 +2340,9 @@
                             </li>
                         </ul>
                     </div>
-
-                    <a href="mailto:info@sundropresorts.com?subject=Request Investment Package - SunDrop EcuResorts"
-                    class="btn nav-btn w-100 request-investment-btn" style="padding: 15px; text-decoration: none;">
-                    <i class="fas fa-file-contract"></i>
+                    <a href="https://wa.me/13852228100" target="_blank"
+                    class="btn nav-btn w-100 request-investment-btn" style="padding: 15px; text-decoration: none; background:#25D366; border-color:#25D366;">
+                    <i class="fab fa-whatsapp"></i>
                     <span class="en-text">Request Investment Package</span>
                     <span class="es-text">Solicitar Paquete de Inversión</span>
                 </a>
@@ -2855,200 +2352,93 @@
 
     <!-- Download Section - 9 items (3x3 grid) -->
     <div class="row download-grid mt-5">
-        <!-- 1. Dominican Republic -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Dominican Republic</span>
-                    <span class="es-text">República Dominicana</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">Dominican Republic</span><span class="es-text">República Dominicana</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Dominican Republic PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/DOMINICAN%20REPUBLIC.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 2. Panama -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Panama</span>
-                    <span class="es-text">Panamá</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">Panama</span><span class="es-text">Panamá</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Panama PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/PANAMA.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 3. USA - Utah -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">USA - Utah</span>
-                    <span class="es-text">EE. UU. - Utah</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">USA - Utah</span><span class="es-text">EE. UU. - Utah</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('USA Utah PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/UTAH%2C%20USA.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 4. Colombia -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Colombia</span>
-                    <span class="es-text">Colombia</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">Colombia</span><span class="es-text">Colombia</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Colombia PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/COLOMBIA.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 5. Peru -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Peru</span>
-                    <span class="es-text">Perú</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">Peru</span><span class="es-text">Perú</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Peru PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Peru.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 6. Canita/Lake Bayano (Panama) -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Canita/Lake Bayano</span>
-                    <span class="es-text">Canita/Lago Bayano</span>
-                </h5>
-                <p>
-                    <span class="en-text">Complete project details and investment prospectus</span>
-                    <span class="es-text">Detalles completos del proyecto y prospecto de inversión</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
+                <h5><span class="en-text">Canita/Lake Bayano</span><span class="es-text">Canita/Lago Bayano</span></h5>
+                <p><span class="en-text">Complete project details and investment prospectus</span><span class="es-text">Detalles completos del proyecto y prospecto de inversión</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Canita PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/SunDrop%20Canita%20Brochure.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 7. Global Warming Solution PDF -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-globe-americas"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Global Warming Solution</span>
-                    <span class="es-text">Solución al Calentamiento Global</span>
-                </h5>
-                <p>
-                    <span class="en-text">One comprehensive solution to address climate change</span>
-                    <span class="es-text">Una solución integral para abordar el cambio climático</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-globe-americas"></i></div>
+                <h5><span class="en-text">Global Warming Solution</span><span class="es-text">Solución al Calentamiento Global</span></h5>
+                <p><span class="en-text">One comprehensive solution to address climate change</span><span class="es-text">Una solución integral para abordar el cambio climático</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('Global Warming Solution PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/One%20Solution%20To%20Solve%20Global%20Warming.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
-
-        <!-- 8. Global Warming Solution Video -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-video"></i>
-                </div>
-                <h5>
-                    <span class="en-text">Global Warming Video</span>
-                    <span class="es-text">Video Calentamiento Global</span>
-                </h5>
-                <p>
-                    <span class="en-text">Video presentation with audio explanation of sustainable solutions</span>
-                    <span class="es-text">Presentación en video con explicación de audio de soluciones sostenibles</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-file-video"></i></div>
+                <h5><span class="en-text">Global Warming Video</span><span class="es-text">Video Calentamiento Global</span></h5>
+                <p><span class="en-text">Video presentation with audio explanation of sustainable solutions</span><span class="es-text">Presentación en video con explicación de audio de soluciones sostenibles</span></p>
                 <button class="video-play-btn" onclick="playVideo('Global Warming Solution Video', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/With%20Voice%20One%20Solution%20To%20Solve%20Global%20Warming.mp4')">
-                    <i class="fas fa-play-circle"></i>
-                    <span class="en-text">Play Video</span>
-                    <span class="es-text">Reproducir Video</span>
+                    <i class="fas fa-play-circle"></i> <span class="en-text">Play Video</span><span class="es-text">Reproducir Video</span>
                 </button>
             </div>
         </div>
-
-        <!-- 9. EcoDevelopment PDF -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <h5>
-                    <span class="en-text">EcoDevelopment</span>
-                    <span class="es-text">EcoDesarrollo</span>
-                </h5>
-                <p>
-                    <span class="en-text">Sustainable development framework and environmental impact strategy</span>
-                    <span class="es-text">Marco de desarrollo sostenible y estrategia de impacto ambiental</span>
-                </p>
+                <div class="download-icon"><i class="fas fa-seedling"></i></div>
+                <h5><span class="en-text">EcoDevelopment</span><span class="es-text">EcoDesarrollo</span></h5>
+                <p><span class="en-text">Sustainable development framework and environmental impact strategy</span><span class="es-text">Marco de desarrollo sostenible y estrategia de impacto ambiental</span></p>
                 <button class="pdf-view-btn" onclick="openPDF('EcoDevelopment PDF', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/EcoDevelopment.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="en-text">View PDF</span>
-                    <span class="es-text">Ver PDF</span>
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View PDF</span><span class="es-text">Ver PDF</span>
                 </button>
             </div>
         </div>
@@ -3056,7 +2446,7 @@
 </div>
 </section>
 
-<!-- Gallery Section - 3x3 COLLAGE with NEW IMAGE -->
+<!-- Gallery Section - 3x3 COLLAGE -->
 <section class="section-padding" id="gallery">
     <div class="container">
         <h2 class="section-title">
@@ -3067,69 +2457,41 @@
             <span class="en-text">Experience the beauty and luxury of SunDrop Eco-Resorts through our visual journey.</span>
             <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
         </p>
-
-        <!-- 3x3 Collage Grid -->
         <div class="gallery-grid">
-            <!-- Image 1 -->
             <div class="gallery-item" onclick="openImageModal('Luxury Eco-Home', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg"
-                alt="Luxury Eco-Home" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" alt="Luxury Eco-Home" class="gallery-img">
                 <div class="gallery-overlay-label">Luxury Eco-Home</div>
             </div>
-
-            <!-- Image 2 -->
             <div class="gallery-item" onclick="openImageModal('Infinity Pool', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png"
-                alt="Infinity Pool" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" alt="Infinity Pool" class="gallery-img">
                 <div class="gallery-overlay-label">Infinity Pool</div>
             </div>
-
-            <!-- Image 3 -->
             <div class="gallery-item" onclick="openImageModal('Natural Surroundings', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg"
-                alt="Natural Surroundings" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3.jpg" alt="Natural Surroundings" class="gallery-img">
                 <div class="gallery-overlay-label">Natural Surroundings</div>
             </div>
-
-            <!-- Image 4 -->
             <div class="gallery-item" onclick="openImageModal('Sunset View', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg"
-                alt="Sunset View" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" alt="Sunset View" class="gallery-img">
                 <div class="gallery-overlay-label">Sunset View</div>
             </div>
-
-            <!-- Image 5 - NEW REPLACEMENT IMAGE -->
             <div class="gallery-item" onclick="openImageModal('Eco Resort Aerial View', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/iStock-1264005950_0.jpg.webp')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/iStock-1264005950_0.jpg.webp"
-                alt="Eco Resort Aerial View" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/iStock-1264005950_0.jpg.webp" alt="Eco Resort Aerial View" class="gallery-img">
                 <div class="gallery-overlay-label">Eco Resort Aerial View</div>
             </div>
-
-            <!-- Image 6 - Marino River Rafting -->
             <div class="gallery-item" onclick="openImageModal('Marino River Rafting', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Marino%20River%20Rafting.png')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Marino%20River%20Rafting.png"
-                alt="Marino River Rafting" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Marino%20River%20Rafting.png" alt="Marino River Rafting" class="gallery-img">
                 <div class="gallery-overlay-label">Marino River Rafting</div>
             </div>
-
-            <!-- Image 7 - Flaming Gorge -->
             <div class="gallery-item" onclick="openImageModal('Flaming Gorge', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg"
-                alt="Flaming Gorge" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg" alt="Flaming Gorge" class="gallery-img">
                 <div class="gallery-overlay-label">Flaming Gorge</div>
             </div>
-
-            <!-- Image 8 - Glacial Lake -->
             <div class="gallery-item" onclick="openImageModal('Glacial Lake', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Glacial%20Laked.webp')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Glacial%20Laked.webp"
-                alt="Glacial Lake" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Glacial%20Laked.webp" alt="Glacial Lake" class="gallery-img">
                 <div class="gallery-overlay-label">Glacial Lake</div>
             </div>
-
-            <!-- Image 9 - Peru Amazon -->
             <div class="gallery-item" onclick="openImageModal('Peru Amazon', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png')">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png"
-                alt="Peru Amazon" class="gallery-img">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png" alt="Peru Amazon" class="gallery-img">
                 <div class="gallery-overlay-label">Peru Amazon</div>
             </div>
         </div>
@@ -3147,7 +2509,6 @@
             <span class="en-text">Download detailed architectural plans and land layouts for our sustainable eco-resort communities.</span>
             <span class="es-text">Descarga planos arquitectónicos detallados y distribuciones de terreno para nuestras comunidades de eco-resorts sostenibles.</span>
         </p>
-
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="plan-download-card">
@@ -3156,9 +2517,7 @@
                         alt="SunDrop EcoResort Land Plan" class="plan-image">
                         <div class="plan-overlay">
                             <button class="plan-download-btn" onclick="openImageModal('Typical SunDrop EcoResort Land Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg')">
-                                <i class="fas fa-expand"></i>
-                                <span class="en-text">View Full Screen</span>
-                                <span class="es-text">Ver Pantalla Completa</span>
+                                <i class="fas fa-expand"></i> <span class="en-text">View Full Screen</span><span class="es-text">Ver Pantalla Completa</span>
                             </button>
                         </div>
                     </div>
@@ -3171,40 +2530,17 @@
                             <span class="en-text">Detailed architectural layout showcasing the sustainable design and planning of our premium eco-resort communities. This plan illustrates optimal land use, eco-home placement, amenity distribution, and environmental conservation zones.</span>
                             <span class="es-text">Diseño arquitectónico detallado que muestra el diseño sostenible y la planificación de nuestras comunidades premium de eco-resorts. Este plan ilustra el uso óptimo del terreno, ubicación de eco-homes, distribución de amenidades y zonas de conservación ambiental.</span>
                         </p>
-
                         <ul class="plan-features">
-                            <li>
-                                <span class="en-text">Complete land use and zoning layout</span>
-                                <span class="es-text">Distribución completa de uso de suelo y zonificación</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Eco-home placement and density planning</span>
-                                <span class="es-text">Ubicación y densidad de eco-homes</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Amenity and facility distribution</span>
-                                <span class="es-text">Distribución de amenidades e instalaciones</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Environmental conservation zones</span>
-                                <span class="es-text">Zonas de conservación ambiental</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Sustainable infrastructure planning</span>
-                                <span class="es-text">Planificación de infraestructura sostenible</span>
-                            </li>
-                            <li>
-                                <span class="en-text">Community space allocation</span>
-                                <span class="es-text">Asignación de espacios comunitarios</span>
-                            </li>
+                            <li><span class="en-text">Complete land use and zoning layout</span><span class="es-text">Distribución completa de uso de suelo y zonificación</span></li>
+                            <li><span class="en-text">Eco-home placement and density planning</span><span class="es-text">Ubicación y densidad de eco-homes</span></li>
+                            <li><span class="en-text">Amenity and facility distribution</span><span class="es-text">Distribución de amenidades e instalaciones</span></li>
+                            <li><span class="en-text">Environmental conservation zones</span><span class="es-text">Zonas de conservación ambiental</span></li>
+                            <li><span class="en-text">Sustainable infrastructure planning</span><span class="es-text">Planificación de infraestructura sostenible</span></li>
+                            <li><span class="en-text">Community space allocation</span><span class="es-text">Asignación de espacios comunitarios</span></li>
                         </ul>
-
                         <button class="plan-download-btn" onclick="openImageModal('Typical SunDrop EcoResort Land Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Typical%20SunDrop%20EcoResort%20Land%20Plan.jpg')">
-                            <i class="fas fa-expand"></i>
-                            <span class="en-text">View Full Screen</span>
-                            <span class="es-text">Ver Pantalla Completa</span>
+                            <i class="fas fa-expand"></i> <span class="en-text">View Full Screen</span><span class="es-text">Ver Pantalla Completa</span>
                         </button>
-
                         <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
                             <i class="fas fa-info-circle"></i>
                             <span class="en-text">High-resolution image suitable for detailed viewing</span>
@@ -3214,58 +2550,33 @@
                 </div>
             </div>
         </div>
-
         <div class="row mt-5">
             <div class="col-md-4 text-center">
                 <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Architectural Design</span>
-                        <span class="es-text">Diseño Arquitectónico</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Thoughtfully planned layouts for optimal living experience</span>
-                        <span class="es-text">Distribuciones planificadas para una experiencia de vida óptima</span>
-                    </p>
+                    <div class="luxury-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h5><span class="en-text">Architectural Design</span><span class="es-text">Diseño Arquitectónico</span></h5>
+                    <p><span class="en-text">Thoughtfully planned layouts for optimal living experience</span><span class="es-text">Distribuciones planificadas para una experiencia de vida óptima</span></p>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Sustainable Planning</span>
-                        <span class="es-text">Planificación Sostenible</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Environmentally conscious land use and conservation</span>
-                        <span class="es-text">Uso de suelo y conservación ambientalmente consciente</span>
-                    </p>
+                    <div class="luxury-icon"><i class="fas fa-leaf"></i></div>
+                    <h5><span class="en-text">Sustainable Planning</span><span class="es-text">Planificación Sostenible</span></h5>
+                    <p><span class="en-text">Environmentally conscious land use and conservation</span><span class="es-text">Uso de suelo y conservación ambientalmente consciente</span></p>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="luxury-item" style="background: transparent; box-shadow: none;">
-                    <div class="luxury-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h5>
-                        <span class="en-text">Community Focused</span>
-                        <span class="es-text">Enfoque Comunitario</span>
-                    </h5>
-                    <p>
-                        <span class="en-text">Designs that foster community interaction and wellness</span>
-                        <span class="es-text">Diseños que fomentan la interacción comunitaria y el bienestar</span>
-                    </p>
+                    <div class="luxury-icon"><i class="fas fa-users"></i></div>
+                    <h5><span class="en-text">Community Focused</span><span class="es-text">Enfoque Comunitario</span></h5>
+                    <p><span class="en-text">Designs that foster community interaction and wellness</span><span class="es-text">Diseños que fomentan la interacción comunitaria y el bienestar</span></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact Section - UPDATED WITH info@sundropresorts.com EMAIL -->
+<!-- Contact Section - All buttons now WhatsApp -->
 <section class="section-padding bg-light" id="contact">
     <div class="container">
         <div class="row">
@@ -3278,69 +2589,40 @@
                     <span class="en-text">Limited opportunities available for premium investors. Schedule a consultation to learn more about our exclusive offerings.</span>
                     <span class="es-text">Oportunidades limitadas disponibles para inversionistas premium. Agenda una consulta para aprender más sobre nuestras ofertas exclusivas.</span>
                 </p>
-
                 <div class="row mt-5">
                     <div class="col-md-4 mb-4">
                         <div class="luxury-item">
-                            <div class="luxury-icon">
-                                <i class="fas fa-passport"></i>
-                            </div>
-                            <h5>
-                                <span class="en-text">Citizenship Pathway</span>
-                                <span class="es-text">Camino a Ciudadanía</span>
-                            </h5>
-                            <p>
-                                <span class="en-text">Residency and citizenship opportunities in select countries</span>
-                                <span class="es-text">Oportunidades de residencia y ciudadanía en países seleccionados</span>
-                            </p>
+                            <div class="luxury-icon"><i class="fas fa-passport"></i></div>
+                            <h5><span class="en-text">Citizenship Pathway</span><span class="es-text">Camino a Ciudadanía</span></h5>
+                            <p><span class="en-text">Residency and citizenship opportunities in select countries</span><span class="es-text">Oportunidades de residencia y ciudadanía en países seleccionados</span></p>
                         </div>
                     </div>
-
                     <div class="col-md-4 mb-4">
                         <div class="luxury-item">
-                            <div class="luxury-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h5>
-                                <span class="en-text">Revenue Share</span>
-                                <span class="es-text">Compartición de Ingresos</span>
-                            </h5>
-                            <p>
-                                <span class="en-text">Multiple income streams from sustainable operations</span>
-                                <span class="es-text">Múltiples flujos de ingresos de operaciones sostenibles</span>
-                            </p>
+                            <div class="luxury-icon"><i class="fas fa-chart-line"></i></div>
+                            <h5><span class="en-text">Revenue Share</span><span class="es-text">Compartición de Ingresos</span></h5>
+                            <p><span class="en-text">Multiple income streams from sustainable operations</span><span class="es-text">Múltiples flujos de ingresos de operaciones sostenibles</span></p>
                         </div>
                     </div>
-
                     <div class="col-md-4 mb-4">
                         <div class="luxury-item">
-                            <div class="luxury-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <h5>
-                                <span class="en-text">Deeded Ownership</span>
-                                <span class="es-text">Propiedad con Título</span>
-                            </h5>
-                            <p>
-                                <span class="en-text">Legal fractional ownership with premium amenities</span>
-                                <span class="es-text">Propiedad fraccional legal con amenidades premium</span>
-                            </p>
+                            <div class="luxury-icon"><i class="fas fa-home"></i></div>
+                            <h5><span class="en-text">Deeded Ownership</span><span class="es-text">Propiedad con Título</span></h5>
+                            <p><span class="en-text">Legal fractional ownership with premium amenities</span><span class="es-text">Propiedad fraccional legal con amenidades premium</span></p>
                         </div>
                     </div>
                 </div>
-
-                <!-- UPDATED: Contact Buttons with info@sundropresorts.com -->
+                <!-- Contact Buttons - All WhatsApp -->
                 <div class="contact-buttons mt-5">
-                    <a href="mailto:info@sundropresorts.com?subject=Schedule Consultation - SunDrop EcuResorts" class="btn nav-btn" style="padding: 15px 40px; text-decoration: none;">
-                        <i class="fas fa-calendar-alt"></i>
+                    <a href="https://wa.me/13852228100" target="_blank" class="btn nav-btn" style="padding: 15px 40px; text-decoration: none; background:#25D366; border-color:#25D366;">
+                        <i class="fab fa-whatsapp"></i>
                         <span class="en-text">Schedule Consultation</span>
                         <span class="es-text">Agendar Consulta</span>
                     </a>
-
-                    <a href="mailto:info@sundropresorts.com?subject=Contact Sales - SunDrop EcuResorts"
+                    <a href="https://wa.me/13852228100" target="_blank"
                     class="hero-btn"
                     style="padding: 15px 40px; color: var(--primary-green); border-color: var(--primary-green); text-decoration: none; display: inline-block;">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i>
                     <span class="en-text">Contact Sales</span>
                     <span class="es-text">Contactar Ventas</span>
                 </a>
@@ -3371,84 +2653,34 @@
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-
             <div class="col-lg-2 col-md-6 mb-5">
-                <h5 class="footer-heading">
-                    <span class="en-text">Resorts</span>
-                    <span class="es-text">Resorts</span>
-                </h5>
+                <h5 class="footer-heading"><span class="en-text">Resorts</span><span class="es-text">Resorts</span></h5>
                 <ul class="footer-links">
-                    <li><a href="#resorts">
-                        <span class="en-text">Dominican Republic</span>
-                        <span class="es-text">República Dominicana</span>
-                    </a></li>
-                    <li><a href="#resorts">
-                        <span class="en-text">Panama</span>
-                        <span class="es-text">Panamá</span>
-                    </a></li>
-                    <li><a href="#resorts">
-                        <span class="en-text">USA - Utah</span>
-                        <span class="es-text">EE. UU. - Utah</span>
-                    </a></li>
-                    <li><a href="#resorts">
-                        <span class="en-text">Colombia</span>
-                        <span class="es-text">Colombia</span>
-                    </a></li>
-                    <li><a href="#resorts">
-                        <span class="en-text">Peru - Puerto Inca</span>
-                        <span class="es-text">Perú - Puerto Inca</span>
-                    </a></li>
-                    <li><a href="#resorts">
-                        <span class="en-text">Panama - Canita/Lake Bayano</span>
-                        <span class="es-text">Panamá - Canita/Lago Bayano</span>
-                    </a></li>
+                    <li><a href="#resorts"><span class="en-text">Dominican Republic</span><span class="es-text">República Dominicana</span></a></li>
+                    <li><a href="#resorts"><span class="en-text">Panama</span><span class="es-text">Panamá</span></a></li>
+                    <li><a href="#resorts"><span class="en-text">USA - Utah</span><span class="es-text">EE. UU. - Utah</span></a></li>
+                    <li><a href="#resorts"><span class="en-text">Colombia</span><span class="es-text">Colombia</span></a></li>
+                    <li><a href="#resorts"><span class="en-text">Peru - Puerto Inca</span><span class="es-text">Perú - Puerto Inca</span></a></li>
+                    <li><a href="#resorts"><span class="en-text">Panama - Canita/Lake Bayano</span><span class="es-text">Panamá - Canita/Lago Bayano</span></a></li>
                 </ul>
             </div>
-
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="footer-heading">
-                    <span class="en-text">Investment</span>
-                    <span class="es-text">Inversión</span>
-                </h5>
+                <h5 class="footer-heading"><span class="en-text">Investment</span><span class="es-text">Inversión</span></h5>
                 <ul class="footer-links">
-                    <li><a href="#investment">
-                        <span class="en-text">Revenue Streams</span>
-                        <span class="es-text">Flujos de Ingresos</span>
-                    </a></li>
-                    <li><a href="#investment">
-                        <span class="en-text">Ownership Options</span>
-                        <span class="es-text">Opciones de Propiedad</span>
-                    </a></li>
-                    <li><a href="#investment">
-                        <span class="en-text">Citizenship Programs</span>
-                        <span class="es-text">Programas de Ciudadanía</span>
-                    </a></li>
-                    <li><a href="#investment">
-                        <span class="en-text">Financial Projections</span>
-                        <span class="es-text">Proyecciones Financieras</span>
-                    </a></li>
+                    <li><a href="#investment"><span class="en-text">Revenue Streams</span><span class="es-text">Flujos de Ingresos</span></a></li>
+                    <li><a href="#investment"><span class="en-text">Ownership Options</span><span class="es-text">Opciones de Propiedad</span></a></li>
+                    <li><a href="#investment"><span class="en-text">Citizenship Programs</span><span class="es-text">Programas de Ciudadanía</span></a></li>
+                    <li><a href="#investment"><span class="en-text">Financial Projections</span><span class="es-text">Proyecciones Financieras</span></a></li>
                 </ul>
             </div>
-
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="footer-heading">
-                    <span class="en-text">Contact</span>
-                    <span class="es-text">Contacto</span>
-                </h5>
+                <h5 class="footer-heading"><span class="en-text">Contact</span><span class="es-text">Contacto</span></h5>
                 <ul class="footer-links">
-                    <li><a href="mailto:info@sundropresorts.com">info@sundropresorts.com</a></li>
-                    <li><a href="#contact">
-                        <span class="en-text"></span>
-                        <span class="es-text"></span>
-                    </a></li>
-                    <li><a href="#investment">
-                        <span class="en-text"></span>
-                        <span class="es-text"></span>
-                    </a></li>
+                    <li><a href="https://wa.me/13852228100" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i> +1 (385) 222-8100</a></li>
+                    <li><a href="#contact"><span class="en-text"></span><span class="es-text"></span></a></li>
                 </ul>
             </div>
         </div>
-
         <div class="copyright">
             <p>
                 <span class="en-text">&copy; 2024 SunDrop EcuResorts. All rights reserved. | This is a conceptual presentation for premium investment opportunities.</span>
@@ -3460,32 +2692,21 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // =================== NEW: IMAGE MODAL FUNCTIONS ===================
-
-    // Open image in modal (FIXED: opens in modal instead of downloading)
+    // =================== IMAGE MODAL FUNCTIONS ===================
     function openImageModal(title, imageUrl) {
         document.getElementById('imageModalTitle').textContent = title;
         const imageElement = document.getElementById('fullscreenImage');
         const loadingElement = document.getElementById('imageLoading');
-
-        // Show loading state
         imageElement.style.display = 'none';
         loadingElement.style.display = 'block';
-
-        // Set image source
         imageElement.src = imageUrl;
         imageElement.alt = title;
-
-        // Show modal
         document.getElementById('imageModal').style.display = 'block';
         document.body.style.overflow = 'hidden';
-
-        // Load image
         imageElement.onload = function() {
             loadingElement.style.display = 'none';
             imageElement.style.display = 'block';
         };
-
         imageElement.onerror = function() {
             loadingElement.innerHTML = `
                     <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;"></i>
@@ -3495,17 +2716,12 @@
         };
     }
 
-    // Close image modal
     function closeImageModal() {
         document.getElementById('imageModal').style.display = 'none';
         document.body.style.overflow = 'auto';
-
-        // Reset image
         const imageElement = document.getElementById('fullscreenImage');
         imageElement.src = '';
         imageElement.style.display = 'none';
-
-        // Reset loading
         const loadingElement = document.getElementById('imageLoading');
         loadingElement.style.display = 'block';
         loadingElement.innerHTML = `
@@ -3516,53 +2732,31 @@
     }
 
     // =================== VIDEO FUNCTIONS ===================
-
-    // Open video in modal
     function playVideo(title, videoUrl) {
         document.getElementById('videoModalTitle').textContent = title;
         const videoPlayer = document.getElementById('modalVideoPlayer');
-
-        // Clear previous sources
         videoPlayer.innerHTML = '';
-
-        // Add multiple source formats for compatibility
         const sources = [
             { src: videoUrl, type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime' },
-            { src: videoUrl.replace('raw.githubusercontent.com', 'github.com').replace('/main/',
-                    '/raw/refs/heads/main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime' },
-            { src: videoUrl.replace('raw.githubusercontent.com', 'cdn.jsdelivr.net/gh').replace('/main/',
-                    '@main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime' }
+            { src: videoUrl.replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/raw/refs/heads/main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime' },
+            { src: videoUrl.replace('raw.githubusercontent.com', 'cdn.jsdelivr.net/gh').replace('/main/', '@main/'), type: videoUrl.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime' }
         ];
-
         sources.forEach(source => {
             const sourceElement = document.createElement('source');
             sourceElement.src = source.src;
             sourceElement.type = source.type;
             videoPlayer.appendChild(sourceElement);
         });
-
-        // Add fallback message
         const fallback = document.createElement('p');
-        fallback.innerHTML = '<span class="en-text">Your browser does not support this video format. <a href="' +
-            videoUrl + '" download>Download the video</a></span>' +
-            '<span class="es-text">Tu navegador no soporta este formato de video. <a href="' + videoUrl +
-            '" download>Descargar el video</a></span>';
+        fallback.innerHTML = '<span class="en-text">Your browser does not support this video format. <a href="' + videoUrl + '" download>Download the video</a></span>' +
+            '<span class="es-text">Tu navegador no soporta este formato de video. <a href="' + videoUrl + '" download>Descargar el video</a></span>';
         videoPlayer.appendChild(fallback);
-
-        // Show modal
         document.getElementById('videoModal').style.display = 'block';
         document.body.style.overflow = 'hidden';
-
-        // Try to play the video
         videoPlayer.load();
-        videoPlayer.play().catch(e => {
-            console.log('Auto-play failed:', e);
-            // Show play button
-            videoPlayer.controls = true;
-        });
+        videoPlayer.play().catch(e => { videoPlayer.controls = true; });
     }
 
-    // Close video modal
     function closeVideoModal() {
         const videoPlayer = document.getElementById('modalVideoPlayer');
         videoPlayer.pause();
@@ -3572,8 +2766,6 @@
     }
 
     // =================== PDF FUNCTIONS ===================
-
-    // Open PDF modal
     function openPDF(title, url) {
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = url;
@@ -3581,7 +2773,6 @@
         document.body.style.overflow = 'hidden';
     }
 
-    // Close PDF modal
     function closePDFModal() {
         document.getElementById('pdfModal').style.display = 'none';
         document.getElementById('pdfViewer').src = '';
@@ -3589,347 +2780,107 @@
     }
 
     // =================== MODAL CLOSE HANDLERS ===================
-
-    // Close modal when clicking outside
     window.onclick = function(event) {
-        const videoModal = document.getElementById('videoModal');
-        const pdfModal = document.getElementById('pdfModal');
-        const imageModal = document.getElementById('imageModal');
-
-        if (event.target == videoModal) {
-            closeVideoModal();
-        }
-        if (event.target == pdfModal) {
-            closePDFModal();
-        }
-        if (event.target == imageModal) {
-            closeImageModal();
-        }
+        if (event.target == document.getElementById('videoModal')) closeVideoModal();
+        if (event.target == document.getElementById('pdfModal')) closePDFModal();
+        if (event.target == document.getElementById('imageModal')) closeImageModal();
     }
-
-    // Close modal with Escape key
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeVideoModal();
+        if (event.key === 'Escape') { closeVideoModal();
             closePDFModal();
-            closeImageModal();
-        }
+            closeImageModal(); }
     });
 
     // =================== LANGUAGE FUNCTIONS ===================
-
-    // Language Switching Function
     function changeLanguage(lang) {
-        // Update body class
         document.body.className = 'language-' + lang;
-
-        // Update HTML lang attribute
         document.getElementById('htmlElement').setAttribute('lang', lang === 'es' ? 'es' : 'en');
-
-        // Update page title
         const pageTitle = document.getElementById('pageTitle');
         if (lang === 'es') {
             pageTitle.textContent = 'SunDrop EcuResorts | Lujo Sostenible y Vida Premium';
         } else {
             pageTitle.textContent = 'SunDrop EcuResorts | Luxury Sustainable Living';
         }
-
-        // Update language buttons
-        document.querySelectorAll('.en-btn').forEach(btn => {
-            btn.classList.toggle('active', lang === 'en');
-        });
-        document.querySelectorAll('.es-btn').forEach(btn => {
-            btn.classList.toggle('active', lang === 'es');
-        });
-
-        // Save language preference to localStorage
+        document.querySelectorAll('.en-btn').forEach(btn => btn.classList.toggle('active', lang === 'en'));
+        document.querySelectorAll('.es-btn').forEach(btn => btn.classList.toggle('active', lang === 'es'));
         localStorage.setItem('preferredLanguage', lang);
-
-        // Show notification
-        const notification = lang === 'es' ?
-            'Idioma cambiado a Español' :
-            'Language changed to English';
-        showNotification(notification);
+        showNotification(lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English');
     }
 
-    // =================== UTILITY FUNCTIONS ===================
-
-    // Show notification function
     function showNotification(message) {
-        // Create notification element
         const notification = document.createElement('div');
         notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: var(--primary-green);
-                color: white;
-                padding: 12px 20px;
-                border-radius: 4px;
-                z-index: 9999;
-                font-weight: 500;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                position: fixed; top: 100px; right: 20px; background: var(--primary-green);
+                color: white; padding: 12px 20px; border-radius: 4px; z-index: 9999;
+                font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
                 animation: slideIn 0.3s ease;
             `;
         notification.textContent = message;
         document.body.appendChild(notification);
-
-        // Remove after 3 seconds
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
+            setTimeout(() => document.body.removeChild(notification), 300);
         }, 3000);
     }
-
-    // Add CSS for animations
-    const style = document.createElement('style');
-    style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
+    const styleAnim = document.createElement('style');
+    styleAnim.textContent = `
+            @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
         `;
-    document.head.appendChild(style);
+    document.head.appendChild(styleAnim);
 
-    // Navbar scroll effect
+    // =================== NAVBAR SCROLL ===================
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Smooth scrolling with offset for fixed navbar
+    // =================== SMOOTH SCROLLING ===================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close navbar on mobile after clicking
+                window.scrollTo({ top: targetElement.offsetTop - navbarHeight, behavior: 'smooth' });
                 if (window.innerWidth < 992) {
                     const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        const navbarToggler = document.querySelector('.navbar-toggler');
-                        navbarToggler.click();
-                    }
+                    if (navbarCollapse.classList.contains('show')) document.querySelector('.navbar-toggler').click();
                 }
             }
         });
     });
 
-    // Scroll functions
     function scrollToResorts() {
-        const targetElement = document.getElementById('resorts');
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const targetPosition = targetElement.offsetTop - navbarHeight;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
+        const target = document.getElementById('resorts');
+        window.scrollTo({ top: target.offsetTop - document.querySelector('.navbar').offsetHeight, behavior: 'smooth' });
     }
 
     function scrollToInvestment() {
-        const targetElement = document.getElementById('investment');
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const targetPosition = targetElement.offsetTop - navbarHeight;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
+        const target = document.getElementById('investment');
+        window.scrollTo({ top: target.offsetTop - document.querySelector('.navbar').offsetHeight, behavior: 'smooth' });
     }
 
-    // Fix for mobile mailto link issues
-    function fixMobileMailtoLinks() {
-        if (window.innerWidth <= 768) {
-            // Add click handlers to mailto links
-            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Prevent immediate navigation to allow animation
-                    e.preventDefault();
-
-                    // Add a class to body to maintain layout
-                    document.body.classList.add('mailto-clicked');
-
-                    // Show a brief loading state
-                    this.classList.add('clicked');
-
-                    // Navigate after a short delay
-                    setTimeout(() => {
-                        window.location.href = this.href;
-                    }, 100);
-                });
-
-                // Add touch-specific handling for mobile
-                link.addEventListener('touchstart', function() {
-                    this.classList.add('touch-active');
-                });
-
-                link.addEventListener('touchend', function() {
-                    setTimeout(() => {
-                        this.classList.remove('touch-active');
-                    }, 300);
-                });
-            });
-
-            // Also fix investment package button specifically
-            const investmentBtn = document.querySelector('.investment-card .nav-btn');
-            if (investmentBtn) {
-                investmentBtn.classList.add('request-investment-btn');
-            }
-        }
-    }
-
-    // Auto year update
+    // =================== DOM READY ===================
     document.addEventListener('DOMContentLoaded', function() {
         const yearSpan = document.querySelector('.copyright p');
-        const currentYear = new Date().getFullYear();
-        yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', currentYear);
-
-        // Add animation class on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', new Date().getFullYear());
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card').forEach(el => observer.observe(el));
 
-        // Observe elements for animation
-        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card')
-        .forEach(el => {
-            observer.observe(el);
-        });
-
-        // Load saved language preference
         const savedLang = localStorage.getItem('preferredLanguage') || 'en';
         changeLanguage(savedLang);
 
-        // Fix for zoom level issues
-        checkZoomLevel();
-
-        // Fix mobile mailto links
-        fixMobileMailtoLinks();
-
-        // Initialize video
-        initializeVideo();
-
-        // Update stats number from 5 to 6 for Canita addition
         const statNumber = document.querySelector('.stat-number');
-        if (statNumber && statNumber.textContent === '5') {
-            statNumber.textContent = '6';
-        }
+        if (statNumber && statNumber.textContent === '5') statNumber.textContent = '6';
     });
-
-    // Initialize video player
-    function initializeVideo() {
-        const mainVideo = document.getElementById('mainVideo');
-        if (mainVideo) {
-            // Check if video can play
-            mainVideo.addEventListener('error', function(e) {
-                console.log('Video error:', mainVideo.error);
-
-                // Try alternative sources
-                if (mainVideo.error && mainVideo.error.code === 4) {
-                    const currentSrc = mainVideo.currentSrc || mainVideo.src;
-                    if (currentSrc.includes('raw.githubusercontent.com')) {
-                        // Try alternative URL
-                        const altSrc = currentSrc.replace('raw.githubusercontent.com', 'github.com')
-                            .replace('/main/', '/raw/refs/heads/main/');
-                        mainVideo.src = altSrc;
-                        mainVideo.load();
-                    }
-                }
-            });
-
-            // Show controls on touch devices
-            mainVideo.addEventListener('touchstart', function() {
-                this.controls = true;
-            });
-        }
-    }
-
-    // Check and fix zoom level issues
-    function checkZoomLevel() {
-        // Prevent horizontal scroll on zoom
-        document.body.style.overflowX = 'hidden';
-
-        // Check if elements are overlapping
-        const checkOverlap = () => {
-            const navbar = document.querySelector('.navbar');
-            const navbarHeight = navbar.offsetHeight;
-
-            // Adjust body padding based on navbar height
-            document.body.style.paddingTop = navbarHeight + 'px';
-
-            // Check for overlapping elements
-            const elements = document.querySelectorAll('.resort-card, .luxury-item, .investment-card');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.left < 0 || rect.right > window.innerWidth) {
-                    el.style.margin = '10px';
-                }
-            });
-        };
-
-        // Initial check
-        checkOverlap();
-
-        // Check on resize and zoom
-        window.addEventListener('resize', checkOverlap);
-        window.addEventListener('orientationchange', checkOverlap);
-    }
 
     // Fix for touch devices
     document.addEventListener('touchstart', function() {}, { passive: true });
-
-    // Mobile menu close on click outside
-    document.addEventListener('click', function(event) {
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        const navbarToggler = document.querySelector('.navbar-toggler');
-
-        if (navbarCollapse && navbarCollapse.classList.contains('show') &&
-            !navbarCollapse.contains(event.target) &&
-            !navbarToggler.contains(event.target)) {
-            navbarToggler.click();
-        }
-    });
-
-    // Also fix on window resize
-    window.addEventListener('resize', fixMobileMailtoLinks);
-
-    // Remove the mailto-clicked class when returning to page
-    window.addEventListener('pageshow', function(event) {
-        if (document.body.classList.contains('mailto-clicked')) {
-            document.body.classList.remove('mailto-clicked');
-        }
-    });
 </script>
 </body>
 </html>
