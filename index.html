@@ -24,9 +24,6 @@
             --cream: #f5f1e8;
             --brown: #8b7355;
             --white: #ffffff;
-            --glamp-blue: #2a7de1;
-            --glamp-red: #e12a2a;
-            --glamp-green: #2a9e2a;
         }
 
         * {
@@ -715,7 +712,7 @@
 
         /* SECTION STYLES */
         .section-padding {
-            padding: clamp(50px, 8vw, 100px) 0;
+            padding: clamp(60px, 8vw, 100px) 0;
         }
         .section-title {
             font-size: clamp(2rem, 4vw, 2.8rem);
@@ -739,7 +736,7 @@
         .section-subtitle {
             text-align: center;
             color: #666;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             max-width: 700px;
             margin: 0 auto clamp(30px, 5vw, 60px);
             line-height: 1.8;
@@ -924,7 +921,7 @@
             white-space: nowrap;
         }
 
-        /* GALLERY - 4 columns for 16 images */
+        /* GALLERY */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -968,40 +965,24 @@
             opacity: 1;
         }
 
-        /* GLAMPING PLANS SECTION */
+        /* GLAMPING PLANS SECTION - CLEAN, NO COLOR LABELS */
         .glamping-section {
             background: #f9f7f2;
-            padding: clamp(50px, 8vw, 100px) 0;
+            padding: clamp(60px, 8vw, 100px) 0;
         }
-        .glamping-color-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #ddd;
+        .glamping-sub-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            text-align: center;
         }
-        .glamping-color-header .color-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            border: 2px solid rgba(0,0,0,0.1);
-        }
-        .glamping-color-header h3 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.3rem;
-        }
-        .color-dot.blue { background: var(--glamp-blue); }
-        .color-dot.red { background: var(--glamp-red); }
-        .color-dot.green { background: var(--glamp-green); }
-
         .glamping-grid-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
         }
         .glamping-grid-2col .glamp-item {
             border-radius: 8px;
@@ -1017,24 +998,53 @@
         }
         .glamping-grid-2col .glamp-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             display: block;
         }
         .glamping-grid-2col .glamp-item .glamp-label {
-            padding: 12px 15px;
-            font-weight: 500;
-            font-size: 0.9rem;
+            padding: 14px 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-align: center;
             background: white;
             color: #333;
+            border-top: 3px solid var(--gold);
         }
 
-        /* Green - 2 columns x 5 rows */
+        /* Video wrapper */
+        .glamping-video-wrapper {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .glamping-video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            display: block;
+            background: #000;
+        }
+        .glamping-video-wrapper .glamp-label {
+            padding: 14px 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            background: white;
+            color: #333;
+            border-top: 3px solid var(--gold);
+        }
+
+        /* Green - 10 photos in 2 columns x 5 rows */
         .glamping-grid-green {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .glamping-grid-green .glamp-item {
             border-radius: 8px;
@@ -1050,7 +1060,7 @@
         }
         .glamping-grid-green .glamp-item img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
             display: block;
         }
@@ -1061,29 +1071,7 @@
             text-align: center;
             background: white;
             color: #333;
-        }
-
-        /* Red - Video player */
-        .glamping-video-wrapper {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        .glamping-video-wrapper video {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            display: block;
-            background: #000;
-        }
-        .glamping-video-wrapper .glamp-label {
-            padding: 12px 15px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-align: center;
-            background: white;
-            color: #333;
+            border-top: 2px solid var(--gold);
         }
 
         /* PLANS */
@@ -1328,6 +1316,12 @@
             .gallery-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
+            .glamping-grid-green {
+                gap: 20px;
+            }
+            .glamping-grid-green .glamp-item img {
+                height: 220px;
+            }
         }
         @media (max-width: 992px) {
             #investment .row.download-grid {
@@ -1362,9 +1356,16 @@
             }
             .glamping-grid-2col {
                 grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .glamping-grid-2col .glamp-item img {
+                height: 240px;
             }
             .glamping-grid-green {
-                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            .glamping-grid-green .glamp-item img {
+                height: 200px;
             }
         }
 
@@ -1421,15 +1422,19 @@
             }
             .glamping-grid-2col {
                 grid-template-columns: 1fr 1fr;
-            }
-            .glamping-grid-green {
-                grid-template-columns: 1fr 1fr;
+                gap: 15px;
             }
             .glamping-grid-2col .glamp-item img {
-                height: 180px;
+                height: 200px;
+            }
+            .glamping-grid-green {
+                gap: 15px;
             }
             .glamping-grid-green .glamp-item img {
-                height: 160px;
+                height: 180px;
+            }
+            .glamping-video-wrapper video {
+                max-height: 350px;
             }
         }
 
@@ -1487,20 +1492,27 @@
             }
             .glamping-grid-2col {
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .glamping-grid-green {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 12px;
             }
             .glamping-grid-2col .glamp-item img {
-                height: 140px;
+                height: 160px;
+            }
+            .glamping-grid-2col .glamp-item .glamp-label {
+                font-size: 0.8rem;
+                padding: 10px 10px;
+            }
+            .glamping-grid-green {
+                gap: 12px;
             }
             .glamping-grid-green .glamp-item img {
-                height: 130px;
+                height: 140px;
             }
-            .glamping-color-header h3 {
-                font-size: 1rem;
+            .glamping-video-wrapper video {
+                max-height: 280px;
+            }
+            .glamping-video-wrapper .glamp-label {
+                font-size: 0.8rem;
+                padding: 10px 10px;
             }
         }
 
@@ -1517,17 +1529,16 @@
             }
             .glamping-grid-2col {
                 grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-            .glamping-grid-green {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
+                gap: 10px;
             }
             .glamping-grid-2col .glamp-item img {
-                height: 120px;
+                height: 130px;
+            }
+            .glamping-grid-green {
+                gap: 10px;
             }
             .glamping-grid-green .glamp-item img {
-                height: 110px;
+                height: 120px;
             }
         }
 
@@ -1616,7 +1627,7 @@
             overflow-x: hidden;
         }
         .container {
-            max-width: 100%;
+            max-width: 1200px;
             padding-right: 15px;
             padding-left: 15px;
         }
@@ -2523,7 +2534,7 @@
     </div>
 </section>
 
-<!-- ========== GLAMPING PLANS SECTION ========== -->
+<!-- ========== GLAMPING PLANS SECTION - CLEAN VERSION ========== -->
 <section class="section-padding glamping-section" id="glamping">
     <div class="container">
         <h2 class="section-title">
@@ -2535,88 +2546,60 @@
             <span class="es-text">Explore los diseños de nuestros sitios de glamping, planos de día y noche, y la animación 3D de la experiencia glamping.</span>
         </p>
 
-        <!-- BLUE - Glamping Plans (Day & Night) -->
-        <div class="mb-5">
-            <div class="glamping-color-header">
-                <span class="color-dot blue"></span>
-                <h3 style="color: var(--glamp-blue);">
-                    <span class="en-text">Blue – Glamping Plans (Day & Night)</span>
-                    <span class="es-text">Azul – Planos de Glamping (Día y Noche)</span>
-                </h3>
+        <!-- Day & Night Plans (2 columns) -->
+        <div class="glamping-grid-2col">
+            <div class="glamp-item" onclick="openImageModal('Day Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg" alt="Day Plan">
+                <div class="glamp-label"><span class="en-text">Day Plan</span><span class="es-text">Plan de Día</span></div>
             </div>
-            <div class="glamping-grid-2col">
-                <div class="glamp-item" onclick="openImageModal('Day Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg" alt="Day Plan">
-                    <div class="glamp-label"><span class="en-text">Day Plan</span><span class="es-text">Plan de Día</span></div>
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Night Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg" alt="Night Plan">
-                    <div class="glamp-label"><span class="en-text">Night Plan</span><span class="es-text">Plan de Noche</span></div>
-                </div>
+            <div class="glamp-item" onclick="openImageModal('Night Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg" alt="Night Plan">
+                <div class="glamp-label"><span class="en-text">Night Plan</span><span class="es-text">Plan de Noche</span></div>
             </div>
         </div>
 
-        <!-- RED - Glamping Animation -->
-        <div class="mb-5">
-            <div class="glamping-color-header">
-                <span class="color-dot red"></span>
-                <h3 style="color: var(--glamp-red);">
-                    <span class="en-text">Red – Glamping Animation</span>
-                    <span class="es-text">Rojo – Animación de Glamping</span>
-                </h3>
-            </div>
-            <div class="glamping-video-wrapper">
-                <video controls preload="metadata" playsinline>
-                    <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" type="video/mp4">
-                    <source src="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/3D%20Animation.mp4" type="video/mp4">
-                    <p class="en-text">Your browser does not support the video tag. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Download the video</a></p>
-                    <p class="es-text">Tu navegador no soporta el tag de video. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Descargar el video</a></p>
-                </video>
-                <div class="glamp-label"><span class="en-text">3D Animation – Glamping Experience</span><span class="es-text">Animación 3D – Experiencia Glamping</span></div>
-            </div>
+        <!-- 3D Animation Video -->
+        <div class="glamping-video-wrapper">
+            <video controls preload="metadata" playsinline>
+                <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" type="video/mp4">
+                <source src="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/3D%20Animation.mp4" type="video/mp4">
+                <p class="en-text">Your browser does not support the video tag. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Download the video</a></p>
+                <p class="es-text">Tu navegador no soporta el tag de video. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Descargar el video</a></p>
+            </video>
+            <div class="glamp-label"><span class="en-text">3D Animation – Glamping Experience</span><span class="es-text">Animación 3D – Experiencia Glamping</span></div>
         </div>
 
-        <!-- GREEN - Glamping Photos (2 columns x 5 rows) -->
-        <div>
-            <div class="glamping-color-header">
-                <span class="color-dot green"></span>
-                <h3 style="color: var(--glamp-green);">
-                    <span class="en-text">Green – Glamping Photos (10)</span>
-                    <span class="es-text">Verde – Fotos de Glamping (10)</span>
-                </h3>
+        <!-- 10 Photos - 2 columns x 5 rows -->
+        <div class="glamping-grid-green">
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 1', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg" alt="Glamping Photo 1">
             </div>
-            <div class="glamping-grid-green">
-                <!-- 10 images in 2 columns x 5 rows -->
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 1', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg" alt="Glamping Photo 1">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 2', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg" alt="Glamping Photo 2">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 3', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg" alt="Glamping Photo 3">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 4', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg" alt="Glamping Photo 4">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 5', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg" alt="Glamping Photo 5">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 6', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg" alt="Glamping Photo 6">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 7', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg" alt="Glamping Photo 7">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 8', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg" alt="Glamping Photo 8">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 9', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg" alt="Glamping Photo 9">
-                </div>
-                <div class="glamp-item" onclick="openImageModal('Glamping Photo 10', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg')">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg" alt="Glamping Photo 10">
-                </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 2', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg" alt="Glamping Photo 2">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 3', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg" alt="Glamping Photo 3">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 4', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg" alt="Glamping Photo 4">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 5', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg" alt="Glamping Photo 5">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 6', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg" alt="Glamping Photo 6">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 7', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg" alt="Glamping Photo 7">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 8', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg" alt="Glamping Photo 8">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 9', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg" alt="Glamping Photo 9">
+            </div>
+            <div class="glamp-item" onclick="openImageModal('Glamping Photo 10', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg')">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg" alt="Glamping Photo 10">
             </div>
         </div>
     </div>
