@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/favicon.png">
     <link rel="icon" href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/favicon.png">
 
-    <title id="pageTitle">SunDrop EcuResorts | Luxury Sustainable Living</title>
+    <title id="pageTitle">SunDrop Eco-Resorts | Luxury Sustainable Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -375,7 +375,6 @@
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
-        /* FIX: Ensure space between SunDrop and EcuResorts */
         .navbar-brand .brand-space {
             display: inline-block;
             min-width: 0.25em;
@@ -1143,10 +1142,18 @@
             color: white;
             transition: all 0.3s ease;
             flex-shrink: 0;
+            text-decoration: none;
         }
         .social-icon:hover {
             background: var(--gold);
             transform: translateY(-3px);
+            color: white;
+        }
+        .social-icon.whatsapp-icon {
+            background: #25D366;
+        }
+        .social-icon.whatsapp-icon:hover {
+            background: #1da851;
         }
         .copyright {
             text-align: center;
@@ -1662,8 +1669,8 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg"
-                alt="SunDrop EcuResorts Logo" class="logo-img">
-                Sun<span class="gold drop-span">Drop</span><span class="brand-space">&nbsp;</span><span class="gold">EcuResorts</span>
+                alt="SunDrop Eco-Resorts Logo" class="logo-img">
+                Sun<span class="gold drop-span">Drop</span><span class="brand-space">&nbsp;</span><span class="gold">Eco-Resorts</span>
             </a>
 
             <div class="language-switcher d-lg-none me-3">
@@ -1689,10 +1696,11 @@
                 <li class="nav-item"><a class="nav-link" href="#investment"><span class="en-text">Investment</span><span class="es-text">Inversión</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#gallery"><span class="en-text">Gallery</span><span class="es-text">Galería</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#plans"><span class="en-text">Resort Plans</span><span class="es-text">Planos del Resort</span></a></li>
+                <!-- UPDATED: Contact changed to Text/WhatsApp -->
                 <li class="nav-item">
                     <a class="nav-link" href="https://wa.me/13852228100" target="_blank">
                         <i class="fab fa-whatsapp" style="color:#25D366;"></i>
-                        <span class="en-text">Contact</span><span class="es-text">Contacto</span>
+                        <span class="en-text">Text/WhatsApp</span><span class="es-text">Texto/WhatsApp</span>
                     </a>
                 </li>
                 <li class="nav-item ms-3">
@@ -1758,7 +1766,7 @@
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-item">
-                    <div class="stat-number">$37M+</div>
+                    <div class="stat-number">$22.5M+</div>
                     <div class="stat-label"><span class="en-text">Annual Revenue</span><span class="es-text">Ingreso Annual</span></div>
                 </div>
             </div>
@@ -1972,7 +1980,8 @@
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-utensils"></i></div><h4><span class="en-text">Gourmet Dining</span><span class="es-text">Gastronomía Gourmet</span></h4><p class="en-text">21 family-style meals per week prepared by on-site chefs using organic produce from our CoOp farms.</p><p class="es-text">21 comidas familiares por semana preparadas por chefs en el sitio usando productos orgánicos de nuestras granjas CoOp.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-spa"></i></div><h4><span class="en-text">Holistic Wellness</span><span class="es-text">Bienestar Holístico</span></h4><p class="en-text">Full-service spa, yoga studios, fitness centers, and personalized wellness programs for residents.</p><p class="es-text">Spa de servicio completo, estudios de yoga, centros de fitness y programas de bienestar personalizados para residentes.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-solar-panel"></i></div><h4><span class="en-text">Sustainable Energy</span><span class="es-text">Energía Sostenible</span></h4><p class="en-text">100% renewable energy from solar arrays, micro-hydro power, and battery storage systems.</p><p class="es-text">100% energía renovable de paneles solares, micro-hidroeléctrica y sistemas de almacenamiento de baterías.</p></div>
-            <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-tree"></i></div><h4><span class="en-text">Reforestation</span><span class="es-text">Reforestación</span></h4><p class="en-text">15-year program planting 50,000 native trees with carbon tax credit benefits for investors.</p><p class="es-text">Programa de 15 años plantando 50,000 árboles nativos con beneficios de créditos de carbono para inversionistas.</p></div>
+            <!-- UPDATED: Reforestation 50,000 → 300,000 -->
+            <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-tree"></i></div><h4><span class="en-text">Reforestation</span><span class="es-text">Reforestación</span></h4><p class="en-text">15-year program planting 300,000 native trees with carbon tax credit benefits for investors.</p><p class="es-text">Programa de 15 años plantando 300,000 árboles nativos con beneficios de créditos de carbono para inversionistas.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-shield-alt"></i></div><h4><span class="en-text">Premium Security</span><span class="es-text">Seguridad Premium</span></h4><p class="en-text">24/7 armed private security, surveillance systems, and dedicated security drivers.</p><p class="es-text">Seguridad privada armada 24/7, sistemas de vigilancia y conductores de seguridad dedicados.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-users"></i></div><h4><span class="en-text">Community Services</span><span class="es-text">Servicios Comunitarios</span></h4><p class="en-text">15 hours/week personalized assistance including senior care, childcare, and executive support.</p><p class="es-text">15 horas/semana de asistencia personalizada incluyendo cuidado de ancianos, cuidado infantil y apoyo ejecutivo.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-tractor"></i></div><h4><span class="en-text">AgroForestry</span><span class="es-text">Agroforestería</span></h4><p class="en-text">Commercial farming of exotic hardwoods, cocoa, avocados, and berries for sustainable income.</p><p class="es-text">Agricultura comercial de maderas exóticas, cacao, aguacates y bayas para ingresos sostenibles.</p></div>
@@ -2088,15 +2097,16 @@
                             <span class="revenue-amount"><span class="en-text">$500,000/Year</span><span class="es-text">$500,000/año</span></span>
                         </li>
                     </ul>
+                    <!-- UPDATED: Total Projected Development $22,500,000/Year -->
                     <div style="background: #f9f7f2; padding: 20px; border-radius: 4px; margin-top: 30px;">
                         <h5 style="color: var(--primary-green); margin-bottom: 10px;">
                             <span class="en-text">Total Projected Development</span>
                             <span class="es-text">Desarrollo Total Proyectado</span>
                         </h5>
-                        <h3 style="color: var(--gold); margin: 0;"><span class="en-text">$37,750,000/Year</span><span class="es-text">$37,750,000/año</span></h3>
+                        <h3 style="color: var(--gold); margin: 0;"><span class="en-text">$22,500,000/Year</span><span class="es-text">$22,500,000/año</span></h3>
                         <p style="margin-top: 10px; opacity: 0.8;">
-                            <span class="en-text">Net Income: $30,000,000+/Year after expenses</span>
-                            <span class="es-text">Ingreso Neto: $30,000,000+/año después de gastos</span>
+                            <span class="en-text">Net Income: $18,000,000+/Year after expenses</span>
+                            <span class="es-text">Ingreso Neto: $18,000,000+/año después de gastos</span>
                         </p>
                     </div>
                 </div>
@@ -2483,8 +2493,8 @@
             <div class="col-lg-4 mb-5">
                 <div class="footer-logo-container">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logo.jpg"
-                    alt="SunDrop EcuResorts Logo" class="footer-logo-img">
-                    <div class="footer-logo-text">Sun<span class="gold">Drop</span> <span class="gold">EcuResorts</span></div>
+                    alt="SunDrop Eco-Resorts Logo" class="footer-logo-img">
+                    <div class="footer-logo-text">Sun<span class="gold">Drop</span> <span class="gold">Eco-Resorts</span></div>
                 </div>
                 <p class="footer-text">
                     <span class="en-text">Premium sustainable living communities across the Americas. Combining environmental stewardship with luxury amenities and exclusive investment opportunities.</span>
@@ -2495,6 +2505,10 @@
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- NEW: WhatsApp icon in footer social media -->
+                    <a href="https://wa.me/13852228100" target="_blank" class="social-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5">
@@ -2527,8 +2541,8 @@
         </div>
         <div class="copyright">
             <p>
-                <span class="en-text">&copy; 2024 SunDrop EcuResorts. All rights reserved. | This is a conceptual presentation for premium investment opportunities.</span>
-                <span class="es-text">&copy; 2024 SunDrop EcuResorts. Todos los derechos reservados. | Esta es una presentación conceptual para oportunidades de inversión premium.</span>
+                <span class="en-text">&copy; 2024 SunDrop Eco-Resorts. All rights reserved. | This is a conceptual presentation for premium investment opportunities.</span>
+                <span class="es-text">&copy; 2024 SunDrop Eco-Resorts. Todos los derechos reservados. | Esta es una presentación conceptual para oportunidades de inversión premium.</span>
             </p>
         </div>
     </div>
@@ -2631,7 +2645,7 @@
         document.body.className = 'language-' + lang;
         document.getElementById('htmlElement').setAttribute('lang', lang === 'es' ? 'es' : 'en');
         const title = document.getElementById('pageTitle');
-        title.textContent = lang === 'es' ? 'SunDrop EcuResorts | Lujo Sostenible y Vida Premium' : 'SunDrop EcuResorts | Luxury Sustainable Living';
+        title.textContent = lang === 'es' ? 'SunDrop Eco-Resorts | Lujo Sostenible y Vida Premium' : 'SunDrop Eco-Resorts | Luxury Sustainable Living';
         document.querySelectorAll('.en-btn').forEach(b => b.classList.toggle('active', lang === 'en'));
         document.querySelectorAll('.es-btn').forEach(b => b.classList.toggle('active', lang === 'es'));
         localStorage.setItem('preferredLanguage', lang);
