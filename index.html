@@ -24,6 +24,9 @@
             --cream: #f5f1e8;
             --brown: #8b7355;
             --white: #ffffff;
+            --glamp-blue: #2a7de1;
+            --glamp-red: #e12a2a;
+            --glamp-green: #2a9e2a;
         }
 
         * {
@@ -965,6 +968,124 @@
             opacity: 1;
         }
 
+        /* GLAMPING PLANS SECTION */
+        .glamping-section {
+            background: #f9f7f2;
+            padding: clamp(50px, 8vw, 100px) 0;
+        }
+        .glamping-color-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ddd;
+        }
+        .glamping-color-header .color-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+        .glamping-color-header h3 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        .color-dot.blue { background: var(--glamp-blue); }
+        .color-dot.red { background: var(--glamp-red); }
+        .color-dot.green { background: var(--glamp-green); }
+
+        .glamping-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .glamping-grid-2col .glamp-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+        .glamping-grid-2col .glamp-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .glamping-grid-2col .glamp-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .glamping-grid-2col .glamp-item .glamp-label {
+            padding: 12px 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            background: white;
+            color: #333;
+        }
+
+        /* Green - 2 columns x 5 rows */
+        .glamping-grid-green {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .glamping-grid-green .glamp-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+        .glamping-grid-green .glamp-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .glamping-grid-green .glamp-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .glamping-grid-green .glamp-item .glamp-label {
+            padding: 10px 12px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-align: center;
+            background: white;
+            color: #333;
+        }
+
+        /* Red - Video player */
+        .glamping-video-wrapper {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .glamping-video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            display: block;
+            background: #000;
+        }
+        .glamping-video-wrapper .glamp-label {
+            padding: 12px 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            background: white;
+            color: #333;
+        }
+
         /* PLANS */
         .plans-section {
             background: #f9f7f2;
@@ -1239,6 +1360,12 @@
             .main-video-player {
                 height: 400px;
             }
+            .glamping-grid-2col {
+                grid-template-columns: 1fr 1fr;
+            }
+            .glamping-grid-green {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1291,6 +1418,18 @@
                 width: 100%;
                 max-width: 300px;
                 margin: 5px 0 !important;
+            }
+            .glamping-grid-2col {
+                grid-template-columns: 1fr 1fr;
+            }
+            .glamping-grid-green {
+                grid-template-columns: 1fr 1fr;
+            }
+            .glamping-grid-2col .glamp-item img {
+                height: 180px;
+            }
+            .glamping-grid-green .glamp-item img {
+                height: 160px;
             }
         }
 
@@ -1346,6 +1485,23 @@
             .fullscreen-image {
                 max-height: 70vh;
             }
+            .glamping-grid-2col {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .glamping-grid-green {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .glamping-grid-2col .glamp-item img {
+                height: 140px;
+            }
+            .glamping-grid-green .glamp-item img {
+                height: 130px;
+            }
+            .glamping-color-header h3 {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1358,6 +1514,20 @@
             }
             #investment .row.download-grid {
                 grid-template-columns: repeat(1, 1fr);
+            }
+            .glamping-grid-2col {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .glamping-grid-green {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .glamping-grid-2col .glamp-item img {
+                height: 120px;
+            }
+            .glamping-grid-green .glamp-item img {
+                height: 110px;
             }
         }
 
@@ -1695,8 +1865,8 @@
                 <li class="nav-item"><a class="nav-link" href="#video"><span class="en-text">Video Tour</span><span class="es-text">Video Tour</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#investment"><span class="en-text">Investment</span><span class="es-text">Inversión</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#gallery"><span class="en-text">Gallery</span><span class="es-text">Galería</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#glamping"><span class="en-text">Glamping Plans</span><span class="es-text">Planos Glamping</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#plans"><span class="en-text">Resort Plans</span><span class="es-text">Planos del Resort</span></a></li>
-                <!-- UPDATED: Contact changed to Text/WhatsApp -->
                 <li class="nav-item">
                     <a class="nav-link" href="https://wa.me/13852228100" target="_blank">
                         <i class="fab fa-whatsapp" style="color:#25D366;"></i>
@@ -1980,7 +2150,6 @@
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-utensils"></i></div><h4><span class="en-text">Gourmet Dining</span><span class="es-text">Gastronomía Gourmet</span></h4><p class="en-text">21 family-style meals per week prepared by on-site chefs using organic produce from our CoOp farms.</p><p class="es-text">21 comidas familiares por semana preparadas por chefs en el sitio usando productos orgánicos de nuestras granjas CoOp.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-spa"></i></div><h4><span class="en-text">Holistic Wellness</span><span class="es-text">Bienestar Holístico</span></h4><p class="en-text">Full-service spa, yoga studios, fitness centers, and personalized wellness programs for residents.</p><p class="es-text">Spa de servicio completo, estudios de yoga, centros de fitness y programas de bienestar personalizados para residentes.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-solar-panel"></i></div><h4><span class="en-text">Sustainable Energy</span><span class="es-text">Energía Sostenible</span></h4><p class="en-text">100% renewable energy from solar arrays, micro-hydro power, and battery storage systems.</p><p class="es-text">100% energía renovable de paneles solares, micro-hidroeléctrica y sistemas de almacenamiento de baterías.</p></div>
-            <!-- UPDATED: Reforestation 50,000 → 300,000 -->
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-tree"></i></div><h4><span class="en-text">Reforestation</span><span class="es-text">Reforestación</span></h4><p class="en-text">15-year program planting 300,000 native trees with carbon tax credit benefits for investors.</p><p class="es-text">Programa de 15 años plantando 300,000 árboles nativos con beneficios de créditos de carbono para inversionistas.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-shield-alt"></i></div><h4><span class="en-text">Premium Security</span><span class="es-text">Seguridad Premium</span></h4><p class="en-text">24/7 armed private security, surveillance systems, and dedicated security drivers.</p><p class="es-text">Seguridad privada armada 24/7, sistemas de vigilancia y conductores de seguridad dedicados.</p></div>
             <div class="luxury-item"><div class="luxury-icon"><i class="fas fa-users"></i></div><h4><span class="en-text">Community Services</span><span class="es-text">Servicios Comunitarios</span></h4><p class="en-text">15 hours/week personalized assistance including senior care, childcare, and executive support.</p><p class="es-text">15 horas/semana de asistencia personalizada incluyendo cuidado de ancianos, cuidado infantil y apoyo ejecutivo.</p></div>
@@ -2097,7 +2266,6 @@
                             <span class="revenue-amount"><span class="en-text">$500,000/Year</span><span class="es-text">$500,000/año</span></span>
                         </li>
                     </ul>
-                    <!-- UPDATED: Total Projected Development $22,500,000/Year -->
                     <div style="background: #f9f7f2; padding: 20px; border-radius: 4px; margin-top: 30px;">
                         <h5 style="color: var(--primary-green); margin-bottom: 10px;">
                             <span class="en-text">Total Projected Development</span>
@@ -2355,6 +2523,105 @@
     </div>
 </section>
 
+<!-- ========== GLAMPING PLANS SECTION ========== -->
+<section class="section-padding glamping-section" id="glamping">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="en-text">Glamping Plans</span>
+            <span class="es-text">Planos de Glamping</span>
+        </h2>
+        <p class="section-subtitle">
+            <span class="en-text">Explore our glamping site designs, day and night plans, and the 3D animation of the glamping experience.</span>
+            <span class="es-text">Explore los diseños de nuestros sitios de glamping, planos de día y noche, y la animación 3D de la experiencia glamping.</span>
+        </p>
+
+        <!-- BLUE - Glamping Plans (Day & Night) -->
+        <div class="mb-5">
+            <div class="glamping-color-header">
+                <span class="color-dot blue"></span>
+                <h3 style="color: var(--glamp-blue);">
+                    <span class="en-text">Blue – Glamping Plans (Day & Night)</span>
+                    <span class="es-text">Azul – Planos de Glamping (Día y Noche)</span>
+                </h3>
+            </div>
+            <div class="glamping-grid-2col">
+                <div class="glamp-item" onclick="openImageModal('Day Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg" alt="Day Plan">
+                    <div class="glamp-label"><span class="en-text">Day Plan</span><span class="es-text">Plan de Día</span></div>
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Night Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Night%20Plan.jpeg" alt="Night Plan">
+                    <div class="glamp-label"><span class="en-text">Night Plan</span><span class="es-text">Plan de Noche</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RED - Glamping Animation -->
+        <div class="mb-5">
+            <div class="glamping-color-header">
+                <span class="color-dot red"></span>
+                <h3 style="color: var(--glamp-red);">
+                    <span class="en-text">Red – Glamping Animation</span>
+                    <span class="es-text">Rojo – Animación de Glamping</span>
+                </h3>
+            </div>
+            <div class="glamping-video-wrapper">
+                <video controls preload="metadata" playsinline>
+                    <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" type="video/mp4">
+                    <source src="https://github.com/atifjavid80-tech/EcoResort-Projects/raw/refs/heads/main/3D%20Animation.mp4" type="video/mp4">
+                    <p class="en-text">Your browser does not support the video tag. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Download the video</a></p>
+                    <p class="es-text">Tu navegador no soporta el tag de video. <a href="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" download>Descargar el video</a></p>
+                </video>
+                <div class="glamp-label"><span class="en-text">3D Animation – Glamping Experience</span><span class="es-text">Animación 3D – Experiencia Glamping</span></div>
+            </div>
+        </div>
+
+        <!-- GREEN - Glamping Photos (2 columns x 5 rows) -->
+        <div>
+            <div class="glamping-color-header">
+                <span class="color-dot green"></span>
+                <h3 style="color: var(--glamp-green);">
+                    <span class="en-text">Green – Glamping Photos (10)</span>
+                    <span class="es-text">Verde – Fotos de Glamping (10)</span>
+                </h3>
+            </div>
+            <div class="glamping-grid-green">
+                <!-- 10 images in 2 columns x 5 rows -->
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 1', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).jpeg" alt="Glamping Photo 1">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 2', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM.jpeg" alt="Glamping Photo 2">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 3', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(1).jpeg" alt="Glamping Photo 3">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 4', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(2).jpeg" alt="Glamping Photo 4">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 5', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.18%20AM%20(3).jpeg" alt="Glamping Photo 5">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 6', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM.jpeg" alt="Glamping Photo 6">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 7', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg" alt="Glamping Photo 7">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 8', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).jpeg" alt="Glamping Photo 8">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 9', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(3).jpeg" alt="Glamping Photo 9">
+                </div>
+                <div class="glamp-item" onclick="openImageModal('Glamping Photo 10', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg')">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.21.23%20AM.jpeg" alt="Glamping Photo 10">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ========== PLANS ========== -->
 <section class="section-padding plans-section" id="plans">
     <div class="container">
@@ -2505,7 +2772,6 @@
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <!-- WhatsApp icon in footer social media -->
                     <a href="https://wa.me/13852228100" target="_blank" class="social-icon whatsapp-icon">
                         <i class="fab fa-whatsapp"></i>
                     </a>
@@ -2705,7 +2971,7 @@
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card').forEach(el => obs.observe(el));
+        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card, .glamp-item').forEach(el => obs.observe(el));
 
         const saved = localStorage.getItem('preferredLanguage') || 'en';
         changeLanguage(saved);
