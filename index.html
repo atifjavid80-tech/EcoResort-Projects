@@ -970,13 +970,6 @@
             background: #f9f7f2;
             padding: clamp(60px, 8vw, 100px) 0;
         }
-        .glamping-sub-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--primary-green);
-            margin-bottom: 25px;
-            text-align: center;
-        }
         .glamping-grid-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1072,6 +1065,92 @@
             background: white;
             color: #333;
             border-top: 2px solid var(--gold);
+        }
+
+        /* INVESTOR PITCH DECK SECTION - NEW */
+        .pitchdeck-section {
+            background: linear-gradient(135deg, #f9f7f2 0%, #f0ede6 100%);
+            padding: clamp(60px, 8vw, 100px) 0;
+            border-top: 4px solid var(--gold);
+            border-bottom: 4px solid var(--gold);
+        }
+        .pitchdeck-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            text-align: center;
+            border: 1px solid rgba(200, 169, 105, 0.2);
+        }
+        .pitchdeck-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        .pitchdeck-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .pitchdeck-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        .pitchdeck-desc {
+            color: #555;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        .pitchdeck-btn {
+            background: linear-gradient(135deg, var(--gold), #d4b483);
+            color: white;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .pitchdeck-btn:hover {
+            background: linear-gradient(135deg, #b8941f, var(--gold));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(200, 169, 105, 0.35);
+            color: white;
+        }
+        .pitchdeck-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .pitchdeck-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #555;
+            background: #f5f1e8;
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+        .pitchdeck-feature i {
+            color: var(--gold);
         }
 
         /* PLANS */
@@ -1295,10 +1374,10 @@
             margin-bottom: 20px;
         }
 
-        /* DOWNLOAD GRID - 4 columns for 10 items */
+        /* DOWNLOAD GRID - 3 columns (9 items) */
         #investment .row.download-grid {
             display: grid !important;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin: 0 !important;
             width: 100%;
@@ -1321,9 +1400,6 @@
             }
             .glamping-grid-green .glamp-item img {
                 height: 220px;
-            }
-            #investment .row.download-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
         @media (max-width: 992px) {
@@ -1369,6 +1445,9 @@
             }
             .glamping-grid-green .glamp-item img {
                 height: 200px;
+            }
+            .pitchdeck-card {
+                padding: 35px 25px;
             }
         }
 
@@ -1441,6 +1520,19 @@
             }
             #investment .row.download-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .pitchdeck-card {
+                padding: 30px 20px;
+            }
+            .pitchdeck-title {
+                font-size: 1.6rem;
+            }
+            .pitchdeck-features {
+                gap: 12px;
+            }
+            .pitchdeck-feature {
+                font-size: 0.8rem;
+                padding: 4px 12px;
             }
         }
 
@@ -1519,6 +1611,26 @@
             .glamping-video-wrapper .glamp-label {
                 font-size: 0.8rem;
                 padding: 10px 10px;
+            }
+            .pitchdeck-card {
+                padding: 25px 15px;
+            }
+            .pitchdeck-title {
+                font-size: 1.4rem;
+            }
+            .pitchdeck-desc {
+                font-size: 0.9rem;
+            }
+            .pitchdeck-btn {
+                padding: 12px 30px;
+                font-size: 14px;
+                width: 100%;
+                justify-content: center;
+            }
+            .pitchdeck-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
             }
         }
 
@@ -1878,6 +1990,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#home"><span class="en-text">Home</span><span class="es-text">Inicio</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#resorts"><span class="en-text">Resorts</span><span class="es-text">Resorts</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#pitchdeck"><span class="en-text">Investor Pitch Deck</span><span class="es-text">Presentación Inversores</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#features"><span class="en-text">Features</span><span class="es-text">Características</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#video"><span class="en-text">Video Tour</span><span class="es-text">Video Tour</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#investment"><span class="en-text">Investment</span><span class="es-text">Inversión</span></a></li>
@@ -2119,7 +2232,7 @@
                 </div>
             </div>
 
-            <!-- Canita/Lake Bayano - Panama -->
+            <!-- Canita/Lake Bayano - Panama (6th Resort) -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="resort-card">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png"
@@ -2151,7 +2264,42 @@
     </div>
 </section>
 
-<!-- ========== FEATURES ========== -->
+<!-- ========== INVESTOR PITCH DECK - NEW SECTION (7th Position) ========== -->
+<section class="pitchdeck-section" id="pitchdeck">
+    <div class="container">
+        <div class="pitchdeck-card">
+            <div class="pitchdeck-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h2 class="pitchdeck-title">
+                <span class="en-text">Investor Pitch Deck</span>
+                <span class="es-text">Presentación para Inversores</span>
+            </h2>
+            <p class="pitchdeck-desc">
+                <span class="en-text">Complete investor presentation with project overview, financial projections, and investment opportunity details. Download the full pitch deck to explore the vision behind SunDrop Eco-Resorts.</span>
+                <span class="es-text">Presentación completa para inversores con resumen del proyecto, proyecciones financieras y detalles de la oportunidad de inversión. Descarga la presentación completa para explorar la visión detrás de SunDrop Eco-Resorts.</span>
+            </p>
+            <div class="pitchdeck-features">
+                <span class="pitchdeck-feature"><i class="fas fa-check-circle"></i> <span class="en-text">Project Overview</span><span class="es-text">Resumen del Proyecto</span></span>
+                <span class="pitchdeck-feature"><i class="fas fa-chart-line"></i> <span class="en-text">Financial Projections</span><span class="es-text">Proyecciones Financieras</span></span>
+                <span class="pitchdeck-feature"><i class="fas fa-tree"></i> <span class="en-text">Sustainability Strategy</span><span class="es-text">Estrategia de Sostenibilidad</span></span>
+                <span class="pitchdeck-feature"><i class="fas fa-hand-holding-usd"></i> <span class="en-text">Investment Opportunities</span><span class="es-text">Oportunidades de Inversión</span></span>
+            </div>
+            <div style="margin-top: 25px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <!-- English PDF Button -->
+                <button class="pitchdeck-btn en-text" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View Funding</span>
+                </button>
+                <!-- Spanish PDF Button -->
+                <button class="pitchdeck-btn es-text" onclick="openPDF('Presentación para Inversores', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Presentaci%C3%B3n%20para%20inversores.pdf&embedded=true')">
+                    <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Financiamiento</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PREMIUM FEATURES & AMENITIES ========== -->
 <section class="section-padding bg-light" id="features">
     <div class="container">
         <h2 class="section-title">
@@ -2361,8 +2509,9 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD GRID (10 items - 4 columns) -->
+    <!-- DOWNLOAD GRID (9 items - Investor Pitch Deck removed from here) -->
     <div class="row download-grid mt-5">
+        <!-- 1. Dominican Republic -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2373,6 +2522,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 2. Panama -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2383,6 +2534,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 3. USA - Utah -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2393,6 +2546,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 4. Colombia -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2403,6 +2558,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 5. Peru -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2413,6 +2570,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 6. Canita/Lake Bayano -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2423,6 +2582,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 7. Global Warming Solution -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-globe-americas"></i></div>
@@ -2433,6 +2594,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 8. Global Warming Video -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-video"></i></div>
@@ -2443,6 +2606,8 @@
                 </button>
             </div>
         </div>
+
+        <!-- 9. EcoDevelopment -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-seedling"></i></div>
@@ -2453,25 +2618,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- ====== NEW: Investor Pitch Deck ====== -->
-        <div class="col-md-3 col-6 mb-4">
-            <div class="download-card">
-                <div class="download-icon"><i class="fas fa-handshake"></i></div>
-                <h5><span class="en-text">Investor Pitch Deck</span><span class="es-text">Presentación para Inversores</span></h5>
-                <p><span class="en-text">Complete investor presentation with project overview, financial projections, and investment opportunity details.</span>
-                <span class="es-text">Presentación completa para inversores con resumen del proyecto, proyecciones financieras y detalles de la oportunidad de inversión.</span></p>
-                <!-- English PDF Button -->
-                <button class="pdf-view-btn en-text" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View Funding</span>
-                </button>
-                <!-- Spanish PDF Button -->
-                <button class="pdf-view-btn es-text" onclick="openPDF('Presentación para Inversores', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Presentaci%C3%B3n%20para%20inversores.pdf&embedded=true')">
-                    <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Financiamiento</span>
-                </button>
-            </div>
-        </div>
-        <!-- ====== END NEW ====== -->
     </div>
 </div>
 </section>
@@ -2559,7 +2705,7 @@
     </div>
 </section>
 
-<!-- ========== GLAMPING PLANS SECTION - CLEAN VERSION ========== -->
+<!-- ========== GLAMPING PLANS SECTION ========== -->
 <section class="section-padding glamping-section" id="glamping">
     <div class="container">
         <h2 class="section-title">
@@ -2630,7 +2776,7 @@
     </div>
 </section>
 
-<!-- ========== PLANS ========== -->
+<!-- ========== RESORT PLANS ========== -->
 <section class="section-padding plans-section" id="plans">
     <div class="container">
         <h2 class="section-title">
@@ -2979,7 +3125,7 @@
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card, .glamp-item').forEach(el => obs.observe(el));
+        document.querySelectorAll('.resort-card, .luxury-item, .investment-card, .plan-download-card, .glamp-item, .pitchdeck-card').forEach(el => obs.observe(el));
 
         const saved = localStorage.getItem('preferredLanguage') || 'en';
         changeLanguage(saved);
