@@ -1295,10 +1295,10 @@
             margin-bottom: 20px;
         }
 
-        /* DOWNLOAD GRID - 3 columns */
+        /* DOWNLOAD GRID - 4 columns for 10 items */
         #investment .row.download-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin: 0 !important;
             width: 100%;
@@ -1321,6 +1321,9 @@
             }
             .glamping-grid-green .glamp-item img {
                 height: 220px;
+            }
+            #investment .row.download-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         @media (max-width: 992px) {
@@ -1435,6 +1438,9 @@
             }
             .glamping-video-wrapper video {
                 max-height: 350px;
+            }
+            #investment .row.download-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -2355,7 +2361,7 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD GRID (9 items) -->
+    <!-- DOWNLOAD GRID (10 items - 4 columns) -->
     <div class="row download-grid mt-5">
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
@@ -2447,6 +2453,25 @@
                 </button>
             </div>
         </div>
+
+        <!-- ====== NEW: Investor Pitch Deck ====== -->
+        <div class="col-md-3 col-6 mb-4">
+            <div class="download-card">
+                <div class="download-icon"><i class="fas fa-handshake"></i></div>
+                <h5><span class="en-text">Investor Pitch Deck</span><span class="es-text">Presentación para Inversores</span></h5>
+                <p><span class="en-text">Complete investor presentation with project overview, financial projections, and investment opportunity details.</span>
+                <span class="es-text">Presentación completa para inversores con resumen del proyecto, proyecciones financieras y detalles de la oportunidad de inversión.</span></p>
+                <!-- English PDF Button -->
+                <button class="pdf-view-btn en-text" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
+                    <i class="fas fa-external-link-alt"></i> <span class="en-text">View Funding</span>
+                </button>
+                <!-- Spanish PDF Button -->
+                <button class="pdf-view-btn es-text" onclick="openPDF('Presentación para Inversores', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Presentaci%C3%B3n%20para%20inversores.pdf&embedded=true')">
+                    <i class="fas fa-external-link-alt"></i> <span class="es-text">Ver Financiamiento</span>
+                </button>
+            </div>
+        </div>
+        <!-- ====== END NEW ====== -->
     </div>
 </div>
 </section>
@@ -2571,7 +2596,6 @@
 
         <!-- 10 Photos - 2 columns x 5 rows -->
         <div class="glamping-grid-green">
-            <!-- Glamping Photo 1 - UPDATED with PNG -->
             <div class="glamp-item" onclick="openImageModal('Glamping Photo 1', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).png')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).png" alt="Glamping Photo 1">
             </div>
@@ -2593,7 +2617,6 @@
             <div class="glamp-item" onclick="openImageModal('Glamping Photo 7', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(1).jpeg" alt="Glamping Photo 7">
             </div>
-            <!-- Glamping Photo 8 - UPDATED with PNG -->
             <div class="glamp-item" onclick="openImageModal('Glamping Photo 8', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).png')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.19%20AM%20(2).png" alt="Glamping Photo 8">
             </div>
