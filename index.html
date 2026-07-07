@@ -1206,7 +1206,7 @@
             color: #555;
             font-size: 1.05rem;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
             line-height: 1.8;
         }
         .pitchdeck-features {
@@ -1229,17 +1229,25 @@
         .pitchdeck-feature i {
             color: var(--gold);
         }
-        .pitchdeck-buttons {
+
+        /* Pitch Deck Buttons Layout */
+        .pitchdeck-btn-wrap {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
             gap: 12px;
+            margin-top: 5px;
         }
-        .pitchdeck-btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+        .pitchdeck-btn-wrap .pitchdeck-btn {
+            min-width: 140px;
+        }
+
+        /* Main Funding Structure button - full width style */
+        .pitchdeck-btn-main {
+            min-width: 220px;
+            padding: 14px 40px;
+            font-size: 16px;
         }
 
         /* PLANS */
@@ -1513,6 +1521,16 @@
             .pitchdeck-card {
                 padding: 35px 25px;
             }
+            .pitchdeck-btn-wrap .pitchdeck-btn {
+                min-width: 120px;
+                padding: 10px 18px;
+                font-size: 12px;
+            }
+            .pitchdeck-btn-main {
+                min-width: 180px;
+                padding: 12px 30px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1598,18 +1616,20 @@
                 font-size: 0.8rem;
                 padding: 4px 12px;
             }
-            .pitchdeck-buttons {
+            .pitchdeck-btn-wrap {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 10px;
             }
-            .pitchdeck-btn-group {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-            .pitchdeck-btn-group .pitchdeck-btn {
+            .pitchdeck-btn-wrap .pitchdeck-btn {
                 width: 100%;
                 justify-content: center;
+                min-width: unset;
+            }
+            .pitchdeck-btn-main {
+                width: 100%;
+                justify-content: center;
+                min-width: unset;
             }
         }
 
@@ -1698,11 +1718,16 @@
             .pitchdeck-desc {
                 font-size: 0.9rem;
             }
-            .pitchdeck-btn {
+            .pitchdeck-btn-wrap {
+                gap: 8px;
+            }
+            .pitchdeck-btn-wrap .pitchdeck-btn {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+            .pitchdeck-btn-main {
                 padding: 12px 20px;
-                font-size: 13px;
-                width: 100%;
-                justify-content: center;
+                font-size: 14px;
             }
             .pitchdeck-features {
                 flex-direction: column;
@@ -2364,29 +2389,29 @@
             </div>
 
             <!-- Main Funding Structure Button -->
-            <div style="margin-bottom: 20px;">
-                <button class="pitchdeck-btn" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
+            <div style="margin-bottom: 18px;">
+                <button class="pitchdeck-btn pitchdeck-btn-main" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">Funding Structure</span><span class="es-text">Estructura de Financiamiento</span>
                 </button>
             </div>
 
-            <!-- Business Plan PDFs -->
-            <div class="pitchdeck-btn-group" style="margin-bottom: 12px;">
-                <button class="pitchdeck-btn" onclick="openPDF('Business Plan English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20English.pdf&embedded=true')">
-                    <i class="fas fa-file-pdf"></i> <span class="en-text">Business Plan (EN)</span><span class="es-text">Plan de Negocios (EN)</span>
+            <!-- Business Plan Buttons - EN/ES with language switching -->
+            <div class="pitchdeck-btn-wrap" style="margin-bottom: 12px;">
+                <button class="pitchdeck-btn en-text" onclick="openPDF('Business Plan English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20English.pdf&embedded=true')">
+                    <i class="fas fa-file-pdf"></i> <span class="en-text">Business Plan (EN)</span>
                 </button>
-                <button class="pitchdeck-btn" onclick="openPDF('Business Plan Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20Spanish.pdf&embedded=true')">
-                    <i class="fas fa-file-pdf"></i> <span class="en-text">Business Plan (ES)</span><span class="es-text">Plan de Negocios (ES)</span>
+                <button class="pitchdeck-btn es-text" onclick="openPDF('Business Plan Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20Spanish.pdf&embedded=true')">
+                    <i class="fas fa-file-pdf"></i> <span class="es-text">Plan de Negocios (ES)</span>
                 </button>
             </div>
 
-            <!-- EIA PDFs -->
-            <div class="pitchdeck-btn-group">
-                <button class="pitchdeck-btn" onclick="openPDF('Cañita EIA English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf&embedded=true')">
-                    <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span><span class="es-text">EIA (EN)</span>
+            <!-- EIA Buttons - EN/ES with language switching -->
+            <div class="pitchdeck-btn-wrap">
+                <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf&embedded=true')">
+                    <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
                 </button>
-                <button class="pitchdeck-btn" onclick="openPDF('Cañita EIA Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_Spanish.pdf&embedded=true')">
-                    <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (ES)</span><span class="es-text">EIA (ES)</span>
+                <button class="pitchdeck-btn es-text" onclick="openPDF('Cañita EIA Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_Spanish.pdf&embedded=true')">
+                    <i class="fas fa-file-pdf"></i> <span class="es-text">EIA (ES)</span>
                 </button>
             </div>
         </div>
@@ -2603,9 +2628,8 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD GRID (9 items - Investor Pitch Deck removed from here) -->
+    <!-- DOWNLOAD GRID (9 items) -->
     <div class="row download-grid mt-5">
-        <!-- 1. Dominican Republic -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2617,7 +2641,6 @@
             </div>
         </div>
 
-        <!-- 2. Panama -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2629,7 +2652,6 @@
             </div>
         </div>
 
-        <!-- 3. USA - Utah -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2641,7 +2663,6 @@
             </div>
         </div>
 
-        <!-- 4. Colombia -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2653,7 +2674,6 @@
             </div>
         </div>
 
-        <!-- 5. Peru -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2665,7 +2685,6 @@
             </div>
         </div>
 
-        <!-- 6. Canita/Lake Bayano -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2677,7 +2696,6 @@
             </div>
         </div>
 
-        <!-- 7. Global Warming Solution -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-globe-americas"></i></div>
@@ -2689,7 +2707,6 @@
             </div>
         </div>
 
-        <!-- 8. Global Warming Video -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-file-video"></i></div>
@@ -2701,7 +2718,6 @@
             </div>
         </div>
 
-        <!-- 9. EcoDevelopment -->
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
                 <div class="download-icon"><i class="fas fa-seedling"></i></div>
@@ -2728,7 +2744,6 @@
             <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
         </p>
         <div class="gallery-grid">
-            <!-- Existing 9 images -->
             <div class="gallery-item" onclick="openImageModal('Luxury Eco-Home', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" alt="Luxury Eco-Home" class="gallery-img">
                 <div class="gallery-overlay-label">Luxury Eco-Home</div>
@@ -2766,7 +2781,6 @@
                 <div class="gallery-overlay-label">Peru Amazon</div>
             </div>
 
-            <!-- 7 NEW IMAGES -->
             <div class="gallery-item" onclick="openImageModal('SunDrop Resort Canita Logo', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logosundropresortcanita.com.jpg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logosundropresortcanita.com.jpg" alt="SunDrop Resort Canita Logo" class="gallery-img">
                 <div class="gallery-overlay-label">SunDrop Canita Logo</div>
@@ -2811,7 +2825,6 @@
             <span class="es-text">Explore los diseños de nuestros sitios de glamping, planos de día y noche, y la animación 3D de la experiencia glamping.</span>
         </p>
 
-        <!-- Day & Night Plans -->
         <div class="glamping-grid-2col">
             <div class="glamp-item" onclick="openImageModal('Day Plan', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Day%20Plan.jpeg" alt="Day Plan">
@@ -2823,7 +2836,6 @@
             </div>
         </div>
 
-        <!-- 3D Animation Video -->
         <div class="glamping-video-wrapper">
             <video controls preload="metadata" playsinline>
                 <source src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/3D%20Animation.mp4" type="video/mp4">
@@ -2834,7 +2846,6 @@
             <div class="glamp-label"><span class="en-text">3D Animation – Glamping Experience</span><span class="es-text">Animación 3D – Experiencia Glamping</span></div>
         </div>
 
-        <!-- 10 Photos -->
         <div class="glamping-grid-green">
             <div class="glamp-item" onclick="openImageModal('Glamping Photo 1', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).png')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/WhatsApp%20Image%202026-06-26%20at%207.18.17%20AM%20(1).png" alt="Glamping Photo 1">
