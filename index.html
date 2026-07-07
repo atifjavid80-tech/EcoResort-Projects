@@ -119,7 +119,7 @@
             background: #000;
         }
 
-        /* PDF MODAL */
+        /* PDF MODAL - only used for Google Docs viewer (main pitch deck) */
         .pdf-modal {
             display: none;
             position: fixed;
@@ -297,23 +297,7 @@
         .btn-primary-gold:active {
             transform: scale(0.98);
         }
-        .btn-primary-gold i {
-            font-size: 1rem;
-        }
 
-        /* Small variant for tight spaces */
-        .btn-primary-gold.btn-sm {
-            padding: 8px 18px;
-            font-size: 12px;
-        }
-
-        /* Full width variant */
-        .btn-primary-gold.btn-block {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* PDF View Button - now uses unified style */
         .pdf-view-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
@@ -345,7 +329,6 @@
             color: white;
         }
 
-        /* Video Play Button - unified */
         .video-play-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
@@ -377,7 +360,6 @@
             color: white;
         }
 
-        /* Nav Button - unified */
         .nav-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
@@ -406,7 +388,6 @@
             color: white;
         }
 
-        /* Plan Download Button - unified */
         .plan-download-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
@@ -435,12 +416,11 @@
             color: white;
         }
 
-        /* Pitch Deck Button - unified */
         .pitchdeck-btn {
             background: linear-gradient(135deg, var(--gold), #d4b483);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 4px;
             font-weight: 600;
             font-size: 14px;
@@ -463,7 +443,12 @@
             color: white;
         }
 
-        /* Hero Buttons - keep distinct for hero background */
+        .pitchdeck-btn-main {
+            min-width: 220px;
+            padding: 14px 40px;
+            font-size: 16px;
+        }
+
         .hero-btn {
             background: transparent;
             color: white;
@@ -592,7 +577,6 @@
             width: 100%;
         }
 
-        /* LANGUAGE SWITCHER */
         .language-switcher {
             display: flex;
             align-items: center;
@@ -1230,7 +1214,6 @@
             color: var(--gold);
         }
 
-        /* Pitch Deck Buttons Layout */
         .pitchdeck-btn-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -1241,13 +1224,6 @@
         }
         .pitchdeck-btn-wrap .pitchdeck-btn {
             min-width: 140px;
-        }
-
-        /* Main Funding Structure button - full width style */
-        .pitchdeck-btn-main {
-            min-width: 220px;
-            padding: 14px 40px;
-            font-size: 16px;
         }
 
         /* PLANS */
@@ -1446,7 +1422,6 @@
             margin-bottom: 20px;
         }
 
-        /* DOWNLOAD GRID - 3 columns (9 items) */
         #investment .row.download-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr);
@@ -1777,7 +1752,6 @@
             animation: fadeInUp 0.8s ease forwards;
         }
 
-        /* SCROLLBAR */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -2036,7 +2010,7 @@
         </div>
     </div>
 
-    <!-- PDF MODAL -->
+    <!-- PDF MODAL (for Google Docs viewer - main pitch deck only) -->
     <div id="pdfModal" class="pdf-modal">
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
@@ -2388,29 +2362,29 @@
                 <span class="pitchdeck-feature"><i class="fas fa-hand-holding-usd"></i> <span class="en-text">Investment Opportunities</span><span class="es-text">Oportunidades de Inversión</span></span>
             </div>
 
-            <!-- Main Funding Structure Button -->
+            <!-- Main Funding Structure Button - uses Google Docs viewer -->
             <div style="margin-bottom: 18px;">
                 <button class="pitchdeck-btn pitchdeck-btn-main" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">Funding Structure</span><span class="es-text">Estructura de Financiamiento</span>
                 </button>
             </div>
 
-            <!-- Business Plan Buttons - EN/ES with language switching -->
+            <!-- Business Plan Buttons - Direct PDF viewing (opens in new tab) -->
             <div class="pitchdeck-btn-wrap" style="margin-bottom: 12px;">
-                <button class="pitchdeck-btn en-text" onclick="openPDF('Business Plan English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20English.pdf&embedded=true')">
+                <button class="pitchdeck-btn en-text" onclick="viewPDFDirect('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20English.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">Business Plan (EN)</span>
                 </button>
-                <button class="pitchdeck-btn es-text" onclick="openPDF('Business Plan Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20Spanish.pdf&embedded=true')">
+                <button class="pitchdeck-btn es-text" onclick="viewPDFDirect('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20Spanish.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="es-text">Plan de Negocios (ES)</span>
                 </button>
             </div>
 
-            <!-- EIA Buttons - EN/ES with language switching -->
+            <!-- EIA Buttons - Direct PDF viewing (opens in new tab) -->
             <div class="pitchdeck-btn-wrap">
-                <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf&embedded=true')">
+                <button class="pitchdeck-btn en-text" onclick="viewPDFDirect('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
                 </button>
-                <button class="pitchdeck-btn es-text" onclick="openPDF('Cañita EIA Spanish', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_Spanish.pdf&embedded=true')">
+                <button class="pitchdeck-btn es-text" onclick="viewPDFDirect('https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_Spanish.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="es-text">EIA (ES)</span>
                 </button>
             </div>
@@ -2744,6 +2718,7 @@
             <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
         </p>
         <div class="gallery-grid">
+            <!-- 16 gallery images -->
             <div class="gallery-item" onclick="openImageModal('Luxury Eco-Home', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" alt="Luxury Eco-Home" class="gallery-img">
                 <div class="gallery-overlay-label">Luxury Eco-Home</div>
@@ -2780,7 +2755,6 @@
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png" alt="Peru Amazon" class="gallery-img">
                 <div class="gallery-overlay-label">Peru Amazon</div>
             </div>
-
             <div class="gallery-item" onclick="openImageModal('SunDrop Resort Canita Logo', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logosundropresortcanita.com.jpg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Logosundropresortcanita.com.jpg" alt="SunDrop Resort Canita Logo" class="gallery-img">
                 <div class="gallery-overlay-label">SunDrop Canita Logo</div>
@@ -3140,7 +3114,8 @@
         document.body.style.overflow = 'auto';
     }
 
-    // ========== PDF MODAL ==========
+    // ========== PDF FUNCTIONS ==========
+    // For Google Docs viewer (main pitch deck only)
     function openPDF(title, url) {
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = url;
@@ -3151,6 +3126,11 @@
         document.getElementById('pdfModal').style.display = 'none';
         document.getElementById('pdfViewer').src = '';
         document.body.style.overflow = 'auto';
+    }
+
+    // For direct PDF viewing in new tab (Business Plan, EIA)
+    function viewPDFDirect(url) {
+        window.open(url, '_blank');
     }
 
     // ========== MODAL CLOSE HANDLERS ==========
