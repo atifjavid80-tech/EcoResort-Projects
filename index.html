@@ -2010,7 +2010,7 @@
         </div>
     </div>
 
-    <!-- PDF MODAL - Google Docs Viewer (for ALL PDFs) -->
+    <!-- PDF MODAL - Google Docs Viewer -->
     <div id="pdfModal" class="pdf-modal">
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
@@ -2362,7 +2362,7 @@
                 <span class="pitchdeck-feature"><i class="fas fa-hand-holding-usd"></i> <span class="en-text">Investment Opportunities</span><span class="es-text">Oportunidades de Inversión</span></span>
             </div>
 
-            <!-- All buttons use Google Docs viewer via openPDF() -->
+            <!-- All buttons use Google Docs viewer -->
             <!-- Main Funding Structure Button -->
             <div style="margin-bottom: 18px;">
                 <button class="pitchdeck-btn pitchdeck-btn-main" onclick="openPDF('Investor Pitch Deck', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Investor%20Pitch%20Deck.pdf&embedded=true')">
@@ -2370,7 +2370,7 @@
                 </button>
             </div>
 
-            <!-- Business Plan Buttons - All use Google Docs viewer -->
+            <!-- Business Plan Buttons -->
             <div class="pitchdeck-btn-wrap" style="margin-bottom: 12px;">
                 <button class="pitchdeck-btn en-text" onclick="openPDF('Business Plan English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Business%20Plan%20English.pdf&embedded=true')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">Business Plan (EN)</span>
@@ -2380,7 +2380,7 @@
                 </button>
             </div>
 
-            <!-- EIA Buttons - All use Google Docs viewer -->
+            <!-- EIA Buttons - URL encoded for special characters -->
             <div class="pitchdeck-btn-wrap">
                 <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf&embedded=true')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
@@ -2719,7 +2719,6 @@
             <span class="es-text">Experimenta la belleza y el lujo de SunDrop Eco-Resorts a través de nuestro viaje visual.</span>
         </p>
         <div class="gallery-grid">
-            <!-- 16 gallery images -->
             <div class="gallery-item" onclick="openImageModal('Luxury Eco-Home', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg')">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/1.jpg" alt="Luxury Eco-Home" class="gallery-img">
                 <div class="gallery-overlay-label">Luxury Eco-Home</div>
@@ -3116,7 +3115,7 @@
     }
 
     // ========== PDF FUNCTIONS ==========
-    // All PDFs now use Google Docs viewer
+    // All PDFs use Google Docs viewer
     function openPDF(title, url) {
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = url;
