@@ -119,7 +119,7 @@
             background: #000;
         }
 
-        /* PDF MODAL - Google Docs Viewer */
+        /* PDF MODAL - PDF.js Viewer */
         .pdf-modal {
             display: none;
             position: fixed;
@@ -152,6 +152,8 @@
             color: white;
             border-radius: 8px 8px 0 0;
             flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .pdf-modal-title {
             font-size: 1.3rem;
@@ -175,6 +177,22 @@
         }
         .close-pdf-modal:hover {
             color: var(--gold);
+        }
+        .pdf-modal-download {
+            color: white;
+            background: var(--gold);
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.3s ease;
+        }
+        .pdf-modal-download:hover {
+            background: #b8941f;
+            color: white;
         }
         .pdf-viewer-container {
             width: 100%;
@@ -2010,12 +2028,17 @@
         </div>
     </div>
 
-    <!-- PDF MODAL - Google Docs Viewer -->
+    <!-- PDF MODAL - PDF.js Viewer -->
     <div id="pdfModal" class="pdf-modal">
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
                 <h3 class="pdf-modal-title" id="pdfModalTitle">PDF Viewer</h3>
-                <button class="close-pdf-modal" onclick="closePDFModal()">&times;</button>
+                <div style="display:flex;gap:10px;align-items:center;">
+                    <a id="pdfDownloadLink" href="#" download class="pdf-modal-download" style="display:none;">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <button class="close-pdf-modal" onclick="closePDFModal()">&times;</button>
+                </div>
             </div>
             <iframe id="pdfViewer" class="pdf-viewer-container" src="" title="PDF Viewer"></iframe>
         </div>
@@ -2379,13 +2402,12 @@
                 </button>
             </div>
 
-            <!-- EIA Buttons - Using Google Docs viewer with properly encoded URLs -->
-            <!-- Fixed: openPDF handles encoding now -->
+            <!-- EIA Buttons - Using PDF.js viewer with properly encoded URLs -->
             <div class="pitchdeck-btn-wrap">
-                <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Cañita_EIA_English.pdf')">
+                <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
                 </button>
-                <button class="pitchdeck-btn es-text" onclick="openPDF('Cañita EIA Spanish', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Cañita_EIA_Spanish.pdf')">
+                <button class="pitchdeck-btn es-text" onclick="openPDF('Cañita EIA Spanish', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_Spanish.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="es-text">EIA (ES)</span>
                 </button>
             </div>
@@ -2603,7 +2625,7 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD GRID (9 items) - All using Google Docs viewer via openPDF -->
+    <!-- DOWNLOAD GRID (9 items) - All using PDF.js viewer via openPDF -->
     <div class="row download-grid mt-5">
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
@@ -3110,22 +3132,32 @@
         document.body.style.overflow = 'auto';
     }
 
-    // ========== PDF FUNCTIONS - Google Docs Viewer with proper encoding ==========
+    // ========== PDF FUNCTIONS - Using PDF.js Viewer (No page limit) ==========
     function openPDF(title, pdfUrl) {
-        // Decode the URL first (in case it contains %20, %C3%B1 etc.)
-        var decodedUrl = decodeURIComponent(pdfUrl);
-        // Encode it properly for the query parameter
-        var encodedUrl = encodeURIComponent(decodedUrl);
-        var viewerUrl = 'https://docs.google.com/viewer?url=' + encodedUrl + '&embedded=true';
+        // Properly encode the URL
+        var encodedUrl = encodeURIComponent(pdfUrl);
+        // Use PDF.js viewer (no page limit, works with special chars)
+        var viewerUrl = 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodedUrl;
+        
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = viewerUrl;
         document.getElementById('pdfModal').style.display = 'block';
         document.body.style.overflow = 'hidden';
+        
+        // Show download link as backup
+        var downloadLink = document.getElementById('pdfDownloadLink');
+        if (downloadLink) {
+            downloadLink.href = pdfUrl;
+            downloadLink.style.display = 'inline-flex';
+        }
     }
     function closePDFModal() {
         document.getElementById('pdfModal').style.display = 'none';
         document.getElementById('pdfViewer').src = '';
         document.body.style.overflow = 'auto';
+        // Hide download link
+        var downloadLink = document.getElementById('pdfDownloadLink');
+        if (downloadLink) downloadLink.style.display = 'none';
     }
 
     // ========== MODAL CLOSE HANDLERS ==========
