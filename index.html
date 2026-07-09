@@ -42,12 +42,7 @@
             min-width: 320px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
         }
@@ -119,7 +114,7 @@
             background: #000;
         }
 
-        /* PDF MODAL - PDF.js Viewer */
+        /* PDF MODAL - Google Docs Viewer */
         .pdf-modal {
             display: none;
             position: fixed;
@@ -160,6 +155,11 @@
             color: white;
             margin: 0;
         }
+        .pdf-modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
         .close-pdf-modal {
             color: white;
             font-size: 28px;
@@ -184,7 +184,7 @@
             padding: 6px 14px;
             border-radius: 4px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -200,6 +200,27 @@
             border: none;
             flex-grow: 1;
             border-radius: 0 0 8px 8px;
+        }
+        .pdf-error-msg {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            color: #666;
+            background: #f9f9f9;
+            border-radius: 0 0 8px 8px;
+            height: calc(100% - 60px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .pdf-error-msg i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .pdf-error-msg a {
+            color: var(--primary-green);
+            font-weight: 600;
         }
 
         /* IMAGE MODAL */
@@ -2028,19 +2049,27 @@
         </div>
     </div>
 
-    <!-- PDF MODAL - PDF.js Viewer -->
+    <!-- PDF MODAL - Google Docs Viewer -->
     <div id="pdfModal" class="pdf-modal">
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
                 <h3 class="pdf-modal-title" id="pdfModalTitle">PDF Viewer</h3>
-                <div style="display:flex;gap:10px;align-items:center;">
+                <div class="pdf-modal-actions">
                     <a id="pdfDownloadLink" href="#" download class="pdf-modal-download" style="display:none;">
-                        <i class="fas fa-download"></i> Download PDF
+                        <i class="fas fa-download"></i> Download
                     </a>
                     <button class="close-pdf-modal" onclick="closePDFModal()">&times;</button>
                 </div>
             </div>
             <iframe id="pdfViewer" class="pdf-viewer-container" src="" title="PDF Viewer"></iframe>
+            <div id="pdfError" class="pdf-error-msg">
+                <i class="fas fa-exclamation-circle"></i>
+                <p><span class="en-text">Unable to preview this PDF.</span><span class="es-text">No se puede previsualizar este PDF.</span></p>
+                <p>
+                    <span class="en-text">Please use the <strong>Download</strong> button above to view the PDF directly.</span>
+                    <span class="es-text">Por favor use el botón <strong>Descargar</strong> arriba para ver el PDF directamente.</span>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -2402,7 +2431,8 @@
                 </button>
             </div>
 
-            <!-- EIA Buttons - Using PDF.js viewer with properly encoded URLs -->
+            <!-- EIA Buttons - Using Google Docs Viewer -->
+            <!-- CRITICAL FIX: Using `ñ` encoded as `%C3%B1` and Google Docs viewer -->
             <div class="pitchdeck-btn-wrap">
                 <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
@@ -2625,7 +2655,7 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD GRID (9 items) - All using PDF.js viewer via openPDF -->
+    <!-- DOWNLOAD GRID (9 items) -->
     <div class="row download-grid mt-5">
         <div class="col-md-3 col-6 mb-4">
             <div class="download-card">
@@ -3132,12 +3162,13 @@
         document.body.style.overflow = 'auto';
     }
 
-    // ========== PDF FUNCTIONS - Using PDF.js Viewer (No page limit) ==========
+    // ========== PDF FUNCTIONS - Google Docs Viewer ==========
     function openPDF(title, pdfUrl) {
-        // Properly encode the URL
-        var encodedUrl = encodeURIComponent(pdfUrl);
-        // Use PDF.js viewer (no page limit, works with special chars)
-        var viewerUrl = 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodedUrl;
+        // Properly decode and then encode the URL
+        var decodedUrl = decodeURIComponent(pdfUrl);
+        var encodedUrl = encodeURIComponent(decodedUrl);
+        // Google Docs Viewer with embedded=true
+        var viewerUrl = 'https://docs.google.com/viewer?url=' + encodedUrl + '&embedded=true';
         
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = viewerUrl;
@@ -3149,15 +3180,20 @@
         if (downloadLink) {
             downloadLink.href = pdfUrl;
             downloadLink.style.display = 'inline-flex';
+            downloadLink.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf';
         }
+        
+        // Hide error message if shown
+        document.getElementById('pdfError').style.display = 'none';
     }
+    
     function closePDFModal() {
         document.getElementById('pdfModal').style.display = 'none';
         document.getElementById('pdfViewer').src = '';
         document.body.style.overflow = 'auto';
-        // Hide download link
         var downloadLink = document.getElementById('pdfDownloadLink');
         if (downloadLink) downloadLink.style.display = 'none';
+        document.getElementById('pdfError').style.display = 'none';
     }
 
     // ========== MODAL CLOSE HANDLERS ==========
