@@ -42,7 +42,12 @@
             min-width: 320px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
         }
@@ -1106,14 +1111,14 @@
         .glamping-grid-2col .glamp-item {
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
         }
         .glamping-grid-2col .glamp-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         .glamping-grid-2col .glamp-item img {
             width: 100%;
@@ -1137,7 +1142,7 @@
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
         .glamping-video-wrapper video {
             width: 100%;
@@ -1166,14 +1171,14 @@
         .glamping-grid-green .glamp-item {
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
         }
         .glamping-grid-green .glamp-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         .glamping-grid-green .glamp-item img {
             width: 100%;
@@ -2431,8 +2436,7 @@
                 </button>
             </div>
 
-            <!-- EIA Buttons - Using Google Docs Viewer -->
-            <!-- CRITICAL FIX: Using `ñ` encoded as `%C3%B1` and Google Docs viewer -->
+            <!-- EIA Buttons - Using Google Docs Viewer with proper URL encoding -->
             <div class="pitchdeck-btn-wrap">
                 <button class="pitchdeck-btn en-text" onclick="openPDF('Cañita EIA English', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/Ca%C3%B1ita_EIA_English.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">EIA (EN)</span>
@@ -3164,29 +3168,26 @@
 
     // ========== PDF FUNCTIONS - Google Docs Viewer ==========
     function openPDF(title, pdfUrl) {
-        // Properly decode and then encode the URL
+        // Decode and re-encode the URL for Google Docs Viewer
         var decodedUrl = decodeURIComponent(pdfUrl);
         var encodedUrl = encodeURIComponent(decodedUrl);
-        // Google Docs Viewer with embedded=true
         var viewerUrl = 'https://docs.google.com/viewer?url=' + encodedUrl + '&embedded=true';
-        
+
         document.getElementById('pdfModalTitle').textContent = title;
         document.getElementById('pdfViewer').src = viewerUrl;
         document.getElementById('pdfModal').style.display = 'block';
         document.body.style.overflow = 'hidden';
-        
-        // Show download link as backup
+
         var downloadLink = document.getElementById('pdfDownloadLink');
         if (downloadLink) {
             downloadLink.href = pdfUrl;
             downloadLink.style.display = 'inline-flex';
             downloadLink.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf';
         }
-        
-        // Hide error message if shown
+
         document.getElementById('pdfError').style.display = 'none';
     }
-    
+
     function closePDFModal() {
         document.getElementById('pdfModal').style.display = 'none';
         document.getElementById('pdfViewer').src = '';
