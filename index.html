@@ -1481,6 +1481,92 @@
             max-width: 100% !important;
         }
 
+        /* ===== EXECUTIVE SUMMARY GRAPHICS ===== */
+        .exec-graphics {
+            margin: 30px 0 35px;
+            text-align: left;
+        }
+        .exec-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .exec-destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .exec-dest-item {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #555;
+        }
+        .exec-dest-item img {
+            width: 100%;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .exec-dest-item img:hover {
+            transform: scale(1.05);
+        }
+        .exec-chart-container {
+            margin: 10px 0 20px;
+            text-align: left;
+        }
+        .exec-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .exec-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .exec-bar-label {
+            min-width: 140px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #444;
+            text-align: right;
+        }
+        .exec-bar-track {
+            flex: 1;
+            height: 22px;
+            background: #f0ede6;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .exec-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            transition: width 0.6s ease;
+            white-space: nowrap;
+        }
+        .exec-chart-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1200px) {
             .gallery-grid {
@@ -1491,6 +1577,9 @@
             }
             .glamping-grid-green .glamp-item img {
                 height: 220px;
+            }
+            .exec-destinations-grid {
+                grid-template-columns: repeat(6, 1fr);
             }
         }
         @media (max-width: 992px) {
@@ -1650,6 +1739,24 @@
                 justify-content: center;
                 min-width: unset;
             }
+            /* Exec graphics mobile */
+            .exec-destinations-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .exec-dest-item img {
+                height: 55px;
+            }
+            .exec-bar-label {
+                min-width: 100px;
+                font-size: 0.7rem;
+            }
+            .exec-bar-track {
+                height: 18px;
+            }
+            .exec-bar-fill {
+                font-size: 0.55rem;
+                padding-left: 5px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1753,6 +1860,17 @@
                 align-items: center;
                 gap: 8px;
             }
+            .exec-destinations-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+            .exec-dest-item img {
+                height: 45px;
+            }
+            .exec-bar-label {
+                min-width: 80px;
+                font-size: 0.65rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1778,6 +1896,16 @@
             }
             .glamping-grid-green .glamp-item img {
                 height: 120px;
+            }
+            .exec-destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .exec-dest-item img {
+                height: 50px;
+            }
+            .exec-bar-label {
+                min-width: 70px;
+                font-size: 0.6rem;
             }
         }
 
@@ -2230,7 +2358,101 @@
                 <span class="en-text">Our mission is to create sustainable luxury eco-resort communities that harmonize with nature, empower local communities, and provide exceptional investment opportunities.</span>
                 <span class="es-text">Nuestra misión es crear comunidades de eco-resorts de lujo sostenibles que armonicen con la naturaleza, empoderen a las comunidades locales y brinden oportunidades de inversión excepcionales.</span>
             </p>
-            <div class="pitchdeck-btn-wrap">
+
+            <!-- ===== GRAPHICS: Destination Thumbnails ===== -->
+            <div class="exec-graphics">
+                <h4 class="exec-subtitle">
+                    <span class="en-text">Our Six Premier Destinations</span>
+                    <span class="es-text">Nuestros Seis Destinos Premier</span>
+                </h4>
+                <div class="exec-destinations-grid">
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/4.jpg" alt="Dominican Republic">
+                        <span>Dom. Rep.</span>
+                    </div>
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Marino%20River%20Rafting.png" alt="Panama">
+                        <span>Panama</span>
+                    </div>
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Flaming%20Gorge.jpg" alt="USA Utah">
+                        <span>USA - Utah</span>
+                    </div>
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Glacial%20Laked.webp" alt="Colombia">
+                        <span>Colombia</span>
+                    </div>
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/Peru.png" alt="Peru">
+                        <span>Peru</span>
+                    </div>
+                    <div class="exec-dest-item">
+                        <img src="https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/refs/heads/main/2.png" alt="Canita Lake Bayano">
+                        <span>Canita/Lake Bayano</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== GRAPHICS: Revenue Bar Chart ===== -->
+            <div class="exec-chart-container">
+                <h4 class="exec-subtitle">
+                    <span class="en-text">Projected Annual Revenue Streams</span>
+                    <span class="es-text">Flujos de Ingresos Anuales Proyectados</span>
+                </h4>
+                <div class="exec-chart">
+                    <div class="exec-bar-item">
+                        <div class="exec-bar-label">
+                            <span class="en-text">Glamping (420 units)</span>
+                            <span class="es-text">Glamping (420 unidades)</span>
+                        </div>
+                        <div class="exec-bar-track">
+                            <div class="exec-bar-fill" style="width: 80%; background: #1a472a;">$18M</div>
+                        </div>
+                    </div>
+                    <div class="exec-bar-item">
+                        <div class="exec-bar-label">
+                            <span class="en-text">AirBnB (350 units)</span>
+                            <span class="es-text">AirBnB (350 unidades)</span>
+                        </div>
+                        <div class="exec-bar-track">
+                            <div class="exec-bar-fill" style="width: 80%; background: #2a623d;">$18M</div>
+                        </div>
+                    </div>
+                    <div class="exec-bar-item">
+                        <div class="exec-bar-label">
+                            <span class="en-text">AgroForestry</span>
+                            <span class="es-text">Agroforestería</span>
+                        </div>
+                        <div class="exec-bar-track">
+                            <div class="exec-bar-fill" style="width: 15%; background: #c8a969;">$0.75M</div>
+                        </div>
+                    </div>
+                    <div class="exec-bar-item">
+                        <div class="exec-bar-label">
+                            <span class="en-text">Spring Water</span>
+                            <span class="es-text">Agua de Manantial</span>
+                        </div>
+                        <div class="exec-bar-track">
+                            <div class="exec-bar-fill" style="width: 10%; background: #8b7355;">$0.5M</div>
+                        </div>
+                    </div>
+                    <div class="exec-bar-item">
+                        <div class="exec-bar-label">
+                            <span class="en-text">Carbon Credits</span>
+                            <span class="es-text">Créditos de Carbono</span>
+                        </div>
+                        <div class="exec-bar-track">
+                            <div class="exec-bar-fill" style="width: 10%; background: #b8941f;">$0.5M</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="exec-chart-note">
+                    <span class="en-text">Total projected annual revenue: <strong>$22.5M+</strong></span>
+                    <span class="es-text">Ingreso anual total proyectado: <strong>$22.5M+</strong></span>
+                </p>
+            </div>
+
+            <div class="pitchdeck-btn-wrap" style="margin-top: 30px;">
                 <button class="pitchdeck-btn en-text" onclick="openPDF('Executive Summary (EN)', 'https://raw.githubusercontent.com/atifjavid80-tech/EcoResort-Projects/main/sei_strategic_overview.pdf')">
                     <i class="fas fa-file-pdf"></i> <span class="en-text">View Executive Summary (EN)</span>
                 </button>
